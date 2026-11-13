@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>雷达点迹查看器</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="cloud.js" defer></script>
+  <script src="viewer.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <span class="radar-mark" aria-hidden="true"></span>
+      <h1>雷达点迹查看器</h1>
+    </div>
+  </header>
+
+  <main class="workspace">
+    <section class="panel datasets" aria-labelledby="datasets-heading">
+      <h2 id="datasets-heading">数据文件</h2>
+      <div id="drop-zone" class="drop-zone">
+        <input id="file-input" type="file" accept=".csv,text/csv" multiple hidden>
+        <button id="import-button" class="primary-button" type="button">导入 CSV</button>
+        <p class="drop-note">也可将 CSV 拖到这里</p>
+      </div>
+      <label class="file-label" for="file-picker">当前文件</label>
+      <select id="file-picker" disabled>
+        <option value="">尚未导入文件</option>
+      </select>
+      <p id="load-status" class="load-status" role="status"></p>
+    </section>
+
+    <section class="panel filters" aria-labelledby="filters-heading">
+      <h2 id="filters-heading">显示筛选</h2>
+      <fieldset class="category-list">
+        <legend>点迹类别</legend>
+        <label class="category-row category-target">
+          <input id="show-target" type="checkbox" checked>
+          <span class="category-dot" aria-hidden="true"></span>
+          <span>目标</span>
+          <span class="category-count" id="count-target">—</span>
+        </label>
+        <label class="category-row category-clutter">
+          <input id="show-clutter" type="checkbox" checked>
+          <span class="category-dot" aria-hidden="true"></span>
+          <span>杂波</span>
+          <span class="category-count" id="count-clutter">—</span>
+        </label>
+        <label class="category-row category-unknown">
+          <input id="show-unknown" type="checkbox" checked>
+          <span class="category-dot" aria-hidden="true"></span>
+          <span>未确定</span>
+          <span class="category-count" id="count-unknown">—</span>
+        </label>
+      </fieldset>
+
+      <fieldset class="circle-range">
+        <legend>扫描圈范围</legend>
+        <div class="range-fields">
+          <label for="circle-start">起始圈
+            <input id="circle-start" type="number" min="0" step="1" inputmode="numeric" disabled>
+          </label>
+          <label for="circle-end">结束圈
+            <input id="circle-end" type="number" min="0" step="1" inputmode="numeric" disabled>
+          </label>
+        </div>
+        <button id="reset-range" class="range-reset" type="button" disabled>显示全部圈</button>
+      </fieldset>
+
+      <fieldset class="trajectory-options">
+        <legend>目标航迹</legend>
+        <label class="trajectory-toggle">
+          <input id="show-trajectories" type="checkbox" checked disabled>
+          <span>显示航迹线</span>
+        </label>
+        <select id="track-picker" aria-label="航迹批号" disabled>
+          <option value="">全部航迹</option>
+        </select>
+        <p id="track-status" role="status"></p>
+        <div class="trajectory-legend" role="group" aria-label="航迹线型">
+          <span><i aria-hidden="true"></i>相邻圈</span>
+          <span><i class="dashed" aria-hidden="true"></i>跨缺测圈</span>
+        </div>
+      </fieldset>
+
+      <details class="calibration">
+        <summary>坐标换算</summary>
+        <p class="calibration-note" id="calibration-note">CSV 的角度和斜距为 0–1 归一化值。默认假设方位 0–360°、俯仰 0–90°，可按标定参数调整。</p>
+        <form id="calibration-form" aria-describedby="calibration-note" novalidate>
+          <div class="range-fields">
+            <label for="azimuth-min">方位下限（°）
+              <input id="azimuth-min" name="azimuth-min" type="number" step="any" inputmode="decimal" value="0" required>
+            </label>
+            <label for="azimuth-max">方位上限（°）
+              <input id="azimuth-max" name="azimuth-max" type="number" step="any" inputmode="decimal" value="360" required>
+            </label>
+            <label for="elevation-min">俯仰下限（°）
+              <input id="elevation-min" name="elevation-min" type="number" min="-90" max="90" step="any" inputmode="decimal" value="0" required>
+            </label>
+            <label for="elevation-max">俯仰上限（°）
+              <input id="elevation-max" name="elevation-max" type="number" min="-90" max="90" step="any" inputmode="decimal" value="90" required>
+            </label>
+            <label for="range-min-km">斜距下限（km）
+              <input id="range-min-km" name="range-min-km" type="number" min="0" step="any" inputmode="decimal" value="0">
+            </label>
+            <label for="range-max-km">斜距上限（km）
+              <input id="range-max-km" name="range-max-km" type="number" min="0" step="any" inputmode="decimal" placeholder="未标定">
+            </label>
+          </div>
+          <button class="secondary-button calibration-apply" type="submit">应用换算</button>
+          <p id="calibration-status" role="status"></p>
+        </form>
+      </details>
+    </section>
+
+    <section class="panel viewport" aria-labelledby="plot-title">
+      <div class="viewport-toolbar">
+        <div class="viewport-title">
+          <h2 id="plot-title">雷达中心三维视图</h2>
+          <p id="plot-stats" role="status">等待导入</p>
+        </div>
+        <div class="view-actions" role="group" aria-label="视角">
+          <button id="top-view" class="secondary-button" type="button">俯视</button>
+          <button id="reset-view" class="secondary-button" type="button">重置视角</button>
+        </div>
+      </div>
+      <div class="plot-frame">
+        <canvas id="plot-canvas" tabindex="0" aria-label="以雷达为原点的三维点迹与航迹" aria-describedby="plot-help">
+          当前浏览器无法显示三维画布。
+        </canvas>
+        <canvas id="axes-canvas" aria-hidden="true"></canvas>
+        <div id="empty-state" class="empty-state">
+          <p>导入 CSV 查看三维点迹与航迹</p>
+        </div>
+      </div>
+      <div class="viewport-footer">
+        <span id="coordinate-info">等比例 · 距离归一化</span>
+        <span id="plot-help" class="plot-help">
+          <span>拖动旋转</span><span class="desktop-help">滚轮缩放</span><span class="desktop-help">方向键旋转</span>
+        </span>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
