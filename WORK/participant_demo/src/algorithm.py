@@ -1,6 +1,6 @@
 """Causal multi-target tracker for the official per-circle Python interface."""
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 import numpy as np
 from scipy.optimize import linear_sum_assignment
@@ -9,8 +9,8 @@ from scipy.optimize import linear_sum_assignment
 # Coordinates are normalized in the input. Use independent scales for each axis.
 START_GATE = np.array([0.036, 0.090, 0.016])
 FOLLOW_GATE = np.array([0.016, 0.075, 0.006])
-POSITION_GAIN = np.array([0.75, 0.35, 0.80])
-VELOCITY_GAIN = np.array([0.28, 0.08, 0.30])
+# Continuous acceleration noise per axis, relative to unit measurement variance.
+PROCESS_NOISE = np.array([0.30, 0.01, 1.00])
 OUTPUT_FIELDS = ("Time", "Azimuth", "Elevation", "Distance", "CircleID", "PntID")
 MAX_MISSED_CIRCLES = 3
 SEED_MIN_AMPLITUDE = 0.18
@@ -26,6 +26,8 @@ class Track:
     first_position: np.ndarray
     hits: int = 1
     batch_id: int = 0
+    # Position variance, position–velocity covariance, and velocity variance per axis.
+    covariance: np.ndarray | None = field(default=None, init=False)
 
 
 def residual(observed, predicted):
@@ -65,11 +67,31 @@ def update_track(track, position, amplitude, circle):
     if track.hits == 1:
         track.velocity = residual(position, track.position) / elapsed
         track.position = position.copy()
+        # The velocity uses both measurements, including the current position.
+        track.covariance = np.array(
+            [np.ones(3), np.full(3, 1 / elapsed), np.full(3, 2 / elapsed**2)]
+        )
     else:
+        position_var, cross_cov, velocity_var = track.covariance
+        # Propagate covariance with the constant-velocity transition and white acceleration.
+        prior_position_var = (
+            position_var + 2 * elapsed * cross_cov + elapsed**2 * velocity_var
+            + PROCESS_NOISE * elapsed**3 / 3
+        )
+        prior_cross_cov = cross_cov + elapsed * velocity_var + PROCESS_NOISE * elapsed**2 / 2
+        prior_velocity_var = velocity_var + PROCESS_NOISE * elapsed
+        innovation_var = prior_position_var + 1
+        position_gain = prior_position_var / innovation_var
+        velocity_gain = prior_cross_cov / innovation_var
+
         prediction = track.position + elapsed * track.velocity
         error = residual(position, prediction)
-        track.position = prediction + POSITION_GAIN * error
-        track.velocity += VELOCITY_GAIN * error / elapsed
+        track.position = prediction + position_gain * error
+        track.velocity += velocity_gain * error
+        # With unit measurement variance the first two posterior entries equal the gains.
+        position_var[:] = position_gain
+        cross_cov[:] = velocity_gain
+        velocity_var[:] = prior_velocity_var - velocity_gain * prior_cross_cov
 
     track.position[0] %= 1.0
     track.circle = circle

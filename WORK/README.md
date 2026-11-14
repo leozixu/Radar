@@ -4,7 +4,7 @@
 
 ## 跟踪逻辑
 
-- 使用 α–β 滤波器估计归一化方位、俯仰和距离的变化，并按圈预测当前位置。方位差按归一化整圈处理，运动间隔以圈数为单位。
+- 使用匀速卡尔曼滤波器估计归一化方位、俯仰和距离及各自的变化率，并按圈预测当前位置。方位差按归一化整圈处理，运动间隔以圈数为单位。
 - 在预测位置附近用匈牙利算法进行一对一匹配。先匹配已确认航迹，再匹配候选。幅度参与匹配代价。
 - 候选连续匹配三圈，并达到运动和平均幅度门限后，在第三圈首次上报。已确认航迹允许连续漏三圈，期间只保留内部状态。
 
@@ -14,7 +14,7 @@
 
 ```powershell
 python -m pip install -r participant_demo/requirements.txt
-python -B replay_validation.py --report validation_report.json
+python -B replay_validation.py --report cv_kf_validation_report.json
 ```
 
 可用 `--packets 6 9` 只回放其中两个验证包。回放通过示例的输入解码和输出校验，计时包含解码、跟踪和编码。真值标签只用于回放结束后的评估。
@@ -22,7 +22,7 @@ python -B replay_validation.py --report validation_report.json
 用 `--all` 回放训练目录的全部 200 包。`--jobs` 设置同时处理的包数，每个包仍按圈顺序处理并独立保存状态。并行运行的单圈耗时会受本机负载影响。
 
 ```powershell
-python -B replay_validation.py --all --jobs 6 --report training_200_report.json
+python -B replay_validation.py --all --jobs 6 --report cv_kf_training_200_report.json
 ```
 
 ## 回放指标
@@ -34,7 +34,7 @@ python -B replay_validation.py --all --jobs 6 --report training_200_report.json
 - **拆轨**为一条真值航迹使用过多个输出 `BatchID`。**中途漏报段**为两次成功上报之间连续漏掉的一段真值观测。首尾漏报计入覆盖率。
 - **合轨**为一个输出 `BatchID` 关联到多条真值航迹。**换号**统计同一真值航迹相邻的两次已上报观测使用不同编号的次数。
 
-## 首次回放结果
+## α–β 基线回放结果
 
 [完整结果](validation_report.json) 覆盖 20 包、14,323 圈和 2,799,909 个输入点。
 
