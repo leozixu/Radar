@@ -1,0 +1,142 @@
+{
+  "packets": [
+    1,
+    6,
+    11,
+    14,
+    22,
+    24,
+    26,
+    35,
+    41,
+    49,
+    57,
+    63,
+    70
+  ],
+  "stage": "fit",
+  "score_version": "b02-local-pntid-v1",
+  "features": [
+    "gap",
+    "observations",
+    "raw_hits",
+    "same_raw",
+    "recent_raw_share",
+    "quality",
+    "previous_quality",
+    "amplitude_error",
+    "last_amplitude_error",
+    "reference_amplitude_sd",
+    "long_prediction_az",
+    "long_prediction_el",
+    "long_prediction_range",
+    "short_prediction_az",
+    "short_prediction_el",
+    "short_prediction_range",
+    "anchored_prediction_az",
+    "anchored_prediction_el",
+    "anchored_prediction_range",
+    "long_velocity_az",
+    "long_velocity_el",
+    "long_velocity_range",
+    "short_velocity_az",
+    "short_velocity_el",
+    "short_velocity_range",
+    "raw_velocity_delta_az",
+    "raw_velocity_delta_el",
+    "raw_velocity_delta_range",
+    "previous_fit_az",
+    "previous_fit_el",
+    "previous_fit_range",
+    "row_proximity_rank",
+    "col_proximity_rank",
+    "row_proximity_margin",
+    "col_proximity_margin",
+    "source_raw_gap",
+    "new_history_count",
+    "new_history_span",
+    "shared_scans",
+    "current_kf_azimuth",
+    "current_kf_elevation",
+    "current_kf_range",
+    "first_old_forward_azimuth",
+    "first_old_forward_elevation",
+    "first_old_forward_range",
+    "new_backwards_azimuth",
+    "new_backwards_elevation",
+    "new_backwards_range",
+    "overlap_azimuth",
+    "overlap_elevation",
+    "overlap_range"
+  ],
+  "known": 142,
+  "positive": 82,
+  "parameters": {
+    "objective": "binary",
+    "num_leaves": 7,
+    "max_depth": 3,
+    "min_data_in_leaf": 12,
+    "learning_rate": 0.055,
+    "verbosity": -1,
+    "num_threads": 2,
+    "force_col_wise": true,
+    "deterministic": true,
+    "seed": 22
+  },
+  "per_packet": {
+    "train_001": {
+      "known": 8,
+      "positive": 4
+    },
+    "train_006": {
+      "known": 5,
+      "positive": 4
+    },
+    "train_011": {
+      "known": 5,
+      "positive": 3
+    },
+    "train_014": {
+      "known": 11,
+      "positive": 6
+    },
+    "train_022": {
+      "known": 7,
+      "positive": 4
+    },
+    "train_024": {
+      "known": 17,
+      "positive": 12
+    },
+    "train_026": {
+      "known": 4,
+      "positive": 2
+    },
+    "train_035": {
+      "known": 4,
+      "positive": 2
+    },
+    "train_041": {
+      "known": 11,
+      "positive": 6
+    },
+    "train_049": {
+      "known": 15,
+      "positive": 9
+    },
+    "train_057": {
+      "known": 12,
+      "positive": 7
+    },
+    "train_063": {
+      "known": 22,
+      "positive": 14
+    },
+    "train_070": {
+      "known": 21,
+      "positive": 9
+    }
+  },
+  "model_sha256": "c8953fdce4fdfc850c240c28369389e67feffc21fc84d290fba87c578cbdda44",
+  "source_sha256": "e27181447adef46353666516ac94a79bc650c8b2d98c8e8447170cce94fd66c8"
+}

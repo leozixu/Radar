@@ -1,0 +1,68 @@
+{
+  "packets": [
+    1,
+    6,
+    14,
+    22
+  ],
+  "profile": {
+    "association_floor": 0.035,
+    "raw_floor": 0.025,
+    "fallback_floor": 0.96,
+    "birth_floor": 0.86,
+    "emission": "rescue25_raw80"
+  },
+  "diagnostics": {
+    "correct_pair_births": 31,
+    "seen_then_intact_for_five_circles": 5,
+    "first_loss/registered_exact_match_outside_center_gate": 16,
+    "first_loss_after_1_circles": 18,
+    "first_loss/no_detector_pair_in_raw_circle": 2
+  },
+  "by_packet": {
+    "1": {
+      "correct_pair_births": 2,
+      "seen_then_intact_for_five_circles": 2,
+      "pending_near_packet_end": 0
+    },
+    "6": {
+      "correct_pair_births": 10,
+      "first_loss/registered_exact_match_outside_center_gate": 7,
+      "first_loss_after_1_circles": 8,
+      "first_loss/no_detector_pair_in_raw_circle": 1,
+      "pending_near_packet_end": 0
+    },
+    "14": {
+      "correct_pair_births": 7,
+      "seen_then_intact_for_five_circles": 2,
+      "first_loss/registered_exact_match_outside_center_gate": 3,
+      "first_loss_after_1_circles": 3,
+      "pending_near_packet_end": 0
+    },
+    "22": {
+      "correct_pair_births": 12,
+      "first_loss/registered_exact_match_outside_center_gate": 6,
+      "first_loss_after_1_circles": 7,
+      "first_loss/no_detector_pair_in_raw_circle": 1,
+      "seen_then_intact_for_five_circles": 1,
+      "pending_near_packet_end": 0
+    }
+  },
+  "source_sha256": {
+    "fast_pair_persistence_audit.py": "ac3d0c0b221d4e3b9096d335296549b836a84c271ffed5f6203177452728104c",
+    "fast_pair_center.py": "413ab162fc2d83e12d16d18b8a2c74a5c8d2ee22a58949fb389b4511684f2b5b",
+    "paired_returns.py": "ecbbd55ebf505b1131bcc23bbedfad85b8956ec238428c442878e53ddb377f52",
+    "causal_birth_paths.py": "58e90e9e6f8c49c5d29d2460d1b87d7ce888211a9332ac1802c8b9d9aaa0ba76",
+    "emission_identity.py": "390d946e07ac891e44ddd09a6312bfced7b60b82cf8067a650a13d2cad5bdeed"
+  },
+  "model_sha256": {
+    "teacher": "5d823e1869b4a0275c61e13441e62743b95b0ca86fefe3e99f6ddc5a9d6dfe2d",
+    "pair": "ed192441218ab2585bd80477ad9c1e1b14637dbee8855598979c1d8594515588",
+    "birth": "6e3b30307708f1f2136fa155b31835c1684ebb171ccc56d596d39dc5ac2ae008",
+    "clock": "70a52d51d8770d84cec6ca09e4dee026a6f77790aace77e6733a6a855f99559f",
+    "paired_returns": "c72ee4defcdd760cd9c54f4afd1343c09371ca818e31ebf2f297cf0c6651c56c",
+    "raw_timing": "e5e3e37626e4526332c3a54ca6365a0327822a4aa699febae9dd70ea79634a30",
+    "detection": "8bd6161036cce13e17107316d30219979b74295a9c4eeec3f8179ba13031abc0",
+    "ownership": "0d2e034e63940c44f8c9f8ef9d20e36a96bd55f6d6aa50216483f98682602b34"
+  }
+}

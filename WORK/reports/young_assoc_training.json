@@ -1,0 +1,51 @@
+{
+  "metadata": {
+    "packet_ids": [
+      1,
+      6,
+      14,
+      22,
+      35,
+      56
+    ],
+    "settings": {
+      "stages": [
+        "seed",
+        "tentative"
+      ],
+      "floor": 0.2,
+      "mix": 0.0,
+      "coast": 7,
+      "ambiguity": 0.3,
+      "robust": 4.0,
+      "seed_floor": 0.12,
+      "tentative_floor": 0.18,
+      "geometric_mix": 0.15
+    },
+    "source_sha256": "1512973c7370ff492e691cc72374de1ccfa88372d6155764775310a1baddbe40"
+  },
+  "models": {
+    "seed": {
+      "sha256": "850faa32606192213a00192120616e88f85ac137aaa3987978db902e1c207ab1",
+      "samples": 449499,
+      "positives": 112767
+    },
+    "tentative": {
+      "sha256": "35e7e4a20592d8b7c55f9ab0061f70a206a793532b47d940565f0563c8d4d45c",
+      "samples": 227078,
+      "positives": 103007
+    }
+  },
+  "parameters": {
+    "objective": "binary",
+    "learning_rate": 0.09,
+    "num_leaves": 31,
+    "min_child_samples": 45,
+    "verbosity": -1,
+    "num_threads": 2,
+    "seed": 7519,
+    "force_col_wise": true
+  },
+  "boosting_rounds": 90,
+  "wall_seconds": 65.25
+}

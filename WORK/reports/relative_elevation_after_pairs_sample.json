@@ -1,0 +1,187 @@
+{
+  "metadata": {
+    "packet_ids": [
+      76,
+      85
+    ],
+    "source_sha256": "483df7ac42778e257f0e2c1b2abf38fbfe8e055715a8e05d6d7a88a419ade98b",
+    "settings": {
+      "anchor_probability": 0.75,
+      "anchor_margin": 0.1,
+      "spread": 0.0005,
+      "tolerance": 0.0009,
+      "edge_floor": 0.04,
+      "relax_single": true
+    },
+    "teacher_sha256": "5d823e1869b4a0275c61e13441e62743b95b0ca86fefe3e99f6ddc5a9d6dfe2d",
+    "pair_sha256": "ed192441218ab2585bd80477ad9c1e1b14637dbee8855598979c1d8594515588",
+    "pair_cutoff": 0.85
+  },
+  "summary": {
+    "truth_points": 47587,
+    "output_points": 48641,
+    "matched_points": 44954,
+    "clutter_output_points": 1699,
+    "unknown_output_points": 1988,
+    "output_tracks": 1054,
+    "merged_output_tracks": 158,
+    "merged_truth_points": 5176,
+    "identity_true_positive_points": 37410,
+    "truth_tracks": 297,
+    "matched_truth_tracks": 297,
+    "missed_truth_points": 2633,
+    "unmatched_output_points": 3687,
+    "point_coverage": 0.944669762750331,
+    "mean_track_coverage": 0.9237587447140101,
+    "false_alarm_ratio": 0.07747914346355098,
+    "idf1": 0.7775283701209628,
+    "merged_truth_point_ratio": 0.115139920807937,
+    "split_truth_tracks": 148,
+    "id_switches": 832,
+    "missed_segments": 789,
+    "circle_gaps": 2151,
+    "score": {
+      "version": "b02-local-pntid-v1",
+      "matched_tracks": 297,
+      "tracks": 297,
+      "raw_percent_scores": {
+        "coverage": 92.375874471401,
+        "timeliness": 84.78144107744107,
+        "timeliness_first_hit": 82.9935420875421,
+        "tracking_length": 82.98290196834454,
+        "tracking_length_literal": 100.0,
+        "fragmentation": 72.31683112996244,
+        "false_alarm": 92.2520856536449
+      },
+      "weighted_points": {
+        "coverage": 27.7127623414203,
+        "false_alarm": 9.22520856536449,
+        "fragmentation": 14.46336622599249,
+        "timeliness": 16.956288215488215,
+        "tracking_length": 16.59658039366891
+      },
+      "total": 84.9542057419344,
+      "total_literal_max": 88.3576253482655,
+      "total_first_hit": 84.5966259439546
+    }
+  },
+  "diagnostics": {
+    "supported_rows": 324,
+    "recovered_misses": 104,
+    "replaced": 13
+  },
+  "packets": [
+    {
+      "file": "train_076.csv",
+      "input_points": 156908,
+      "circles_replayed": 719,
+      "empty_circles": 0,
+      "processing_ms": 12497.136599893565,
+      "p99_circle_ms": 30.60689999256283,
+      "max_circle_ms": 40.26799999701325,
+      "slowest_circle": 342,
+      "truth_points": 21044,
+      "output_points": 21737,
+      "matched_points": 19651,
+      "clutter_output_points": 1113,
+      "unknown_output_points": 973,
+      "output_tracks": 604,
+      "merged_output_tracks": 74,
+      "merged_truth_points": 2065,
+      "identity_true_positive_points": 16374,
+      "truth_tracks": 141,
+      "matched_truth_tracks": 141,
+      "missed_truth_points": 1393,
+      "unmatched_output_points": 2086,
+      "point_coverage": 0.933805360197681,
+      "mean_track_coverage": 0.9139812871688499,
+      "false_alarm_ratio": 0.09912564151302033,
+      "idf1": 0.7654800028049835,
+      "merged_truth_point_ratio": 0.10508371075263345,
+      "split_truth_tracks": 65,
+      "id_switches": 406,
+      "missed_segments": 399,
+      "circle_gaps": 1013,
+      "score": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 141,
+        "tracks": 141,
+        "raw_percent_scores": {
+          "coverage": 91.39812871688498,
+          "timeliness": 80.36001418439717,
+          "timeliness_first_hit": 79.142695035461,
+          "tracking_length": 82.41092130660392,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 73.60353791204855,
+          "false_alarm": 90.08743584869796
+        },
+        "weighted_points": {
+          "coverage": 27.419438615065495,
+          "false_alarm": 9.008743584869796,
+          "fragmentation": 14.720707582409709,
+          "timeliness": 16.072002836879435,
+          "tracking_length": 16.482184261320786
+        },
+        "total": 83.70307688054523,
+        "total_literal_max": 87.22089261922444,
+        "total_first_hit": 83.459613050758
+      }
+    },
+    {
+      "file": "train_085.csv",
+      "input_points": 148863,
+      "circles_replayed": 714,
+      "empty_circles": 0,
+      "processing_ms": 10253.273900147178,
+      "p99_circle_ms": 26.695499997003935,
+      "max_circle_ms": 33.11839999514632,
+      "slowest_circle": 134,
+      "truth_points": 26543,
+      "output_points": 26904,
+      "matched_points": 25303,
+      "clutter_output_points": 586,
+      "unknown_output_points": 1015,
+      "output_tracks": 450,
+      "merged_output_tracks": 84,
+      "merged_truth_points": 3111,
+      "identity_true_positive_points": 21036,
+      "truth_tracks": 156,
+      "matched_truth_tracks": 156,
+      "missed_truth_points": 1240,
+      "unmatched_output_points": 1601,
+      "point_coverage": 0.9532833515427797,
+      "mean_track_coverage": 0.9325960621105972,
+      "false_alarm_ratio": 0.06031722111291112,
+      "idf1": 0.7871723389526073,
+      "merged_truth_point_ratio": 0.12294984784412916,
+      "split_truth_tracks": 83,
+      "id_switches": 426,
+      "missed_segments": 390,
+      "circle_gaps": 1138,
+      "score": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 156,
+        "tracks": 156,
+        "raw_percent_scores": {
+          "coverage": 93.25960621105972,
+          "timeliness": 88.77773076923077,
+          "timeliness_first_hit": 86.47411538461537,
+          "tracking_length": 83.49988448953314,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 71.15384615384616,
+          "false_alarm": 93.96827788870888
+        },
+        "weighted_points": {
+          "coverage": 27.977881863317915,
+          "false_alarm": 9.396827788870889,
+          "fragmentation": 14.230769230769232,
+          "timeliness": 17.755546153846154,
+          "tracking_length": 16.69997689790663
+        },
+        "total": 86.06100193471082,
+        "total_literal_max": 89.3610250368042,
+        "total_first_hit": 85.60027885778774
+      }
+    }
+  ]
+}

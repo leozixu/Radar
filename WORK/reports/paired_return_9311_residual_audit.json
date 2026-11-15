@@ -1,0 +1,736 @@
+{
+  "packets": [
+    6,
+    14,
+    22,
+    24,
+    26,
+    35
+  ],
+  "score_version": "b02-local-pntid-v1",
+  "wide": true,
+  "fallback_floor": 0.96,
+  "emission": "rescue65_clutter10",
+  "model_sha256": {
+    "teacher": "5d823e1869b4a0275c61e13441e62743b95b0ca86fefe3e99f6ddc5a9d6dfe2d",
+    "pair": "ed192441218ab2585bd80477ad9c1e1b14637dbee8855598979c1d8594515588",
+    "birth": "6e3b30307708f1f2136fa155b31835c1684ebb171ccc56d596d39dc5ac2ae008",
+    "clock": "70a52d51d8770d84cec6ca09e4dee026a6f77790aace77e6733a6a855f99559f",
+    "paired": "c72ee4defcdd760cd9c54f4afd1343c09371ca818e31ebf2f297cf0c6651c56c",
+    "emission_detection": "8bd6161036cce13e17107316d30219979b74295a9c4eeec3f8179ba13031abc0",
+    "emission_ownership": "0d2e034e63940c44f8c9f8ef9d20e36a96bd55f6d6aa50216483f98682602b34"
+  },
+  "source_sha256": {
+    "paired_returns.py": "76b8f7582ae5ff4c14e82c147a261225520b3c44066e1c9bc71c18ad6b0f5ccf",
+    "causal_birth_paths.py": "168f32c140d07e73c0b29dfcc5e377770d37ad5ddd1b7599178d0cf832ad4f99",
+    "emission_identity.py": "de90a8ef8c741b7190c7a2c99bb77d655cff450ed7b9770f176e7b9d1c1dfd98",
+    "paired_return_residual_audit.py": "7c8f33044e24f8d688b04e10afcfe689e39ae8da90d474fa84b57e405db5ffa1"
+  },
+  "variants": {
+    "exact_pairs": {
+      "truth_points": 115703,
+      "output_points": 114190,
+      "matched_points": 110716,
+      "clutter_output_points": 540,
+      "unknown_output_points": 2934,
+      "output_tracks": 1139,
+      "merged_output_tracks": 37,
+      "merged_truth_points": 629,
+      "identity_true_positive_points": 107228,
+      "truth_tracks": 702,
+      "matched_truth_tracks": 702,
+      "missed_truth_points": 4987,
+      "unmatched_output_points": 3474,
+      "point_coverage": 0.9568982653863772,
+      "mean_track_coverage": 0.9381184434783736,
+      "false_alarm_ratio": 0.030025150601108008,
+      "idf1": 0.932851369985167,
+      "merged_truth_point_ratio": 0.00568120235557643,
+      "split_truth_tracks": 130,
+      "id_switches": 228,
+      "missed_segments": 1783,
+      "circle_gaps": 5042,
+      "score": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 702,
+        "tracks": 702,
+        "raw_percent_scores": {
+          "coverage": 93.81184434783736,
+          "timeliness": 93.58063532763533,
+          "timeliness_first_hit": 93.50935897435897,
+          "tracking_length": 93.17339552723217,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 90.09021842355175,
+          "false_alarm": 96.9974849398892
+        },
+        "weighted_points": {
+          "coverage": 28.143553304351208,
+          "false_alarm": 9.69974849398892,
+          "fragmentation": 18.01804368471035,
+          "timeliness": 18.716127065527065,
+          "tracking_length": 18.634679105446434
+        },
+        "total": 93.21215165402398,
+        "total_literal_max": 94.57747254857755,
+        "total_first_hit": 93.19789638336871
+      }
+    },
+    "perfect_identity_on_observed_points": {
+      "truth_points": 115703,
+      "output_points": 114190,
+      "matched_points": 110716,
+      "clutter_output_points": 540,
+      "unknown_output_points": 2934,
+      "output_tracks": 1109,
+      "merged_output_tracks": 0,
+      "merged_truth_points": 0,
+      "identity_true_positive_points": 110716,
+      "truth_tracks": 702,
+      "matched_truth_tracks": 702,
+      "missed_truth_points": 4987,
+      "unmatched_output_points": 3474,
+      "point_coverage": 0.9568982653863772,
+      "mean_track_coverage": 0.9381184434783736,
+      "false_alarm_ratio": 0.030025150601108008,
+      "idf1": 0.9631959215809094,
+      "merged_truth_point_ratio": 0.0,
+      "split_truth_tracks": 0,
+      "id_switches": 0,
+      "missed_segments": 1783,
+      "circle_gaps": 5042,
+      "score": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 702,
+        "tracks": 702,
+        "raw_percent_scores": {
+          "coverage": 93.81184434783736,
+          "timeliness": 93.50935897435897,
+          "timeliness_first_hit": 93.50935897435897,
+          "tracking_length": 95.61748792775504,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 100.0,
+          "false_alarm": 96.9974849398892
+        },
+        "weighted_points": {
+          "coverage": 28.143553304351208,
+          "false_alarm": 9.69974849398892,
+          "fragmentation": 20.0,
+          "timeliness": 18.701871794871792,
+          "tracking_length": 19.123497585551007
+        },
+        "total": 95.66867117876293,
+        "total_literal_max": 96.54517359321193,
+        "total_first_hit": 95.66867117876293
+      }
+    },
+    "perfect_identity_and_fill_late_birth": {
+      "truth_points": 115703,
+      "output_points": 114612,
+      "matched_points": 111138,
+      "clutter_output_points": 540,
+      "unknown_output_points": 2934,
+      "output_tracks": 1109,
+      "merged_output_tracks": 0,
+      "merged_truth_points": 0,
+      "identity_true_positive_points": 111138,
+      "truth_tracks": 702,
+      "matched_truth_tracks": 702,
+      "missed_truth_points": 4565,
+      "unmatched_output_points": 3474,
+      "point_coverage": 0.960545534687951,
+      "mean_track_coverage": 0.9451859020569835,
+      "false_alarm_ratio": 0.030025150601108008,
+      "idf1": 0.9650956298981829,
+      "merged_truth_point_ratio": 0.0,
+      "split_truth_tracks": 0,
+      "id_switches": 0,
+      "missed_segments": 1783,
+      "circle_gaps": 5066,
+      "score": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 702,
+        "tracks": 702,
+        "raw_percent_scores": {
+          "coverage": 94.51859020569835,
+          "timeliness": 100.0,
+          "timeliness_first_hit": 100.0,
+          "tracking_length": 96.35261945856153,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 100.0,
+          "false_alarm": 96.9974849398892
+        },
+        "weighted_points": {
+          "coverage": 28.355577061709504,
+          "false_alarm": 9.69974849398892,
+          "fragmentation": 20.0,
+          "timeliness": 20.0,
+          "tracking_length": 19.270523891712305
+        },
+        "total": 97.32584944741073,
+        "total_literal_max": 98.05532555569843,
+        "total_first_hit": 97.32584944741073
+      }
+    },
+    "perfect_identity_and_fill_mature": {
+      "truth_points": 115703,
+      "output_points": 117583,
+      "matched_points": 114109,
+      "clutter_output_points": 540,
+      "unknown_output_points": 2934,
+      "output_tracks": 1109,
+      "merged_output_tracks": 0,
+      "merged_truth_points": 0,
+      "identity_true_positive_points": 114109,
+      "truth_tracks": 702,
+      "matched_truth_tracks": 702,
+      "missed_truth_points": 1594,
+      "unmatched_output_points": 3474,
+      "point_coverage": 0.986223347709221,
+      "mean_track_coverage": 0.9736815890318807,
+      "false_alarm_ratio": 0.030025150601108008,
+      "idf1": 0.9782755930488757,
+      "merged_truth_point_ratio": 0.0,
+      "split_truth_tracks": 0,
+      "id_switches": 0,
+      "missed_segments": 0,
+      "circle_gaps": 3530,
+      "score": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 702,
+        "tracks": 702,
+        "raw_percent_scores": {
+          "coverage": 97.36815890318807,
+          "timeliness": 93.50935897435897,
+          "timeliness_first_hit": 93.50935897435897,
+          "tracking_length": 99.26486846919352,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 100.0,
+          "false_alarm": 96.9974849398892
+        },
+        "weighted_points": {
+          "coverage": 29.210447670956423,
+          "false_alarm": 9.69974849398892,
+          "fragmentation": 20.0,
+          "timeliness": 18.701871794871792,
+          "tracking_length": 19.852973693838702
+        },
+        "total": 97.46504165365585,
+        "total_literal_max": 97.61206795981714,
+        "total_first_hit": 97.46504165365585
+      }
+    }
+  },
+  "switches": {
+    "cohort/active_source_no_raw_match": 180,
+    "total": 228,
+    "adjacent": 77,
+    "destination_persistent": 146,
+    "source_visible_now": 33,
+    "source_active_now": 219,
+    "destination_newly_confirmed": 103,
+    "destination_recently_confirmed": 116,
+    "destination_owned_by_other_truth": 27,
+    "source_owned_by_other_truth": 32,
+    "returning_after_interruption": 65,
+    "returning_after_1_to_3_wrong_returns": 62,
+    "source_origin_within_3_scans": 30,
+    "current_in_exact_geometry_pair": 65,
+    "current_locked_by_pair": 38,
+    "cohort/active_source_public_elsewhere": 33,
+    "switch_after_missing_a_raw_true_return": 139,
+    "lock_kept_same_physical_target": 38,
+    "lock_prior_was_confirmed_pair": 38,
+    "lock_prior_kept_same_target_and_confirmed": 38,
+    "lock_reverted_from_unlocked_prior_output": 38,
+    "lock_prior_real_return_was_within_3_scans": 8,
+    "lock_prior_return_was_linked_to_destination": 38,
+    "lock_resumed_after_1_to_3_wrong_returns": 36,
+    "lock_overrode_source_owned_by_other_truth": 13,
+    "both_public_ids_are_same_truth_majority": 171,
+    "first_1_to_3_returns_then_persistent_destination": 17,
+    "cohort/inactive_source_new_destination": 6,
+    "inactive_source_recent_destination": 6,
+    "inactive_source_gap_8_plus": 6,
+    "reciprocal": 6,
+    "persistent_reciprocal": 2,
+    "cohort/active_source_raw_elsewhere_hidden": 6,
+    "first_run_wrong_owner_to_own_majority_destination": 5,
+    "cohort/inactive_source_existing": 3
+  },
+  "wrong_owner": {
+    "points_in_short_wrong_run": 34,
+    "points_in_persistent_wrong_run": 595
+  },
+  "startup": {
+    "truth_tracks": 702,
+    "late_truth_tracks": 181,
+    "late_third/raw_proposal_filtered": 75,
+    "late_third/no_raw_proposal": 105,
+    "late_third/fallback_deferred": 1
+  },
+  "detector_at_prior_unsafe_output": {
+    "mate_absent": 32,
+    "amplitude": 4,
+    "pair_selected_but_this_owner_not_locked": 2
+  },
+  "sole_return_timing_role": {
+    "earlier": 17,
+    "later": 15
+  },
+  "split_truth_by_nonexclusive_cohort": {
+    "active_source_no_raw_match": 118,
+    "total": 130,
+    "active_source_public_elsewhere": 25,
+    "both_public_ids_are_same_truth_majority": 110,
+    "switch_after_missing_a_raw_true_return": 110,
+    "first_1_to_3_returns_then_persistent_destination": 17,
+    "inactive_source_new_destination": 6,
+    "active_source_raw_elsewhere_hidden": 6,
+    "first_run_wrong_owner_to_own_majority_destination": 5,
+    "inactive_source_existing": 3
+  },
+  "missing_points": {
+    "late/proposed_but_filtered": 129,
+    "late/fallback_held": 1,
+    "late/not_proposed_or_fallback_held": 292,
+    "mature/proposed_but_filtered": 134,
+    "mature/fallback_held": 1511,
+    "mature/not_proposed_or_fallback_held": 1748
+  },
+  "by_packet": {
+    "6": {
+      "switches": {
+        "cohort/active_source_no_raw_match": 23,
+        "total": 26,
+        "adjacent": 6,
+        "reciprocal": 0,
+        "persistent_reciprocal": 0,
+        "destination_persistent": 15,
+        "source_visible_now": 1,
+        "source_active_now": 24,
+        "destination_newly_confirmed": 16,
+        "destination_recently_confirmed": 16,
+        "destination_owned_by_other_truth": 2,
+        "source_owned_by_other_truth": 1,
+        "returning_after_interruption": 6,
+        "returning_after_1_to_3_wrong_returns": 6,
+        "source_origin_within_3_scans": 4,
+        "current_in_exact_geometry_pair": 10,
+        "current_locked_by_pair": 4,
+        "cohort/active_source_public_elsewhere": 1,
+        "switch_after_missing_a_raw_true_return": 19,
+        "lock_kept_same_physical_target": 4,
+        "lock_prior_was_confirmed_pair": 4,
+        "lock_prior_kept_same_target_and_confirmed": 4,
+        "lock_reverted_from_unlocked_prior_output": 4,
+        "lock_prior_real_return_was_within_3_scans": 1,
+        "lock_prior_return_was_linked_to_destination": 4,
+        "lock_resumed_after_1_to_3_wrong_returns": 4,
+        "lock_overrode_source_owned_by_other_truth": 1,
+        "both_public_ids_are_same_truth_majority": 23,
+        "first_1_to_3_returns_then_persistent_destination": 3,
+        "cohort/inactive_source_new_destination": 2,
+        "inactive_source_recent_destination": 2,
+        "inactive_source_gap_8_plus": 2
+      },
+      "wrong_owner": {
+        "points_in_short_wrong_run": 2,
+        "points_in_persistent_wrong_run": 330
+      },
+      "startup": {
+        "truth_tracks": 117,
+        "late_truth_tracks": 28,
+        "never_visible": 0,
+        "late_third/raw_proposal_filtered": 17,
+        "late_third/no_raw_proposal": 10,
+        "late_third/fallback_deferred": 1
+      },
+      "detector_at_prior_unsafe_output": {
+        "mate_absent": 4
+      },
+      "sole_return_timing_role": {
+        "earlier": 3,
+        "later": 1
+      },
+      "split_truth_by_nonexclusive_cohort": {
+        "active_source_no_raw_match": 15,
+        "total": 17,
+        "active_source_public_elsewhere": 1,
+        "both_public_ids_are_same_truth_majority": 15,
+        "switch_after_missing_a_raw_true_return": 15,
+        "first_1_to_3_returns_then_persistent_destination": 3,
+        "inactive_source_new_destination": 2
+      },
+      "missing_points": {
+        "late/proposed_but_filtered": 50,
+        "late/fallback_held": 1,
+        "late/not_proposed_or_fallback_held": 32,
+        "mature/proposed_but_filtered": 17,
+        "mature/fallback_held": 245,
+        "mature/not_proposed_or_fallback_held": 359
+      }
+    },
+    "14": {
+      "switches": {
+        "cohort/active_source_no_raw_match": 28,
+        "both_public_ids_are_same_truth_majority": 24,
+        "switch_after_missing_a_raw_true_return": 20,
+        "total": 39,
+        "adjacent": 16,
+        "reciprocal": 4,
+        "persistent_reciprocal": 2,
+        "destination_persistent": 26,
+        "source_visible_now": 9,
+        "source_active_now": 38,
+        "destination_newly_confirmed": 18,
+        "destination_recently_confirmed": 22,
+        "destination_owned_by_other_truth": 6,
+        "source_owned_by_other_truth": 9,
+        "returning_after_interruption": 11,
+        "returning_after_1_to_3_wrong_returns": 10,
+        "source_origin_within_3_scans": 6,
+        "current_in_exact_geometry_pair": 15,
+        "current_locked_by_pair": 9,
+        "cohort/active_source_raw_elsewhere_hidden": 1,
+        "cohort/inactive_source_new_destination": 1,
+        "inactive_source_recent_destination": 1,
+        "inactive_source_gap_8_plus": 1,
+        "cohort/active_source_public_elsewhere": 9,
+        "lock_kept_same_physical_target": 9,
+        "lock_prior_was_confirmed_pair": 9,
+        "lock_prior_kept_same_target_and_confirmed": 9,
+        "lock_reverted_from_unlocked_prior_output": 9,
+        "lock_prior_real_return_was_within_3_scans": 2,
+        "lock_prior_return_was_linked_to_destination": 9,
+        "lock_resumed_after_1_to_3_wrong_returns": 8,
+        "lock_overrode_source_owned_by_other_truth": 4,
+        "first_run_wrong_owner_to_own_majority_destination": 3,
+        "first_1_to_3_returns_then_persistent_destination": 5
+      },
+      "wrong_owner": {
+        "points_in_short_wrong_run": 9,
+        "points_in_persistent_wrong_run": 7
+      },
+      "startup": {
+        "truth_tracks": 132,
+        "late_truth_tracks": 28,
+        "never_visible": 0,
+        "late_third/raw_proposal_filtered": 13,
+        "late_third/no_raw_proposal": 15
+      },
+      "detector_at_prior_unsafe_output": {
+        "mate_absent": 9
+      },
+      "sole_return_timing_role": {
+        "later": 5,
+        "earlier": 4
+      },
+      "split_truth_by_nonexclusive_cohort": {
+        "active_source_no_raw_match": 21,
+        "both_public_ids_are_same_truth_majority": 18,
+        "switch_after_missing_a_raw_true_return": 18,
+        "total": 26,
+        "active_source_raw_elsewhere_hidden": 1,
+        "inactive_source_new_destination": 1,
+        "active_source_public_elsewhere": 7,
+        "first_run_wrong_owner_to_own_majority_destination": 3,
+        "first_1_to_3_returns_then_persistent_destination": 5
+      },
+      "missing_points": {
+        "late/proposed_but_filtered": 21,
+        "late/fallback_held": 0,
+        "late/not_proposed_or_fallback_held": 39,
+        "mature/proposed_but_filtered": 27,
+        "mature/fallback_held": 288,
+        "mature/not_proposed_or_fallback_held": 302
+      }
+    },
+    "22": {
+      "switches": {
+        "cohort/active_source_no_raw_match": 21,
+        "both_public_ids_are_same_truth_majority": 22,
+        "switch_after_missing_a_raw_true_return": 19,
+        "total": 24,
+        "adjacent": 5,
+        "reciprocal": 0,
+        "persistent_reciprocal": 0,
+        "destination_persistent": 18,
+        "source_visible_now": 1,
+        "source_active_now": 22,
+        "destination_newly_confirmed": 17,
+        "destination_recently_confirmed": 17,
+        "destination_owned_by_other_truth": 1,
+        "source_owned_by_other_truth": 1,
+        "returning_after_interruption": 4,
+        "returning_after_1_to_3_wrong_returns": 4,
+        "source_origin_within_3_scans": 3,
+        "current_in_exact_geometry_pair": 5,
+        "current_locked_by_pair": 3,
+        "lock_kept_same_physical_target": 3,
+        "lock_prior_was_confirmed_pair": 3,
+        "lock_prior_kept_same_target_and_confirmed": 3,
+        "lock_reverted_from_unlocked_prior_output": 3,
+        "lock_prior_real_return_was_within_3_scans": 0,
+        "lock_prior_return_was_linked_to_destination": 3,
+        "lock_resumed_after_1_to_3_wrong_returns": 3,
+        "lock_overrode_source_owned_by_other_truth": 0,
+        "cohort/inactive_source_new_destination": 1,
+        "inactive_source_recent_destination": 1,
+        "inactive_source_gap_8_plus": 1,
+        "cohort/active_source_public_elsewhere": 1,
+        "cohort/inactive_source_existing": 1
+      },
+      "wrong_owner": {
+        "points_in_short_wrong_run": 1,
+        "points_in_persistent_wrong_run": 0
+      },
+      "startup": {
+        "truth_tracks": 117,
+        "late_truth_tracks": 29,
+        "never_visible": 0,
+        "late_third/raw_proposal_filtered": 13,
+        "late_third/no_raw_proposal": 16
+      },
+      "detector_at_prior_unsafe_output": {
+        "mate_absent": 3
+      },
+      "sole_return_timing_role": {
+        "later": 2,
+        "earlier": 1
+      },
+      "split_truth_by_nonexclusive_cohort": {
+        "active_source_no_raw_match": 16,
+        "both_public_ids_are_same_truth_majority": 16,
+        "switch_after_missing_a_raw_true_return": 16,
+        "total": 16,
+        "inactive_source_new_destination": 1,
+        "active_source_public_elsewhere": 1,
+        "inactive_source_existing": 1
+      },
+      "missing_points": {
+        "late/proposed_but_filtered": 16,
+        "late/fallback_held": 0,
+        "late/not_proposed_or_fallback_held": 53,
+        "mature/proposed_but_filtered": 17,
+        "mature/fallback_held": 300,
+        "mature/not_proposed_or_fallback_held": 272
+      }
+    },
+    "24": {
+      "switches": {
+        "cohort/active_source_no_raw_match": 73,
+        "both_public_ids_are_same_truth_majority": 68,
+        "switch_after_missing_a_raw_true_return": 48,
+        "total": 95,
+        "adjacent": 40,
+        "reciprocal": 2,
+        "persistent_reciprocal": 0,
+        "destination_persistent": 54,
+        "source_visible_now": 17,
+        "source_active_now": 93,
+        "destination_newly_confirmed": 31,
+        "destination_recently_confirmed": 35,
+        "destination_owned_by_other_truth": 14,
+        "source_owned_by_other_truth": 15,
+        "returning_after_interruption": 34,
+        "returning_after_1_to_3_wrong_returns": 32,
+        "source_origin_within_3_scans": 14,
+        "current_in_exact_geometry_pair": 20,
+        "current_locked_by_pair": 14,
+        "cohort/active_source_public_elsewhere": 17,
+        "cohort/active_source_raw_elsewhere_hidden": 3,
+        "first_1_to_3_returns_then_persistent_destination": 3,
+        "cohort/inactive_source_existing": 2,
+        "lock_kept_same_physical_target": 14,
+        "lock_prior_was_confirmed_pair": 14,
+        "lock_prior_kept_same_target_and_confirmed": 14,
+        "lock_reverted_from_unlocked_prior_output": 14,
+        "lock_prior_real_return_was_within_3_scans": 1,
+        "lock_prior_return_was_linked_to_destination": 14,
+        "lock_resumed_after_1_to_3_wrong_returns": 13,
+        "lock_overrode_source_owned_by_other_truth": 4
+      },
+      "wrong_owner": {
+        "points_in_short_wrong_run": 16,
+        "points_in_persistent_wrong_run": 74
+      },
+      "startup": {
+        "truth_tracks": 140,
+        "late_truth_tracks": 43,
+        "never_visible": 0,
+        "late_third/raw_proposal_filtered": 19,
+        "late_third/no_raw_proposal": 24
+      },
+      "detector_at_prior_unsafe_output": {
+        "mate_absent": 8,
+        "amplitude": 4,
+        "pair_selected_but_this_owner_not_locked": 2
+      },
+      "sole_return_timing_role": {
+        "earlier": 4,
+        "later": 4
+      },
+      "split_truth_by_nonexclusive_cohort": {
+        "active_source_no_raw_match": 39,
+        "both_public_ids_are_same_truth_majority": 37,
+        "switch_after_missing_a_raw_true_return": 33,
+        "total": 41,
+        "active_source_public_elsewhere": 11,
+        "active_source_raw_elsewhere_hidden": 3,
+        "first_1_to_3_returns_then_persistent_destination": 3,
+        "inactive_source_existing": 2
+      },
+      "missing_points": {
+        "late/proposed_but_filtered": 25,
+        "late/fallback_held": 0,
+        "late/not_proposed_or_fallback_held": 70,
+        "mature/proposed_but_filtered": 54,
+        "mature/fallback_held": 390,
+        "mature/not_proposed_or_fallback_held": 440
+      }
+    },
+    "26": {
+      "switches": {
+        "cohort/inactive_source_new_destination": 2,
+        "both_public_ids_are_same_truth_majority": 22,
+        "switch_after_missing_a_raw_true_return": 22,
+        "total": 24,
+        "adjacent": 1,
+        "reciprocal": 0,
+        "persistent_reciprocal": 0,
+        "destination_persistent": 20,
+        "source_visible_now": 1,
+        "source_active_now": 22,
+        "destination_newly_confirmed": 15,
+        "destination_recently_confirmed": 18,
+        "destination_owned_by_other_truth": 0,
+        "source_owned_by_other_truth": 2,
+        "returning_after_interruption": 3,
+        "returning_after_1_to_3_wrong_returns": 3,
+        "source_origin_within_3_scans": 1,
+        "current_in_exact_geometry_pair": 7,
+        "current_locked_by_pair": 1,
+        "inactive_source_recent_destination": 2,
+        "inactive_source_gap_8_plus": 2,
+        "cohort/active_source_no_raw_match": 20,
+        "cohort/active_source_public_elsewhere": 1,
+        "first_1_to_3_returns_then_persistent_destination": 5,
+        "first_run_wrong_owner_to_own_majority_destination": 2,
+        "cohort/active_source_raw_elsewhere_hidden": 1,
+        "lock_kept_same_physical_target": 1,
+        "lock_prior_was_confirmed_pair": 1,
+        "lock_prior_kept_same_target_and_confirmed": 1,
+        "lock_reverted_from_unlocked_prior_output": 1,
+        "lock_prior_real_return_was_within_3_scans": 0,
+        "lock_prior_return_was_linked_to_destination": 1,
+        "lock_resumed_after_1_to_3_wrong_returns": 1,
+        "lock_overrode_source_owned_by_other_truth": 0
+      },
+      "wrong_owner": {
+        "points_in_short_wrong_run": 2,
+        "points_in_persistent_wrong_run": 0
+      },
+      "startup": {
+        "truth_tracks": 85,
+        "late_truth_tracks": 24,
+        "never_visible": 0,
+        "late_third/raw_proposal_filtered": 5,
+        "late_third/no_raw_proposal": 19
+      },
+      "detector_at_prior_unsafe_output": {
+        "mate_absent": 1
+      },
+      "sole_return_timing_role": {
+        "earlier": 1
+      },
+      "split_truth_by_nonexclusive_cohort": {
+        "inactive_source_new_destination": 2,
+        "both_public_ids_are_same_truth_majority": 16,
+        "switch_after_missing_a_raw_true_return": 18,
+        "total": 18,
+        "active_source_no_raw_match": 16,
+        "active_source_public_elsewhere": 1,
+        "first_1_to_3_returns_then_persistent_destination": 5,
+        "first_run_wrong_owner_to_own_majority_destination": 2,
+        "active_source_raw_elsewhere_hidden": 1
+      },
+      "missing_points": {
+        "late/proposed_but_filtered": 8,
+        "late/fallback_held": 0,
+        "late/not_proposed_or_fallback_held": 47,
+        "mature/proposed_but_filtered": 14,
+        "mature/fallback_held": 166,
+        "mature/not_proposed_or_fallback_held": 165
+      }
+    },
+    "35": {
+      "switches": {
+        "cohort/active_source_no_raw_match": 15,
+        "total": 20,
+        "adjacent": 9,
+        "reciprocal": 0,
+        "persistent_reciprocal": 0,
+        "destination_persistent": 13,
+        "source_visible_now": 4,
+        "source_active_now": 20,
+        "destination_newly_confirmed": 6,
+        "destination_recently_confirmed": 8,
+        "destination_owned_by_other_truth": 4,
+        "source_owned_by_other_truth": 4,
+        "returning_after_interruption": 7,
+        "returning_after_1_to_3_wrong_returns": 7,
+        "source_origin_within_3_scans": 2,
+        "current_in_exact_geometry_pair": 8,
+        "current_locked_by_pair": 7,
+        "cohort/active_source_public_elsewhere": 4,
+        "lock_kept_same_physical_target": 7,
+        "lock_prior_was_confirmed_pair": 7,
+        "lock_prior_kept_same_target_and_confirmed": 7,
+        "lock_reverted_from_unlocked_prior_output": 7,
+        "lock_prior_real_return_was_within_3_scans": 4,
+        "lock_prior_return_was_linked_to_destination": 7,
+        "lock_resumed_after_1_to_3_wrong_returns": 7,
+        "lock_overrode_source_owned_by_other_truth": 4,
+        "both_public_ids_are_same_truth_majority": 12,
+        "switch_after_missing_a_raw_true_return": 11,
+        "cohort/active_source_raw_elsewhere_hidden": 1,
+        "first_1_to_3_returns_then_persistent_destination": 1
+      },
+      "wrong_owner": {
+        "points_in_short_wrong_run": 4,
+        "points_in_persistent_wrong_run": 184
+      },
+      "startup": {
+        "truth_tracks": 111,
+        "late_truth_tracks": 29,
+        "never_visible": 0,
+        "late_third/raw_proposal_filtered": 8,
+        "late_third/no_raw_proposal": 21
+      },
+      "detector_at_prior_unsafe_output": {
+        "mate_absent": 7
+      },
+      "sole_return_timing_role": {
+        "later": 3,
+        "earlier": 4
+      },
+      "split_truth_by_nonexclusive_cohort": {
+        "active_source_no_raw_match": 11,
+        "total": 12,
+        "active_source_public_elsewhere": 4,
+        "both_public_ids_are_same_truth_majority": 8,
+        "switch_after_missing_a_raw_true_return": 10,
+        "active_source_raw_elsewhere_hidden": 1,
+        "first_1_to_3_returns_then_persistent_destination": 1
+      },
+      "missing_points": {
+        "late/proposed_but_filtered": 9,
+        "late/fallback_held": 0,
+        "late/not_proposed_or_fallback_held": 51,
+        "mature/proposed_but_filtered": 5,
+        "mature/fallback_held": 122,
+        "mature/not_proposed_or_fallback_held": 210
+      }
+    }
+  }
+}

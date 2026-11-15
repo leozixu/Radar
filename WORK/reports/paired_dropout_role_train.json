@@ -1,0 +1,88 @@
+{
+  "packet_ids": [
+    6,
+    14,
+    22,
+    24,
+    26,
+    35
+  ],
+  "by_packet": {
+    "train_006": {
+      "repeated_true_pairs": 5733,
+      "earlier_louder_in_repeat": 5733,
+      "earlier_higher_elevation_in_repeat": 0,
+      "earlier_farther_in_repeat": 2724,
+      "sole_earlier": 232,
+      "sole_earlier_after_1_scan": 138,
+      "sole_louder_previous_arm": 232,
+      "sole_later": 226,
+      "sole_later_after_1_scan": 126
+    },
+    "train_014": {
+      "repeated_true_pairs": 5657,
+      "earlier_louder_in_repeat": 5657,
+      "earlier_higher_elevation_in_repeat": 0,
+      "earlier_farther_in_repeat": 3701,
+      "sole_later": 224,
+      "sole_later_after_1_scan": 132,
+      "sole_louder_previous_arm": 235,
+      "sole_earlier": 235,
+      "sole_earlier_after_1_scan": 134
+    },
+    "train_022": {
+      "repeated_true_pairs": 4615,
+      "earlier_louder_in_repeat": 4615,
+      "earlier_higher_elevation_in_repeat": 0,
+      "earlier_farther_in_repeat": 2070,
+      "sole_earlier": 177,
+      "sole_earlier_after_1_scan": 103,
+      "sole_louder_previous_arm": 177,
+      "sole_later": 168,
+      "sole_later_after_1_scan": 98
+    },
+    "train_024": {
+      "repeated_true_pairs": 6202,
+      "earlier_louder_in_repeat": 6202,
+      "earlier_higher_elevation_in_repeat": 0,
+      "earlier_farther_in_repeat": 2539,
+      "sole_later": 270,
+      "sole_later_after_1_scan": 140,
+      "sole_louder_previous_arm": 276,
+      "sole_earlier": 276,
+      "sole_earlier_after_1_scan": 151
+    },
+    "train_026": {
+      "repeated_true_pairs": 2437,
+      "earlier_louder_in_repeat": 2437,
+      "earlier_higher_elevation_in_repeat": 0,
+      "earlier_farther_in_repeat": 1054,
+      "sole_earlier": 100,
+      "sole_earlier_after_1_scan": 57,
+      "sole_louder_previous_arm": 100,
+      "sole_later": 105,
+      "sole_later_after_1_scan": 58
+    },
+    "train_035": {
+      "repeated_true_pairs": 3371,
+      "earlier_louder_in_repeat": 3371,
+      "earlier_higher_elevation_in_repeat": 0,
+      "earlier_farther_in_repeat": 1725,
+      "sole_later": 142,
+      "sole_later_after_1_scan": 75,
+      "sole_louder_previous_arm": 131,
+      "sole_earlier": 131,
+      "sole_earlier_after_1_scan": 79
+    }
+  },
+  "totals": {
+    "repeated_true_pairs": 28015,
+    "earlier_louder_in_repeat": 28015,
+    "earlier_farther_in_repeat": 13813,
+    "sole_earlier": 1151,
+    "sole_earlier_after_1_scan": 662,
+    "sole_louder_previous_arm": 1151,
+    "sole_later": 1135,
+    "sole_later_after_1_scan": 629
+  }
+}

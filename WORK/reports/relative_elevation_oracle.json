@@ -1,0 +1,117 @@
+{
+  "metadata": {
+    "packet_ids": [
+      22,
+      24,
+      26,
+      28
+    ],
+    "source_sha256": "de36c2c3ba6c23e633858291034a5d905b5aec450da46dc4d58769266c22337f",
+    "settings": {
+      "anchor_probability": 0.8,
+      "anchor_margin": 0.12,
+      "spread": 0.0005,
+      "tolerance": 0.0009,
+      "edge_floor": 0.08,
+      "relax_single": false
+    }
+  },
+  "packets": {
+    "train_022.csv": {
+      "all": {
+        "pairs": 539452,
+        "within_tolerance": 24502,
+        "absolute_error_quantiles": {
+          "p50": 0.016743731871247287,
+          "p90": 0.04538199220290959,
+          "p95": 0.05620053311189016,
+          "p99": 0.08119813104470572
+        }
+      },
+      "stable": {
+        "pairs": 9118,
+        "within_tolerance": 9112,
+        "absolute_error_quantiles": {
+          "p50": 6.399552027384339e-06,
+          "p90": 8.224832219502338e-05,
+          "p95": 0.00019583668533919546,
+          "p99": 0.0004520361503871439
+        }
+      },
+      "track_observations": 18214,
+      "supported_observations": 9118
+    },
+    "train_024.csv": {
+      "all": {
+        "pairs": 1140244,
+        "within_tolerance": 52582,
+        "absolute_error_quantiles": {
+          "p50": 0.013848567448024238,
+          "p90": 0.040076531221469244,
+          "p95": 0.05076293150583902,
+          "p99": 0.07619298061148988
+        }
+      },
+      "stable": {
+        "pairs": 12574,
+        "within_tolerance": 12530,
+        "absolute_error_quantiles": {
+          "p50": 4.706106015614194e-06,
+          "p90": 0.00010950207665917453,
+          "p95": 0.00030300110977675237,
+          "p99": 0.0007257946613077107
+        }
+      },
+      "track_observations": 26383,
+      "supported_observations": 12574
+    },
+    "train_026.csv": {
+      "all": {
+        "pairs": 203002,
+        "within_tolerance": 11722,
+        "absolute_error_quantiles": {
+          "p50": 0.013325870037078857,
+          "p90": 0.03684026598930359,
+          "p95": 0.04639013856649399,
+          "p99": 0.07548933674891789
+        }
+      },
+      "stable": {
+        "pairs": 4778,
+        "within_tolerance": 4778,
+        "absolute_error_quantiles": {
+          "p50": 6.134311358133807e-06,
+          "p90": 9.390744070212028e-05,
+          "p95": 0.0001845329999923706,
+          "p99": 0.0005181405252191177
+        }
+      },
+      "track_observations": 11175,
+      "supported_observations": 4778
+    },
+    "train_028.csv": {
+      "all": {
+        "pairs": 385360,
+        "within_tolerance": 20062,
+        "absolute_error_quantiles": {
+          "p50": 0.014257792458752465,
+          "p90": 0.04055523624022803,
+          "p95": 0.0517870316406091,
+          "p99": 0.08749442259381363
+        }
+      },
+      "stable": {
+        "pairs": 6912,
+        "within_tolerance": 6904,
+        "absolute_error_quantiles": {
+          "p50": 5.8670838673909e-06,
+          "p90": 0.00011111915111541766,
+          "p95": 0.0002479494290954098,
+          "p99": 0.000520118007436396
+        }
+      },
+      "track_observations": 15525,
+      "supported_observations": 6912
+    }
+  }
+}

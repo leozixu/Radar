@@ -1,0 +1,60 @@
+{
+  "sampled": 372000,
+  "positives": 120000,
+  "features": [
+    "first_gap",
+    "second_gap",
+    "amplitude_first",
+    "amplitude_middle",
+    "amplitude_current",
+    "amplitude_spread",
+    "clock_first",
+    "clock_middle",
+    "clock_current",
+    "clock_min",
+    "clock_mean",
+    "parent_cost",
+    "prediction_distance",
+    "possible_current_links",
+    "competing_paths",
+    "motion_first_azimuth",
+    "motion_first_elevation",
+    "motion_first_range",
+    "motion_second_azimuth",
+    "motion_second_elevation",
+    "motion_second_range",
+    "velocity_change_azimuth",
+    "velocity_change_elevation",
+    "velocity_change_range",
+    "forecast_error_azimuth",
+    "forecast_error_elevation",
+    "forecast_error_range"
+  ],
+  "training_params": {
+    "objective": "binary",
+    "learning_rate": 0.07,
+    "num_leaves": 31,
+    "min_data_in_leaf": 72,
+    "num_threads": 2,
+    "force_col_wise": true,
+    "deterministic": true,
+    "verbosity": -1
+  },
+  "boosting_rounds": 180,
+  "metadata": {
+    "packet_ids": [
+      1,
+      6,
+      14,
+      22,
+      35,
+      56
+    ],
+    "floor": 0.74,
+    "work": "train",
+    "sha256": {
+      "model": "6e3b30307708f1f2136fa155b31835c1684ebb171ccc56d596d39dc5ac2ae008",
+      "clock": "70a52d51d8770d84cec6ca09e4dee026a6f77790aace77e6733a6a855f99559f"
+    }
+  }
+}

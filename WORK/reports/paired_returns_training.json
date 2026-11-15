@@ -1,0 +1,140 @@
+{
+  "samples": 192194,
+  "positive": 192190,
+  "features": [
+    "gap",
+    "signature_difference",
+    "signature_magnitude",
+    "prior_clock_min",
+    "current_clock_min",
+    "prior_amplitude_mean",
+    "amplitude_mean",
+    "amplitude_change",
+    "amplitude_min",
+    "prior_width_azimuth",
+    "prior_width_elevation",
+    "prior_width_range",
+    "current_width_azimuth",
+    "current_width_elevation",
+    "current_width_range",
+    "width_change_azimuth",
+    "width_change_elevation",
+    "width_change_range",
+    "movement_azimuth",
+    "movement_elevation",
+    "movement_range"
+  ],
+  "parameters": {
+    "objective": "binary",
+    "num_leaves": 23,
+    "min_data_in_leaf": 28,
+    "learning_rate": 0.055,
+    "verbosity": -1,
+    "num_threads": 2,
+    "force_col_wise": true,
+    "deterministic": true,
+    "seed": 15
+  },
+  "evidence": {
+    "train_006": {
+      "candidates": 24977,
+      "known": 24977,
+      "positive": 24977,
+      "positive_gap_1": 5181,
+      "positive_gap_3": 4958,
+      "positive_gap_5": 4887
+    },
+    "train_011": {
+      "candidates": 13688,
+      "known": 13687,
+      "positive": 13687,
+      "positive_gap_1": 2875,
+      "positive_gap_3": 2707,
+      "positive_gap_5": 2655
+    },
+    "train_017": {
+      "candidates": 21653,
+      "known": 21653,
+      "positive": 21653,
+      "positive_gap_1": 4490,
+      "positive_gap_3": 4299,
+      "positive_gap_5": 4238
+    },
+    "train_024": {
+      "candidates": 27052,
+      "known": 27052,
+      "positive": 27051,
+      "positive_gap_1": 5624,
+      "positive_gap_3": 5368,
+      "positive_gap_5": 5292
+    },
+    "train_035": {
+      "candidates": 14556,
+      "known": 14556,
+      "positive": 14554,
+      "positive_gap_1": 3064,
+      "positive_gap_3": 2880,
+      "positive_gap_5": 2827
+    },
+    "train_043": {
+      "candidates": 25266,
+      "known": 25266,
+      "positive": 25266,
+      "positive_gap_1": 5300,
+      "positive_gap_3": 5001,
+      "positive_gap_5": 4905
+    },
+    "train_051": {
+      "candidates": 11667,
+      "known": 11667,
+      "positive": 11667,
+      "positive_gap_1": 2422,
+      "positive_gap_3": 2325,
+      "positive_gap_5": 2277
+    },
+    "train_063": {
+      "candidates": 24627,
+      "known": 24627,
+      "positive": 24626,
+      "positive_gap_1": 5154,
+      "positive_gap_3": 4876,
+      "positive_gap_5": 4798
+    },
+    "train_069": {
+      "candidates": 28709,
+      "known": 28709,
+      "positive": 28709,
+      "positive_gap_1": 5995,
+      "positive_gap_3": 5692,
+      "positive_gap_5": 5605
+    }
+  },
+  "metadata": {
+    "packets": [
+      6,
+      11,
+      17,
+      24,
+      35,
+      43,
+      51,
+      63,
+      69
+    ],
+    "mode": "early",
+    "start_floor": 0.985,
+    "link_floor": 0.95,
+    "score_version": "b02-local-pntid-v1",
+    "source_sha256": {
+      "paired_returns.py": "6df071fe1c33285a4c069273891539c08635a48144f5d46837bba655f72baf9f",
+      "causal_birth_paths.py": "4867b161674bf732054a014b3e1216d5b10a86bc5c84a51edecd080a748858e1"
+    },
+    "model_sha256": {
+      "teacher": "5d823e1869b4a0275c61e13441e62743b95b0ca86fefe3e99f6ddc5a9d6dfe2d",
+      "pair": "ed192441218ab2585bd80477ad9c1e1b14637dbee8855598979c1d8594515588",
+      "birth": "6e3b30307708f1f2136fa155b31835c1684ebb171ccc56d596d39dc5ac2ae008",
+      "clock": "70a52d51d8770d84cec6ca09e4dee026a6f77790aace77e6733a6a855f99559f",
+      "paired_returns": "c72ee4defcdd760cd9c54f4afd1343c09371ca818e31ebf2f297cf0c6651c56c"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "metadata": {
+    "packet_ids": [
+      2,
+      5,
+      10,
+      13,
+      19,
+      22
+    ],
+    "source_sha256": "62092d7362a6783de69d231bbe3ba59890f61dd6f7d2a9cfaba30d0588bb9705",
+    "models": {
+      "teacher": "5d823e1869b4a0275c61e13441e62743b95b0ca86fefe3e99f6ddc5a9d6dfe2d",
+      "membership": "d56887c8e3f27081ac0e1afe03700d76be1324a6f7c109a56800d9f92a2bca1e"
+    }
+  },
+  "training_rows": 95433,
+  "training_positives": 30044,
+  "diagnostics": {
+    "positive_both": 27742,
+    "positive_single": 2302,
+    "negative_with_clutter": 633,
+    "negative_without_clutter": 64756
+  },
+  "parameters": {
+    "objective": "binary",
+    "learning_rate": 0.085,
+    "num_leaves": 31,
+    "min_child_samples": 45,
+    "verbosity": -1,
+    "num_threads": 2,
+    "seed": 2175,
+    "force_col_wise": true
+  }
+}

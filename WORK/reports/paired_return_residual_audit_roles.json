@@ -1,0 +1,543 @@
+{
+  "packets": [
+    6,
+    14,
+    22,
+    24,
+    26,
+    35
+  ],
+  "score_version": "b02-local-pntid-v1",
+  "model_sha256": {
+    "teacher": "5d823e1869b4a0275c61e13441e62743b95b0ca86fefe3e99f6ddc5a9d6dfe2d",
+    "pair": "ed192441218ab2585bd80477ad9c1e1b14637dbee8855598979c1d8594515588",
+    "birth": "6e3b30307708f1f2136fa155b31835c1684ebb171ccc56d596d39dc5ac2ae008",
+    "clock": "70a52d51d8770d84cec6ca09e4dee026a6f77790aace77e6733a6a855f99559f",
+    "paired": "c72ee4defcdd760cd9c54f4afd1343c09371ca818e31ebf2f297cf0c6651c56c"
+  },
+  "source_sha256": {
+    "paired_returns.py": "ab34f5d6b05c6c48bcc1e5b938b93cf4cc27b2dfecd12f2e124e87723e211ba2",
+    "causal_birth_paths.py": "1887b1d06eeb151c4c9354bebfe6b0e66766f170b876a8414fc517513994def1",
+    "paired_return_residual_audit.py": "75a36b8596c6dfaef0aa9a5a2bc86b44902b78c4d47667441fe048374b0f96ec"
+  },
+  "variants": {
+    "exact_pairs": {
+      "truth_points": 115703,
+      "output_points": 120277,
+      "matched_points": 112206,
+      "clutter_output_points": 4969,
+      "unknown_output_points": 3102,
+      "output_tracks": 2881,
+      "merged_output_tracks": 205,
+      "merged_truth_points": 1108,
+      "identity_true_positive_points": 108427,
+      "truth_tracks": 702,
+      "matched_truth_tracks": 702,
+      "missed_truth_points": 3497,
+      "unmatched_output_points": 8071,
+      "point_coverage": 0.969776064579138,
+      "mean_track_coverage": 0.9524558890439486,
+      "false_alarm_ratio": 0.06975618609716257,
+      "idf1": 0.9189507585388592,
+      "merged_truth_point_ratio": 0.009874694757856087,
+      "split_truth_tracks": 258,
+      "id_switches": 750,
+      "missed_segments": 930,
+      "circle_gaps": 4220,
+      "score": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 702,
+        "tracks": 702,
+        "raw_percent_scores": {
+          "coverage": 95.24558890439486,
+          "timeliness": 91.8575698005698,
+          "timeliness_first_hit": 91.51513675213675,
+          "tracking_length": 94.61372453087353,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 81.0303893637227,
+          "false_alarm": 93.02438139028374
+        },
+        "weighted_points": {
+          "coverage": 28.57367667131846,
+          "false_alarm": 9.302438139028373,
+          "fragmentation": 16.20607787274454,
+          "timeliness": 18.371513960113962,
+          "tracking_length": 18.922744906174703
+        },
+        "total": 91.37645154938004,
+        "total_literal_max": 92.45370664320534,
+        "total_first_hit": 91.30796493969342
+      }
+    },
+    "perfect_identity_on_observed_points": {
+      "truth_points": 115703,
+      "output_points": 120277,
+      "matched_points": 112206,
+      "clutter_output_points": 4969,
+      "unknown_output_points": 3102,
+      "output_tracks": 2969,
+      "merged_output_tracks": 0,
+      "merged_truth_points": 0,
+      "identity_true_positive_points": 112206,
+      "truth_tracks": 702,
+      "matched_truth_tracks": 702,
+      "missed_truth_points": 3497,
+      "unmatched_output_points": 8071,
+      "point_coverage": 0.969776064579138,
+      "mean_track_coverage": 0.9524558890439486,
+      "false_alarm_ratio": 0.06975618609716257,
+      "idf1": 0.9509788965166539,
+      "merged_truth_point_ratio": 0.0,
+      "split_truth_tracks": 0,
+      "id_switches": 0,
+      "missed_segments": 930,
+      "circle_gaps": 4220,
+      "score": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 702,
+        "tracks": 702,
+        "raw_percent_scores": {
+          "coverage": 95.24558890439486,
+          "timeliness": 91.51513675213675,
+          "timeliness_first_hit": 91.51513675213675,
+          "tracking_length": 97.17719374260695,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 100.0,
+          "false_alarm": 93.02438139028374
+        },
+        "weighted_points": {
+          "coverage": 28.57367667131846,
+          "false_alarm": 9.302438139028373,
+          "fragmentation": 20.0,
+          "timeliness": 18.30302735042735,
+          "tracking_length": 19.43543874852139
+        },
+        "total": 95.61458090929557,
+        "total_literal_max": 96.17914216077418,
+        "total_first_hit": 95.61458090929557
+      }
+    },
+    "perfect_identity_and_fill_late_birth": {
+      "truth_points": 115703,
+      "output_points": 120844,
+      "matched_points": 112773,
+      "clutter_output_points": 4969,
+      "unknown_output_points": 3102,
+      "output_tracks": 2969,
+      "merged_output_tracks": 0,
+      "merged_truth_points": 0,
+      "identity_true_positive_points": 112773,
+      "truth_tracks": 702,
+      "matched_truth_tracks": 702,
+      "missed_truth_points": 2930,
+      "unmatched_output_points": 8071,
+      "point_coverage": 0.9746765425269872,
+      "mean_track_coverage": 0.9611416902753362,
+      "false_alarm_ratio": 0.06975618609716257,
+      "idf1": 0.9534933860924044,
+      "merged_truth_point_ratio": 0.0,
+      "split_truth_tracks": 0,
+      "id_switches": 0,
+      "missed_segments": 930,
+      "circle_gaps": 4257,
+      "score": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 702,
+        "tracks": 702,
+        "raw_percent_scores": {
+          "coverage": 96.11416902753362,
+          "timeliness": 100.0,
+          "timeliness_first_hit": 100.0,
+          "tracking_length": 98.08028237126291,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 100.0,
+          "false_alarm": 93.02438139028374
+        },
+        "weighted_points": {
+          "coverage": 28.834250708260086,
+          "false_alarm": 9.302438139028373,
+          "fragmentation": 20.0,
+          "timeliness": 20.0,
+          "tracking_length": 19.61605647425258
+        },
+        "total": 97.75274532154104,
+        "total_literal_max": 98.13668884728845,
+        "total_first_hit": 97.75274532154104
+      }
+    },
+    "perfect_identity_and_fill_mature": {
+      "truth_points": 115703,
+      "output_points": 121980,
+      "matched_points": 113909,
+      "clutter_output_points": 4969,
+      "unknown_output_points": 3102,
+      "output_tracks": 2969,
+      "merged_output_tracks": 0,
+      "merged_truth_points": 0,
+      "identity_true_positive_points": 113909,
+      "truth_tracks": 702,
+      "matched_truth_tracks": 702,
+      "missed_truth_points": 1794,
+      "unmatched_output_points": 8071,
+      "point_coverage": 0.984494784059186,
+      "mean_track_coverage": 0.9711594802026837,
+      "false_alarm_ratio": 0.06975618609716257,
+      "idf1": 0.958495138482769,
+      "merged_truth_point_ratio": 0.0,
+      "split_truth_tracks": 0,
+      "id_switches": 0,
+      "missed_segments": 0,
+      "circle_gaps": 3517,
+      "score": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 702,
+        "tracks": 702,
+        "raw_percent_scores": {
+          "coverage": 97.11594802026838,
+          "timeliness": 91.51513675213675,
+          "timeliness_first_hit": 91.51513675213675,
+          "tracking_length": 99.09691137134404,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 100.0,
+          "false_alarm": 93.02438139028374
+        },
+        "weighted_points": {
+          "coverage": 29.134784406080513,
+          "false_alarm": 9.302438139028373,
+          "fragmentation": 20.0,
+          "timeliness": 18.30302735042735,
+          "tracking_length": 19.819382274268808
+        },
+        "total": 96.55963216980504,
+        "total_literal_max": 96.74024989553624,
+        "total_first_hit": 96.55963216980504
+      }
+    }
+  },
+  "switches": {
+    "total": 750,
+    "adjacent": 559,
+    "reciprocal": 52,
+    "persistent_reciprocal": 22,
+    "destination_persistent": 386,
+    "source_visible_now": 343,
+    "source_active_now": 742,
+    "destination_newly_confirmed": 60,
+    "destination_recently_confirmed": 77,
+    "destination_owned_by_other_truth": 340,
+    "source_owned_by_other_truth": 331,
+    "returning_after_interruption": 464,
+    "returning_after_1_to_3_wrong_returns": 320,
+    "source_origin_within_3_scans": 16,
+    "current_in_exact_geometry_pair": 312,
+    "current_locked_by_pair": 299,
+    "lock_kept_same_physical_target": 298,
+    "lock_prior_was_confirmed_pair": 298,
+    "lock_prior_kept_same_target_and_confirmed": 297,
+    "lock_reverted_from_unlocked_prior_output": 297,
+    "lock_prior_real_return_was_within_3_scans": 224,
+    "lock_prior_return_was_linked_to_destination": 286,
+    "lock_resumed_after_1_to_3_wrong_returns": 288,
+    "lock_overrode_source_owned_by_other_truth": 291,
+    "inactive_source_recent_destination": 6,
+    "inactive_source_gap_8_plus": 6
+  },
+  "wrong_owner": {
+    "points_in_short_wrong_run": 466,
+    "points_in_persistent_wrong_run": 642
+  },
+  "startup": {
+    "truth_tracks": 702,
+    "late_truth_tracks": 227
+  },
+  "detector_at_prior_unsafe_output": {
+    "mate_absent": 273,
+    "clock_or_amplitude_eligibility": 20,
+    "amplitude": 4
+  },
+  "sole_return_timing_role": {
+    "earlier": 136,
+    "later": 137
+  },
+  "by_packet": {
+    "6": {
+      "switches": {
+        "total": 142,
+        "adjacent": 118,
+        "reciprocal": 16,
+        "persistent_reciprocal": 6,
+        "destination_persistent": 70,
+        "source_visible_now": 75,
+        "source_active_now": 140,
+        "destination_newly_confirmed": 8,
+        "destination_recently_confirmed": 10,
+        "destination_owned_by_other_truth": 68,
+        "source_owned_by_other_truth": 66,
+        "returning_after_interruption": 95,
+        "returning_after_1_to_3_wrong_returns": 65,
+        "source_origin_within_3_scans": 2,
+        "current_in_exact_geometry_pair": 69,
+        "current_locked_by_pair": 66,
+        "lock_kept_same_physical_target": 65,
+        "lock_prior_was_confirmed_pair": 66,
+        "lock_prior_kept_same_target_and_confirmed": 65,
+        "lock_reverted_from_unlocked_prior_output": 65,
+        "lock_prior_real_return_was_within_3_scans": 50,
+        "lock_prior_return_was_linked_to_destination": 62,
+        "lock_resumed_after_1_to_3_wrong_returns": 63,
+        "lock_overrode_source_owned_by_other_truth": 65,
+        "inactive_source_recent_destination": 2,
+        "inactive_source_gap_8_plus": 2
+      },
+      "wrong_owner": {
+        "points_in_short_wrong_run": 97,
+        "points_in_persistent_wrong_run": 340
+      },
+      "startup": {
+        "truth_tracks": 117,
+        "late_truth_tracks": 28,
+        "never_visible": 0
+      },
+      "detector_at_prior_unsafe_output": {
+        "mate_absent": 57,
+        "clock_or_amplitude_eligibility": 8
+      },
+      "sole_return_timing_role": {
+        "earlier": 28,
+        "later": 29
+      }
+    },
+    "14": {
+      "switches": {
+        "total": 160,
+        "adjacent": 120,
+        "reciprocal": 8,
+        "persistent_reciprocal": 4,
+        "destination_persistent": 77,
+        "source_visible_now": 68,
+        "source_active_now": 158,
+        "destination_newly_confirmed": 12,
+        "destination_recently_confirmed": 16,
+        "destination_owned_by_other_truth": 74,
+        "source_owned_by_other_truth": 72,
+        "returning_after_interruption": 94,
+        "returning_after_1_to_3_wrong_returns": 67,
+        "source_origin_within_3_scans": 3,
+        "current_in_exact_geometry_pair": 63,
+        "current_locked_by_pair": 62,
+        "lock_kept_same_physical_target": 62,
+        "lock_prior_was_confirmed_pair": 61,
+        "lock_prior_kept_same_target_and_confirmed": 61,
+        "lock_reverted_from_unlocked_prior_output": 62,
+        "lock_prior_real_return_was_within_3_scans": 46,
+        "lock_prior_return_was_linked_to_destination": 60,
+        "lock_resumed_after_1_to_3_wrong_returns": 59,
+        "lock_overrode_source_owned_by_other_truth": 60,
+        "inactive_source_recent_destination": 2,
+        "inactive_source_gap_8_plus": 2
+      },
+      "wrong_owner": {
+        "points_in_short_wrong_run": 97,
+        "points_in_persistent_wrong_run": 13
+      },
+      "startup": {
+        "truth_tracks": 132,
+        "late_truth_tracks": 36,
+        "never_visible": 0
+      },
+      "detector_at_prior_unsafe_output": {
+        "mate_absent": 60,
+        "clock_or_amplitude_eligibility": 2
+      },
+      "sole_return_timing_role": {
+        "later": 32,
+        "earlier": 28
+      }
+    },
+    "22": {
+      "switches": {
+        "total": 128,
+        "adjacent": 99,
+        "reciprocal": 10,
+        "persistent_reciprocal": 4,
+        "destination_persistent": 66,
+        "source_visible_now": 56,
+        "source_active_now": 126,
+        "destination_newly_confirmed": 15,
+        "destination_recently_confirmed": 16,
+        "destination_owned_by_other_truth": 58,
+        "source_owned_by_other_truth": 53,
+        "returning_after_interruption": 76,
+        "returning_after_1_to_3_wrong_returns": 53,
+        "source_origin_within_3_scans": 2,
+        "current_in_exact_geometry_pair": 54,
+        "current_locked_by_pair": 49,
+        "lock_kept_same_physical_target": 49,
+        "lock_prior_was_confirmed_pair": 49,
+        "lock_prior_kept_same_target_and_confirmed": 49,
+        "lock_reverted_from_unlocked_prior_output": 49,
+        "lock_prior_real_return_was_within_3_scans": 37,
+        "lock_prior_return_was_linked_to_destination": 48,
+        "lock_resumed_after_1_to_3_wrong_returns": 48,
+        "lock_overrode_source_owned_by_other_truth": 48,
+        "inactive_source_recent_destination": 1,
+        "inactive_source_gap_8_plus": 1
+      },
+      "wrong_owner": {
+        "points_in_short_wrong_run": 86,
+        "points_in_persistent_wrong_run": 0
+      },
+      "startup": {
+        "truth_tracks": 117,
+        "late_truth_tracks": 35,
+        "never_visible": 0
+      },
+      "detector_at_prior_unsafe_output": {
+        "mate_absent": 43,
+        "clock_or_amplitude_eligibility": 4,
+        "amplitude": 2
+      },
+      "sole_return_timing_role": {
+        "earlier": 21,
+        "later": 22
+      }
+    },
+    "24": {
+      "switches": {
+        "total": 199,
+        "adjacent": 136,
+        "reciprocal": 10,
+        "persistent_reciprocal": 4,
+        "destination_persistent": 107,
+        "source_visible_now": 90,
+        "source_active_now": 198,
+        "destination_newly_confirmed": 11,
+        "destination_recently_confirmed": 17,
+        "destination_owned_by_other_truth": 90,
+        "source_owned_by_other_truth": 88,
+        "returning_after_interruption": 131,
+        "returning_after_1_to_3_wrong_returns": 85,
+        "source_origin_within_3_scans": 6,
+        "current_in_exact_geometry_pair": 76,
+        "current_locked_by_pair": 73,
+        "lock_kept_same_physical_target": 73,
+        "lock_prior_was_confirmed_pair": 73,
+        "lock_prior_kept_same_target_and_confirmed": 73,
+        "lock_reverted_from_unlocked_prior_output": 72,
+        "lock_prior_real_return_was_within_3_scans": 54,
+        "lock_prior_return_was_linked_to_destination": 69,
+        "lock_resumed_after_1_to_3_wrong_returns": 70,
+        "lock_overrode_source_owned_by_other_truth": 72
+      },
+      "wrong_owner": {
+        "points_in_short_wrong_run": 118,
+        "points_in_persistent_wrong_run": 97
+      },
+      "startup": {
+        "truth_tracks": 140,
+        "late_truth_tracks": 63,
+        "never_visible": 0
+      },
+      "detector_at_prior_unsafe_output": {
+        "mate_absent": 68,
+        "clock_or_amplitude_eligibility": 4
+      },
+      "sole_return_timing_role": {
+        "earlier": 38,
+        "later": 30
+      }
+    },
+    "26": {
+      "switches": {
+        "total": 54,
+        "adjacent": 34,
+        "reciprocal": 4,
+        "persistent_reciprocal": 2,
+        "destination_persistent": 29,
+        "source_visible_now": 23,
+        "source_active_now": 53,
+        "destination_newly_confirmed": 9,
+        "destination_recently_confirmed": 12,
+        "destination_owned_by_other_truth": 20,
+        "source_owned_by_other_truth": 22,
+        "returning_after_interruption": 27,
+        "returning_after_1_to_3_wrong_returns": 21,
+        "source_origin_within_3_scans": 1,
+        "current_in_exact_geometry_pair": 20,
+        "current_locked_by_pair": 19,
+        "lock_kept_same_physical_target": 19,
+        "lock_prior_was_confirmed_pair": 19,
+        "lock_prior_kept_same_target_and_confirmed": 19,
+        "lock_reverted_from_unlocked_prior_output": 19,
+        "lock_prior_real_return_was_within_3_scans": 14,
+        "lock_prior_return_was_linked_to_destination": 19,
+        "lock_resumed_after_1_to_3_wrong_returns": 19,
+        "lock_overrode_source_owned_by_other_truth": 18,
+        "inactive_source_recent_destination": 1,
+        "inactive_source_gap_8_plus": 1
+      },
+      "wrong_owner": {
+        "points_in_short_wrong_run": 29,
+        "points_in_persistent_wrong_run": 0
+      },
+      "startup": {
+        "truth_tracks": 85,
+        "late_truth_tracks": 28,
+        "never_visible": 0
+      },
+      "detector_at_prior_unsafe_output": {
+        "mate_absent": 17,
+        "amplitude": 2
+      },
+      "sole_return_timing_role": {
+        "earlier": 9,
+        "later": 8
+      }
+    },
+    "35": {
+      "switches": {
+        "total": 67,
+        "adjacent": 52,
+        "reciprocal": 4,
+        "persistent_reciprocal": 2,
+        "destination_persistent": 37,
+        "source_visible_now": 31,
+        "source_active_now": 67,
+        "destination_newly_confirmed": 5,
+        "destination_recently_confirmed": 6,
+        "destination_owned_by_other_truth": 30,
+        "source_owned_by_other_truth": 30,
+        "returning_after_interruption": 41,
+        "returning_after_1_to_3_wrong_returns": 29,
+        "source_origin_within_3_scans": 2,
+        "current_in_exact_geometry_pair": 30,
+        "current_locked_by_pair": 30,
+        "lock_kept_same_physical_target": 30,
+        "lock_prior_was_confirmed_pair": 30,
+        "lock_prior_kept_same_target_and_confirmed": 30,
+        "lock_reverted_from_unlocked_prior_output": 30,
+        "lock_prior_real_return_was_within_3_scans": 23,
+        "lock_prior_return_was_linked_to_destination": 28,
+        "lock_resumed_after_1_to_3_wrong_returns": 29,
+        "lock_overrode_source_owned_by_other_truth": 28
+      },
+      "wrong_owner": {
+        "points_in_short_wrong_run": 39,
+        "points_in_persistent_wrong_run": 192
+      },
+      "startup": {
+        "truth_tracks": 111,
+        "late_truth_tracks": 37,
+        "never_visible": 0
+      },
+      "detector_at_prior_unsafe_output": {
+        "mate_absent": 28,
+        "clock_or_amplitude_eligibility": 2
+      },
+      "sole_return_timing_role": {
+        "later": 16,
+        "earlier": 12
+      }
+    }
+  }
+}

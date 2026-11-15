@@ -1,0 +1,21 @@
+{
+  "training_packet_ids": [
+    1,
+    2,
+    6,
+    9,
+    12,
+    14,
+    18,
+    24,
+    31,
+    35,
+    43,
+    69
+  ],
+  "trees": 145,
+  "transition_rows": 364085,
+  "positive_rows": 235736,
+  "teacher_history_gate_recall_rounded": 0.9966,
+  "sha256": "4daed4041d75b56a9f7667ee8bf3620651e699bf55fd739dd6d412acbdd66b38"
+}

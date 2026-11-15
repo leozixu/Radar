@@ -1,0 +1,1509 @@
+{
+  "packets": [
+    71,
+    76,
+    79,
+    85
+  ],
+  "score_version": "b02-local-pntid-v1",
+  "thresholds": {
+    "baseline": [
+      0.0,
+      1.0
+    ],
+    "drop_05": [
+      0.05,
+      1.0
+    ],
+    "drop_10": [
+      0.1,
+      1.0
+    ],
+    "drop_20": [
+      0.2,
+      1.0
+    ],
+    "rescue_65": [
+      0.0,
+      0.65
+    ],
+    "rescue_80": [
+      0.0,
+      0.8
+    ],
+    "rescue_92": [
+      0.0,
+      0.92
+    ],
+    "combined_05_65": [
+      0.05,
+      0.65
+    ],
+    "combined_10_80": [
+      0.1,
+      0.8
+    ],
+    "combined_20_92": [
+      0.2,
+      0.92
+    ]
+  },
+  "source_sha256": "2da8a2e3dc10c75560934b94ab17e78e6d2e10efde6829c85779468ede2511d4",
+  "paired_returns_sha256": "c72ee4defcdd760cd9c54f4afd1343c09371ca818e31ebf2f297cf0c6651c56c",
+  "models": {
+    "detection": "8bd6161036cce13e17107316d30219979b74295a9c4eeec3f8179ba13031abc0",
+    "ownership": "0d2e034e63940c44f8c9f8ef9d20e36a96bd55f6d6aa50216483f98682602b34"
+  },
+  "summaries": {
+    "baseline": {
+      "truth_points": 82555,
+      "output_points": 85733,
+      "matched_points": 80096,
+      "clutter_output_points": 2830,
+      "unknown_output_points": 2807,
+      "output_tracks": 1851,
+      "merged_output_tracks": 145,
+      "merged_truth_points": 1692,
+      "identity_true_positive_points": 76558,
+      "truth_tracks": 515,
+      "matched_truth_tracks": 515,
+      "missed_truth_points": 2459,
+      "unmatched_output_points": 5637,
+      "point_coverage": 0.9702137968626976,
+      "mean_track_coverage": 0.9497165025397141,
+      "false_alarm_ratio": 0.06828175155956635,
+      "idf1": 0.9098450275717818,
+      "merged_truth_point_ratio": 0.021124650419496602,
+      "split_truth_tracks": 174,
+      "id_switches": 520,
+      "missed_segments": 572,
+      "circle_gaps": 2919,
+      "score": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 515,
+        "tracks": 515,
+        "raw_percent_scores": {
+          "coverage": 94.9716502539714,
+          "timeliness": 91.38888155339806,
+          "timeliness_first_hit": 91.01696310679613,
+          "tracking_length": 94.37009015442955,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 82.46601941747572,
+          "false_alarm": 93.17182484404336
+        },
+        "weighted_points": {
+          "coverage": 28.491495076191423,
+          "false_alarm": 9.317182484404336,
+          "fragmentation": 16.493203883495145,
+          "timeliness": 18.277776310679613,
+          "tracking_length": 18.87401803088591
+        },
+        "total": 91.45367578565643,
+        "total_literal_max": 92.57965775477052,
+        "total_first_hit": 91.37929209633604
+      }
+    },
+    "drop_05": {
+      "truth_points": 82555,
+      "output_points": 85733,
+      "matched_points": 80096,
+      "clutter_output_points": 2830,
+      "unknown_output_points": 2807,
+      "output_tracks": 1851,
+      "merged_output_tracks": 145,
+      "merged_truth_points": 1692,
+      "identity_true_positive_points": 76558,
+      "truth_tracks": 515,
+      "matched_truth_tracks": 515,
+      "missed_truth_points": 2459,
+      "unmatched_output_points": 5637,
+      "point_coverage": 0.9702137968626976,
+      "mean_track_coverage": 0.9497165025397141,
+      "false_alarm_ratio": 0.06828175155956635,
+      "idf1": 0.9098450275717818,
+      "merged_truth_point_ratio": 0.021124650419496602,
+      "split_truth_tracks": 174,
+      "id_switches": 520,
+      "missed_segments": 572,
+      "circle_gaps": 2919,
+      "score": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 515,
+        "tracks": 515,
+        "raw_percent_scores": {
+          "coverage": 94.9716502539714,
+          "timeliness": 91.38888155339806,
+          "timeliness_first_hit": 91.01696310679613,
+          "tracking_length": 94.37009015442955,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 82.46601941747572,
+          "false_alarm": 93.17182484404336
+        },
+        "weighted_points": {
+          "coverage": 28.491495076191423,
+          "false_alarm": 9.317182484404336,
+          "fragmentation": 16.493203883495145,
+          "timeliness": 18.277776310679613,
+          "tracking_length": 18.87401803088591
+        },
+        "total": 91.45367578565643,
+        "total_literal_max": 92.57965775477052,
+        "total_first_hit": 91.37929209633604
+      }
+    },
+    "drop_10": {
+      "truth_points": 82555,
+      "output_points": 85733,
+      "matched_points": 80096,
+      "clutter_output_points": 2830,
+      "unknown_output_points": 2807,
+      "output_tracks": 1851,
+      "merged_output_tracks": 145,
+      "merged_truth_points": 1692,
+      "identity_true_positive_points": 76558,
+      "truth_tracks": 515,
+      "matched_truth_tracks": 515,
+      "missed_truth_points": 2459,
+      "unmatched_output_points": 5637,
+      "point_coverage": 0.9702137968626976,
+      "mean_track_coverage": 0.9497165025397141,
+      "false_alarm_ratio": 0.06828175155956635,
+      "idf1": 0.9098450275717818,
+      "merged_truth_point_ratio": 0.021124650419496602,
+      "split_truth_tracks": 174,
+      "id_switches": 520,
+      "missed_segments": 572,
+      "circle_gaps": 2919,
+      "score": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 515,
+        "tracks": 515,
+        "raw_percent_scores": {
+          "coverage": 94.9716502539714,
+          "timeliness": 91.38888155339806,
+          "timeliness_first_hit": 91.01696310679613,
+          "tracking_length": 94.37009015442955,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 82.46601941747572,
+          "false_alarm": 93.17182484404336
+        },
+        "weighted_points": {
+          "coverage": 28.491495076191423,
+          "false_alarm": 9.317182484404336,
+          "fragmentation": 16.493203883495145,
+          "timeliness": 18.277776310679613,
+          "tracking_length": 18.87401803088591
+        },
+        "total": 91.45367578565643,
+        "total_literal_max": 92.57965775477052,
+        "total_first_hit": 91.37929209633604
+      }
+    },
+    "drop_20": {
+      "truth_points": 82555,
+      "output_points": 85733,
+      "matched_points": 80096,
+      "clutter_output_points": 2830,
+      "unknown_output_points": 2807,
+      "output_tracks": 1851,
+      "merged_output_tracks": 145,
+      "merged_truth_points": 1692,
+      "identity_true_positive_points": 76558,
+      "truth_tracks": 515,
+      "matched_truth_tracks": 515,
+      "missed_truth_points": 2459,
+      "unmatched_output_points": 5637,
+      "point_coverage": 0.9702137968626976,
+      "mean_track_coverage": 0.9497165025397141,
+      "false_alarm_ratio": 0.06828175155956635,
+      "idf1": 0.9098450275717818,
+      "merged_truth_point_ratio": 0.021124650419496602,
+      "split_truth_tracks": 174,
+      "id_switches": 520,
+      "missed_segments": 572,
+      "circle_gaps": 2919,
+      "score": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 515,
+        "tracks": 515,
+        "raw_percent_scores": {
+          "coverage": 94.9716502539714,
+          "timeliness": 91.38888155339806,
+          "timeliness_first_hit": 91.01696310679613,
+          "tracking_length": 94.37009015442955,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 82.46601941747572,
+          "false_alarm": 93.17182484404336
+        },
+        "weighted_points": {
+          "coverage": 28.491495076191423,
+          "false_alarm": 9.317182484404336,
+          "fragmentation": 16.493203883495145,
+          "timeliness": 18.277776310679613,
+          "tracking_length": 18.87401803088591
+        },
+        "total": 91.45367578565643,
+        "total_literal_max": 92.57965775477052,
+        "total_first_hit": 91.37929209633604
+      }
+    },
+    "rescue_65": {
+      "truth_points": 82555,
+      "output_points": 86152,
+      "matched_points": 80432,
+      "clutter_output_points": 2848,
+      "unknown_output_points": 2872,
+      "output_tracks": 1859,
+      "merged_output_tracks": 146,
+      "merged_truth_points": 1706,
+      "identity_true_positive_points": 76844,
+      "truth_tracks": 515,
+      "matched_truth_tracks": 515,
+      "missed_truth_points": 2123,
+      "unmatched_output_points": 5720,
+      "point_coverage": 0.9742838107928048,
+      "mean_track_coverage": 0.9550699864067616,
+      "false_alarm_ratio": 0.06928714190539641,
+      "idf1": 0.9109758338421049,
+      "merged_truth_point_ratio": 0.021210463497115577,
+      "split_truth_tracks": 178,
+      "id_switches": 529,
+      "missed_segments": 506,
+      "circle_gaps": 2885,
+      "score": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 515,
+        "tracks": 515,
+        "raw_percent_scores": {
+          "coverage": 95.50699864067616,
+          "timeliness": 93.75872233009709,
+          "timeliness_first_hit": 93.54278058252426,
+          "tracking_length": 94.76601464680903,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 82.0453074433657,
+          "false_alarm": 93.07128580946036
+        },
+        "weighted_points": {
+          "coverage": 28.652099592202845,
+          "false_alarm": 9.307128580946035,
+          "fragmentation": 16.40906148867314,
+          "timeliness": 18.751744466019417,
+          "tracking_length": 18.953202929361805
+        },
+        "total": 92.07323705720324,
+        "total_literal_max": 93.12003412784144,
+        "total_first_hit": 92.03004870768868
+      }
+    },
+    "rescue_80": {
+      "truth_points": 82555,
+      "output_points": 86117,
+      "matched_points": 80409,
+      "clutter_output_points": 2840,
+      "unknown_output_points": 2868,
+      "output_tracks": 1856,
+      "merged_output_tracks": 146,
+      "merged_truth_points": 1706,
+      "identity_true_positive_points": 76826,
+      "truth_tracks": 515,
+      "matched_truth_tracks": 515,
+      "missed_truth_points": 2146,
+      "unmatched_output_points": 5708,
+      "point_coverage": 0.9740052086487796,
+      "mean_track_coverage": 0.9547028532832861,
+      "false_alarm_ratio": 0.06914178426503544,
+      "idf1": 0.910951432365775,
+      "merged_truth_point_ratio": 0.02121653048788071,
+      "split_truth_tracks": 178,
+      "id_switches": 529,
+      "missed_segments": 508,
+      "circle_gaps": 2885,
+      "score": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 515,
+        "tracks": 515,
+        "raw_percent_scores": {
+          "coverage": 95.47028532832861,
+          "timeliness": 93.58383300970874,
+          "timeliness_first_hit": 93.38732038834951,
+          "tracking_length": 94.7491166772683,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 82.0453074433657,
+          "false_alarm": 93.08582157349645
+        },
+        "weighted_points": {
+          "coverage": 28.64108559849858,
+          "false_alarm": 9.308582157349646,
+          "fragmentation": 16.40906148867314,
+          "timeliness": 18.71676660194175,
+          "tracking_length": 18.94982333545366
+        },
+        "total": 92.02531918191677,
+        "total_literal_max": 93.07549584646311,
+        "total_first_hit": 91.98601665764492
+      }
+    },
+    "rescue_92": {
+      "truth_points": 82555,
+      "output_points": 86064,
+      "matched_points": 80374,
+      "clutter_output_points": 2832,
+      "unknown_output_points": 2858,
+      "output_tracks": 1851,
+      "merged_output_tracks": 146,
+      "merged_truth_points": 1704,
+      "identity_true_positive_points": 76795,
+      "truth_tracks": 515,
+      "matched_truth_tracks": 515,
+      "missed_truth_points": 2181,
+      "unmatched_output_points": 5690,
+      "point_coverage": 0.9735812488643935,
+      "mean_track_coverage": 0.954118285520891,
+      "false_alarm_ratio": 0.06892374780449398,
+      "idf1": 0.9108700680231765,
+      "merged_truth_point_ratio": 0.021200885858610994,
+      "split_truth_tracks": 176,
+      "id_switches": 525,
+      "missed_segments": 510,
+      "circle_gaps": 2882,
+      "score": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 515,
+        "tracks": 515,
+        "raw_percent_scores": {
+          "coverage": 95.41182855208909,
+          "timeliness": 93.2346990291262,
+          "timeliness_first_hit": 92.94091262135922,
+          "tracking_length": 94.69405839281966,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 82.23948220064725,
+          "false_alarm": 93.1076252195506
+        },
+        "weighted_points": {
+          "coverage": 28.623548565626727,
+          "false_alarm": 9.310762521955061,
+          "fragmentation": 16.44789644012945,
+          "timeliness": 18.64693980582524,
+          "tracking_length": 18.93881167856393
+        },
+        "total": 91.96795901210041,
+        "total_literal_max": 93.02914733353647,
+        "total_first_hit": 91.90920173054701
+      }
+    },
+    "combined_05_65": {
+      "truth_points": 82555,
+      "output_points": 86152,
+      "matched_points": 80432,
+      "clutter_output_points": 2848,
+      "unknown_output_points": 2872,
+      "output_tracks": 1859,
+      "merged_output_tracks": 146,
+      "merged_truth_points": 1706,
+      "identity_true_positive_points": 76844,
+      "truth_tracks": 515,
+      "matched_truth_tracks": 515,
+      "missed_truth_points": 2123,
+      "unmatched_output_points": 5720,
+      "point_coverage": 0.9742838107928048,
+      "mean_track_coverage": 0.9550699864067616,
+      "false_alarm_ratio": 0.06928714190539641,
+      "idf1": 0.9109758338421049,
+      "merged_truth_point_ratio": 0.021210463497115577,
+      "split_truth_tracks": 178,
+      "id_switches": 529,
+      "missed_segments": 506,
+      "circle_gaps": 2885,
+      "score": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 515,
+        "tracks": 515,
+        "raw_percent_scores": {
+          "coverage": 95.50699864067616,
+          "timeliness": 93.75872233009709,
+          "timeliness_first_hit": 93.54278058252426,
+          "tracking_length": 94.76601464680903,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 82.0453074433657,
+          "false_alarm": 93.07128580946036
+        },
+        "weighted_points": {
+          "coverage": 28.652099592202845,
+          "false_alarm": 9.307128580946035,
+          "fragmentation": 16.40906148867314,
+          "timeliness": 18.751744466019417,
+          "tracking_length": 18.953202929361805
+        },
+        "total": 92.07323705720324,
+        "total_literal_max": 93.12003412784144,
+        "total_first_hit": 92.03004870768868
+      }
+    },
+    "combined_10_80": {
+      "truth_points": 82555,
+      "output_points": 86117,
+      "matched_points": 80409,
+      "clutter_output_points": 2840,
+      "unknown_output_points": 2868,
+      "output_tracks": 1856,
+      "merged_output_tracks": 146,
+      "merged_truth_points": 1706,
+      "identity_true_positive_points": 76826,
+      "truth_tracks": 515,
+      "matched_truth_tracks": 515,
+      "missed_truth_points": 2146,
+      "unmatched_output_points": 5708,
+      "point_coverage": 0.9740052086487796,
+      "mean_track_coverage": 0.9547028532832861,
+      "false_alarm_ratio": 0.06914178426503544,
+      "idf1": 0.910951432365775,
+      "merged_truth_point_ratio": 0.02121653048788071,
+      "split_truth_tracks": 178,
+      "id_switches": 529,
+      "missed_segments": 508,
+      "circle_gaps": 2885,
+      "score": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 515,
+        "tracks": 515,
+        "raw_percent_scores": {
+          "coverage": 95.47028532832861,
+          "timeliness": 93.58383300970874,
+          "timeliness_first_hit": 93.38732038834951,
+          "tracking_length": 94.7491166772683,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 82.0453074433657,
+          "false_alarm": 93.08582157349645
+        },
+        "weighted_points": {
+          "coverage": 28.64108559849858,
+          "false_alarm": 9.308582157349646,
+          "fragmentation": 16.40906148867314,
+          "timeliness": 18.71676660194175,
+          "tracking_length": 18.94982333545366
+        },
+        "total": 92.02531918191677,
+        "total_literal_max": 93.07549584646311,
+        "total_first_hit": 91.98601665764492
+      }
+    },
+    "combined_20_92": {
+      "truth_points": 82555,
+      "output_points": 86064,
+      "matched_points": 80374,
+      "clutter_output_points": 2832,
+      "unknown_output_points": 2858,
+      "output_tracks": 1851,
+      "merged_output_tracks": 146,
+      "merged_truth_points": 1704,
+      "identity_true_positive_points": 76795,
+      "truth_tracks": 515,
+      "matched_truth_tracks": 515,
+      "missed_truth_points": 2181,
+      "unmatched_output_points": 5690,
+      "point_coverage": 0.9735812488643935,
+      "mean_track_coverage": 0.954118285520891,
+      "false_alarm_ratio": 0.06892374780449398,
+      "idf1": 0.9108700680231765,
+      "merged_truth_point_ratio": 0.021200885858610994,
+      "split_truth_tracks": 176,
+      "id_switches": 525,
+      "missed_segments": 510,
+      "circle_gaps": 2882,
+      "score": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 515,
+        "tracks": 515,
+        "raw_percent_scores": {
+          "coverage": 95.41182855208909,
+          "timeliness": 93.2346990291262,
+          "timeliness_first_hit": 92.94091262135922,
+          "tracking_length": 94.69405839281966,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 82.23948220064725,
+          "false_alarm": 93.1076252195506
+        },
+        "weighted_points": {
+          "coverage": 28.623548565626727,
+          "false_alarm": 9.310762521955061,
+          "fragmentation": 16.44789644012945,
+          "timeliness": 18.64693980582524,
+          "tracking_length": 18.93881167856393
+        },
+        "total": 91.96795901210041,
+        "total_literal_max": 93.02914733353647,
+        "total_first_hit": 91.90920173054701
+      }
+    }
+  },
+  "packet_scores": [
+    {
+      "baseline": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 99,
+        "tracks": 99,
+        "raw_percent_scores": {
+          "coverage": 95.63287315836445,
+          "timeliness": 94.43674747474748,
+          "timeliness_first_hit": 94.234101010101,
+          "tracking_length": 96.05931251424448,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 85.69023569023568,
+          "false_alarm": 96.51894902530572
+        },
+        "weighted_points": {
+          "coverage": 28.689861947509332,
+          "false_alarm": 9.651894902530572,
+          "fragmentation": 17.138047138047135,
+          "timeliness": 18.887349494949493,
+          "tracking_length": 19.2118625028489
+        },
+        "total": 93.57901598588543,
+        "total_literal_max": 94.36715348303653,
+        "total_first_hit": 93.53848669295614
+      },
+      "drop_05": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 99,
+        "tracks": 99,
+        "raw_percent_scores": {
+          "coverage": 95.63287315836445,
+          "timeliness": 94.43674747474748,
+          "timeliness_first_hit": 94.234101010101,
+          "tracking_length": 96.05931251424448,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 85.69023569023568,
+          "false_alarm": 96.51894902530572
+        },
+        "weighted_points": {
+          "coverage": 28.689861947509332,
+          "false_alarm": 9.651894902530572,
+          "fragmentation": 17.138047138047135,
+          "timeliness": 18.887349494949493,
+          "tracking_length": 19.2118625028489
+        },
+        "total": 93.57901598588543,
+        "total_literal_max": 94.36715348303653,
+        "total_first_hit": 93.53848669295614
+      },
+      "drop_10": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 99,
+        "tracks": 99,
+        "raw_percent_scores": {
+          "coverage": 95.63287315836445,
+          "timeliness": 94.43674747474748,
+          "timeliness_first_hit": 94.234101010101,
+          "tracking_length": 96.05931251424448,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 85.69023569023568,
+          "false_alarm": 96.51894902530572
+        },
+        "weighted_points": {
+          "coverage": 28.689861947509332,
+          "false_alarm": 9.651894902530572,
+          "fragmentation": 17.138047138047135,
+          "timeliness": 18.887349494949493,
+          "tracking_length": 19.2118625028489
+        },
+        "total": 93.57901598588543,
+        "total_literal_max": 94.36715348303653,
+        "total_first_hit": 93.53848669295614
+      },
+      "drop_20": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 99,
+        "tracks": 99,
+        "raw_percent_scores": {
+          "coverage": 95.63287315836445,
+          "timeliness": 94.43674747474748,
+          "timeliness_first_hit": 94.234101010101,
+          "tracking_length": 96.05931251424448,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 85.69023569023568,
+          "false_alarm": 96.51894902530572
+        },
+        "weighted_points": {
+          "coverage": 28.689861947509332,
+          "false_alarm": 9.651894902530572,
+          "fragmentation": 17.138047138047135,
+          "timeliness": 18.887349494949493,
+          "tracking_length": 19.2118625028489
+        },
+        "total": 93.57901598588543,
+        "total_literal_max": 94.36715348303653,
+        "total_first_hit": 93.53848669295614
+      },
+      "rescue_65": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 99,
+        "tracks": 99,
+        "raw_percent_scores": {
+          "coverage": 96.01358062315494,
+          "timeliness": 96.35923232323232,
+          "timeliness_first_hit": 96.05583838383839,
+          "tracking_length": 96.18904960521222,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 84.68013468013467,
+          "false_alarm": 96.50684102191549
+        },
+        "weighted_points": {
+          "coverage": 28.80407418694648,
+          "false_alarm": 9.65068410219155,
+          "fragmentation": 16.936026936026934,
+          "timeliness": 19.271846464646465,
+          "tracking_length": 19.237809921042444
+        },
+        "total": 93.90044161085387,
+        "total_literal_max": 94.66263168981143,
+        "total_first_hit": 93.83976282297509
+      },
+      "rescue_80": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 99,
+        "tracks": 99,
+        "raw_percent_scores": {
+          "coverage": 95.95438147209082,
+          "timeliness": 95.85355555555556,
+          "timeliness_first_hit": 95.65123232323232,
+          "tracking_length": 96.1513971579829,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 84.68013468013467,
+          "false_alarm": 96.50684102191549
+        },
+        "weighted_points": {
+          "coverage": 28.786314441627244,
+          "false_alarm": 9.65068410219155,
+          "fragmentation": 16.936026936026934,
+          "timeliness": 19.17071111111111,
+          "tracking_length": 19.23027943159658
+        },
+        "total": 93.77401602255341,
+        "total_literal_max": 94.54373659095683,
+        "total_first_hit": 93.73355137608877
+      },
+      "rescue_92": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 99,
+        "tracks": 99,
+        "raw_percent_scores": {
+          "coverage": 95.95052243892347,
+          "timeliness": 95.55082828282828,
+          "timeliness_first_hit": 95.44933333333333,
+          "tracking_length": 96.14752332504472,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 84.68013468013467,
+          "false_alarm": 96.50684102191549
+        },
+        "weighted_points": {
+          "coverage": 28.78515673167704,
+          "false_alarm": 9.65068410219155,
+          "fragmentation": 16.936026936026934,
+          "timeliness": 19.110165656565655,
+          "tracking_length": 19.229504665008943
+        },
+        "total": 93.71153809147012,
+        "total_literal_max": 94.48203342646117,
+        "total_first_hit": 93.69123910157113
+      },
+      "combined_05_65": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 99,
+        "tracks": 99,
+        "raw_percent_scores": {
+          "coverage": 96.01358062315494,
+          "timeliness": 96.35923232323232,
+          "timeliness_first_hit": 96.05583838383839,
+          "tracking_length": 96.18904960521222,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 84.68013468013467,
+          "false_alarm": 96.50684102191549
+        },
+        "weighted_points": {
+          "coverage": 28.80407418694648,
+          "false_alarm": 9.65068410219155,
+          "fragmentation": 16.936026936026934,
+          "timeliness": 19.271846464646465,
+          "tracking_length": 19.237809921042444
+        },
+        "total": 93.90044161085387,
+        "total_literal_max": 94.66263168981143,
+        "total_first_hit": 93.83976282297509
+      },
+      "combined_10_80": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 99,
+        "tracks": 99,
+        "raw_percent_scores": {
+          "coverage": 95.95438147209082,
+          "timeliness": 95.85355555555556,
+          "timeliness_first_hit": 95.65123232323232,
+          "tracking_length": 96.1513971579829,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 84.68013468013467,
+          "false_alarm": 96.50684102191549
+        },
+        "weighted_points": {
+          "coverage": 28.786314441627244,
+          "false_alarm": 9.65068410219155,
+          "fragmentation": 16.936026936026934,
+          "timeliness": 19.17071111111111,
+          "tracking_length": 19.23027943159658
+        },
+        "total": 93.77401602255341,
+        "total_literal_max": 94.54373659095683,
+        "total_first_hit": 93.73355137608877
+      },
+      "combined_20_92": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 99,
+        "tracks": 99,
+        "raw_percent_scores": {
+          "coverage": 95.95052243892347,
+          "timeliness": 95.55082828282828,
+          "timeliness_first_hit": 95.44933333333333,
+          "tracking_length": 96.14752332504472,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 84.68013468013467,
+          "false_alarm": 96.50684102191549
+        },
+        "weighted_points": {
+          "coverage": 28.78515673167704,
+          "false_alarm": 9.65068410219155,
+          "fragmentation": 16.936026936026934,
+          "timeliness": 19.110165656565655,
+          "tracking_length": 19.229504665008943
+        },
+        "total": 93.71153809147012,
+        "total_literal_max": 94.48203342646117,
+        "total_first_hit": 93.69123910157113
+      }
+    },
+    {
+      "baseline": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 141,
+        "tracks": 141,
+        "raw_percent_scores": {
+          "coverage": 94.37595920828723,
+          "timeliness": 88.04076595744681,
+          "timeliness_first_hit": 87.67716312056737,
+          "tracking_length": 93.99266997432835,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 83.92434988179669,
+          "false_alarm": 90.42482417791294
+        },
+        "weighted_points": {
+          "coverage": 28.31278776248617,
+          "false_alarm": 9.042482417791295,
+          "fragmentation": 16.78486997635934,
+          "timeliness": 17.60815319148936,
+          "tracking_length": 18.798533994865668
+        },
+        "total": 90.54682734299183,
+        "total_literal_max": 91.74829334812617,
+        "total_first_hit": 90.47410677561595
+      },
+      "drop_05": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 141,
+        "tracks": 141,
+        "raw_percent_scores": {
+          "coverage": 94.37595920828723,
+          "timeliness": 88.04076595744681,
+          "timeliness_first_hit": 87.67716312056737,
+          "tracking_length": 93.99266997432835,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 83.92434988179669,
+          "false_alarm": 90.42482417791294
+        },
+        "weighted_points": {
+          "coverage": 28.31278776248617,
+          "false_alarm": 9.042482417791295,
+          "fragmentation": 16.78486997635934,
+          "timeliness": 17.60815319148936,
+          "tracking_length": 18.798533994865668
+        },
+        "total": 90.54682734299183,
+        "total_literal_max": 91.74829334812617,
+        "total_first_hit": 90.47410677561595
+      },
+      "drop_10": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 141,
+        "tracks": 141,
+        "raw_percent_scores": {
+          "coverage": 94.37595920828723,
+          "timeliness": 88.04076595744681,
+          "timeliness_first_hit": 87.67716312056737,
+          "tracking_length": 93.99266997432835,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 83.92434988179669,
+          "false_alarm": 90.42482417791294
+        },
+        "weighted_points": {
+          "coverage": 28.31278776248617,
+          "false_alarm": 9.042482417791295,
+          "fragmentation": 16.78486997635934,
+          "timeliness": 17.60815319148936,
+          "tracking_length": 18.798533994865668
+        },
+        "total": 90.54682734299183,
+        "total_literal_max": 91.74829334812617,
+        "total_first_hit": 90.47410677561595
+      },
+      "drop_20": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 141,
+        "tracks": 141,
+        "raw_percent_scores": {
+          "coverage": 94.37595920828723,
+          "timeliness": 88.04076595744681,
+          "timeliness_first_hit": 87.67716312056737,
+          "tracking_length": 93.99266997432835,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 83.92434988179669,
+          "false_alarm": 90.42482417791294
+        },
+        "weighted_points": {
+          "coverage": 28.31278776248617,
+          "false_alarm": 9.042482417791295,
+          "fragmentation": 16.78486997635934,
+          "timeliness": 17.60815319148936,
+          "tracking_length": 18.798533994865668
+        },
+        "total": 90.54682734299183,
+        "total_literal_max": 91.74829334812617,
+        "total_first_hit": 90.47410677561595
+      },
+      "rescue_65": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 141,
+        "tracks": 141,
+        "raw_percent_scores": {
+          "coverage": 94.94329004536633,
+          "timeliness": 90.73401418439715,
+          "timeliness_first_hit": 90.3715744680851,
+          "tracking_length": 94.4292413751217,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 83.92434988179669,
+          "false_alarm": 90.3297852119369
+        },
+        "weighted_points": {
+          "coverage": 28.482987013609897,
+          "false_alarm": 9.032978521193689,
+          "fragmentation": 16.78486997635934,
+          "timeliness": 18.14680283687943,
+          "tracking_length": 18.88584827502434
+        },
+        "total": 91.33348662306669,
+        "total_literal_max": 92.44763834804235,
+        "total_first_hit": 91.26099867980427
+      },
+      "rescue_80": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 141,
+        "tracks": 141,
+        "raw_percent_scores": {
+          "coverage": 94.93407919972366,
+          "timeliness": 90.73401418439715,
+          "timeliness_first_hit": 90.3715744680851,
+          "tracking_length": 94.42754872629557,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 83.92434988179669,
+          "false_alarm": 90.3487930051321
+        },
+        "weighted_points": {
+          "coverage": 28.480223759917095,
+          "false_alarm": 9.03487930051321,
+          "fragmentation": 16.78486997635934,
+          "timeliness": 18.14680283687943,
+          "tracking_length": 18.885509745259114
+        },
+        "total": 91.33228561892818,
+        "total_literal_max": 92.44677587366907,
+        "total_first_hit": 91.25979767566577
+      },
+      "rescue_92": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 141,
+        "tracks": 141,
+        "raw_percent_scores": {
+          "coverage": 94.84973650680769,
+          "timeliness": 90.23817021276595,
+          "timeliness_first_hit": 89.8757304964539,
+          "tracking_length": 94.34511583427316,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 83.92434988179669,
+          "false_alarm": 90.37730469492492
+        },
+        "weighted_points": {
+          "coverage": 28.454920952042308,
+          "false_alarm": 9.037730469492493,
+          "fragmentation": 16.78486997635934,
+          "timeliness": 18.04763404255319,
+          "tracking_length": 18.86902316685463
+        },
+        "total": 91.19417860730196,
+        "total_literal_max": 92.32515544044733,
+        "total_first_hit": 91.12169066403955
+      },
+      "combined_05_65": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 141,
+        "tracks": 141,
+        "raw_percent_scores": {
+          "coverage": 94.94329004536633,
+          "timeliness": 90.73401418439715,
+          "timeliness_first_hit": 90.3715744680851,
+          "tracking_length": 94.4292413751217,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 83.92434988179669,
+          "false_alarm": 90.3297852119369
+        },
+        "weighted_points": {
+          "coverage": 28.482987013609897,
+          "false_alarm": 9.032978521193689,
+          "fragmentation": 16.78486997635934,
+          "timeliness": 18.14680283687943,
+          "tracking_length": 18.88584827502434
+        },
+        "total": 91.33348662306669,
+        "total_literal_max": 92.44763834804235,
+        "total_first_hit": 91.26099867980427
+      },
+      "combined_10_80": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 141,
+        "tracks": 141,
+        "raw_percent_scores": {
+          "coverage": 94.93407919972366,
+          "timeliness": 90.73401418439715,
+          "timeliness_first_hit": 90.3715744680851,
+          "tracking_length": 94.42754872629557,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 83.92434988179669,
+          "false_alarm": 90.3487930051321
+        },
+        "weighted_points": {
+          "coverage": 28.480223759917095,
+          "false_alarm": 9.03487930051321,
+          "fragmentation": 16.78486997635934,
+          "timeliness": 18.14680283687943,
+          "tracking_length": 18.885509745259114
+        },
+        "total": 91.33228561892818,
+        "total_literal_max": 92.44677587366907,
+        "total_first_hit": 91.25979767566577
+      },
+      "combined_20_92": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 141,
+        "tracks": 141,
+        "raw_percent_scores": {
+          "coverage": 94.84973650680769,
+          "timeliness": 90.23817021276595,
+          "timeliness_first_hit": 89.8757304964539,
+          "tracking_length": 94.34511583427316,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 83.92434988179669,
+          "false_alarm": 90.37730469492492
+        },
+        "weighted_points": {
+          "coverage": 28.454920952042308,
+          "false_alarm": 9.037730469492493,
+          "fragmentation": 16.78486997635934,
+          "timeliness": 18.04763404255319,
+          "tracking_length": 18.86902316685463
+        },
+        "total": 91.19417860730196,
+        "total_literal_max": 92.32515544044733,
+        "total_first_hit": 91.12169066403955
+      }
+    },
+    {
+      "baseline": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 119,
+        "tracks": 119,
+        "raw_percent_scores": {
+          "coverage": 94.12246279864813,
+          "timeliness": 87.24571428571429,
+          "timeliness_first_hit": 86.74117647058823,
+          "tracking_length": 93.99485734257232,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 81.44257703081233,
+          "false_alarm": 92.03794037940379
+        },
+        "weighted_points": {
+          "coverage": 28.23673883959444,
+          "false_alarm": 9.20379403794038,
+          "fragmentation": 16.288515406162464,
+          "timeliness": 17.449142857142856,
+          "tracking_length": 18.798971468514463
+        },
+        "total": 89.97716260935461,
+        "total_literal_max": 91.17819114084014,
+        "total_first_hit": 89.87625504632939
+      },
+      "drop_05": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 119,
+        "tracks": 119,
+        "raw_percent_scores": {
+          "coverage": 94.12246279864813,
+          "timeliness": 87.24571428571429,
+          "timeliness_first_hit": 86.74117647058823,
+          "tracking_length": 93.99485734257232,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 81.44257703081233,
+          "false_alarm": 92.03794037940379
+        },
+        "weighted_points": {
+          "coverage": 28.23673883959444,
+          "false_alarm": 9.20379403794038,
+          "fragmentation": 16.288515406162464,
+          "timeliness": 17.449142857142856,
+          "tracking_length": 18.798971468514463
+        },
+        "total": 89.97716260935461,
+        "total_literal_max": 91.17819114084014,
+        "total_first_hit": 89.87625504632939
+      },
+      "drop_10": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 119,
+        "tracks": 119,
+        "raw_percent_scores": {
+          "coverage": 94.12246279864813,
+          "timeliness": 87.24571428571429,
+          "timeliness_first_hit": 86.74117647058823,
+          "tracking_length": 93.99485734257232,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 81.44257703081233,
+          "false_alarm": 92.03794037940379
+        },
+        "weighted_points": {
+          "coverage": 28.23673883959444,
+          "false_alarm": 9.20379403794038,
+          "fragmentation": 16.288515406162464,
+          "timeliness": 17.449142857142856,
+          "tracking_length": 18.798971468514463
+        },
+        "total": 89.97716260935461,
+        "total_literal_max": 91.17819114084014,
+        "total_first_hit": 89.87625504632939
+      },
+      "drop_20": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 119,
+        "tracks": 119,
+        "raw_percent_scores": {
+          "coverage": 94.12246279864813,
+          "timeliness": 87.24571428571429,
+          "timeliness_first_hit": 86.74117647058823,
+          "tracking_length": 93.99485734257232,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 81.44257703081233,
+          "false_alarm": 92.03794037940379
+        },
+        "weighted_points": {
+          "coverage": 28.23673883959444,
+          "false_alarm": 9.20379403794038,
+          "fragmentation": 16.288515406162464,
+          "timeliness": 17.449142857142856,
+          "tracking_length": 18.798971468514463
+        },
+        "total": 89.97716260935461,
+        "total_literal_max": 91.17819114084014,
+        "total_first_hit": 89.87625504632939
+      },
+      "rescue_65": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 119,
+        "tracks": 119,
+        "raw_percent_scores": {
+          "coverage": 94.83729428098536,
+          "timeliness": 91.02559663865546,
+          "timeliness_first_hit": 90.85727731092436,
+          "tracking_length": 94.68223832348687,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 80.88235294117648,
+          "false_alarm": 91.82113821138212
+        },
+        "weighted_points": {
+          "coverage": 28.451188284295608,
+          "false_alarm": 9.182113821138211,
+          "fragmentation": 16.176470588235293,
+          "timeliness": 18.20511932773109,
+          "tracking_length": 18.936447664697376
+        },
+        "total": 90.95133968609758,
+        "total_literal_max": 92.01489202140021,
+        "total_first_hit": 90.91767582055137
+      },
+      "rescue_80": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 119,
+        "tracks": 119,
+        "raw_percent_scores": {
+          "coverage": 94.80132873699841,
+          "timeliness": 90.94157983193277,
+          "timeliness_first_hit": 90.77326050420169,
+          "tracking_length": 94.65046090663778,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 80.88235294117648,
+          "false_alarm": 91.84823848238483
+        },
+        "weighted_points": {
+          "coverage": 28.440398621099526,
+          "false_alarm": 9.184823848238482,
+          "fragmentation": 16.176470588235293,
+          "timeliness": 18.188315966386554,
+          "tracking_length": 18.930092181327556
+        },
+        "total": 90.92010120528741,
+        "total_literal_max": 91.99000902395986,
+        "total_first_hit": 90.88643733974119
+      },
+      "rescue_92": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 119,
+        "tracks": 119,
+        "raw_percent_scores": {
+          "coverage": 94.71354840120593,
+          "timeliness": 90.43798319327732,
+          "timeliness_first_hit": 89.93297478991596,
+          "tracking_length": 94.56528443161126,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 81.30252100840336,
+          "false_alarm": 91.89159891598916
+        },
+        "weighted_points": {
+          "coverage": 28.414064520361777,
+          "false_alarm": 9.189159891598916,
+          "fragmentation": 16.26050420168067,
+          "timeliness": 18.087596638655462,
+          "tracking_length": 18.913056886322252
+        },
+        "total": 90.86438213861908,
+        "total_literal_max": 91.95132525229683,
+        "total_first_hit": 90.76338045794681
+      },
+      "combined_05_65": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 119,
+        "tracks": 119,
+        "raw_percent_scores": {
+          "coverage": 94.83729428098536,
+          "timeliness": 91.02559663865546,
+          "timeliness_first_hit": 90.85727731092436,
+          "tracking_length": 94.68223832348687,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 80.88235294117648,
+          "false_alarm": 91.82113821138212
+        },
+        "weighted_points": {
+          "coverage": 28.451188284295608,
+          "false_alarm": 9.182113821138211,
+          "fragmentation": 16.176470588235293,
+          "timeliness": 18.20511932773109,
+          "tracking_length": 18.936447664697376
+        },
+        "total": 90.95133968609758,
+        "total_literal_max": 92.01489202140021,
+        "total_first_hit": 90.91767582055137
+      },
+      "combined_10_80": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 119,
+        "tracks": 119,
+        "raw_percent_scores": {
+          "coverage": 94.80132873699841,
+          "timeliness": 90.94157983193277,
+          "timeliness_first_hit": 90.77326050420169,
+          "tracking_length": 94.65046090663778,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 80.88235294117648,
+          "false_alarm": 91.84823848238483
+        },
+        "weighted_points": {
+          "coverage": 28.440398621099526,
+          "false_alarm": 9.184823848238482,
+          "fragmentation": 16.176470588235293,
+          "timeliness": 18.188315966386554,
+          "tracking_length": 18.930092181327556
+        },
+        "total": 90.92010120528741,
+        "total_literal_max": 91.99000902395986,
+        "total_first_hit": 90.88643733974119
+      },
+      "combined_20_92": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 119,
+        "tracks": 119,
+        "raw_percent_scores": {
+          "coverage": 94.71354840120593,
+          "timeliness": 90.43798319327732,
+          "timeliness_first_hit": 89.93297478991596,
+          "tracking_length": 94.56528443161126,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 81.30252100840336,
+          "false_alarm": 91.89159891598916
+        },
+        "weighted_points": {
+          "coverage": 28.414064520361777,
+          "false_alarm": 9.189159891598916,
+          "fragmentation": 16.26050420168067,
+          "timeliness": 18.087596638655462,
+          "tracking_length": 18.913056886322252
+        },
+        "total": 90.86438213861908,
+        "total_literal_max": 91.95132525229683,
+        "total_first_hit": 90.76338045794681
+      }
+    },
+    {
+      "baseline": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 156,
+        "tracks": 156,
+        "raw_percent_scores": {
+          "coverage": 95.7382186968562,
+          "timeliness": 95.64133333333334,
+          "timeliness_first_hit": 95.25564102564104,
+          "tracking_length": 93.92544872099113,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 79.88247863247862,
+          "false_alarm": 94.05492973665373
+        },
+        "weighted_points": {
+          "coverage": 28.721465609056857,
+          "false_alarm": 9.405492973665373,
+          "fragmentation": 15.976495726495726,
+          "timeliness": 19.12826666666667,
+          "tracking_length": 18.785089744198228
+        },
+        "total": 92.01681072008284,
+        "total_literal_max": 93.23172097588461,
+        "total_first_hit": 91.93967225854439
+      },
+      "drop_05": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 156,
+        "tracks": 156,
+        "raw_percent_scores": {
+          "coverage": 95.7382186968562,
+          "timeliness": 95.64133333333334,
+          "timeliness_first_hit": 95.25564102564104,
+          "tracking_length": 93.92544872099113,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 79.88247863247862,
+          "false_alarm": 94.05492973665373
+        },
+        "weighted_points": {
+          "coverage": 28.721465609056857,
+          "false_alarm": 9.405492973665373,
+          "fragmentation": 15.976495726495726,
+          "timeliness": 19.12826666666667,
+          "tracking_length": 18.785089744198228
+        },
+        "total": 92.01681072008284,
+        "total_literal_max": 93.23172097588461,
+        "total_first_hit": 91.93967225854439
+      },
+      "drop_10": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 156,
+        "tracks": 156,
+        "raw_percent_scores": {
+          "coverage": 95.7382186968562,
+          "timeliness": 95.64133333333334,
+          "timeliness_first_hit": 95.25564102564104,
+          "tracking_length": 93.92544872099113,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 79.88247863247862,
+          "false_alarm": 94.05492973665373
+        },
+        "weighted_points": {
+          "coverage": 28.721465609056857,
+          "false_alarm": 9.405492973665373,
+          "fragmentation": 15.976495726495726,
+          "timeliness": 19.12826666666667,
+          "tracking_length": 18.785089744198228
+        },
+        "total": 92.01681072008284,
+        "total_literal_max": 93.23172097588461,
+        "total_first_hit": 91.93967225854439
+      },
+      "drop_20": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 156,
+        "tracks": 156,
+        "raw_percent_scores": {
+          "coverage": 95.7382186968562,
+          "timeliness": 95.64133333333334,
+          "timeliness_first_hit": 95.25564102564104,
+          "tracking_length": 93.92544872099113,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 79.88247863247862,
+          "false_alarm": 94.05492973665373
+        },
+        "weighted_points": {
+          "coverage": 28.721465609056857,
+          "false_alarm": 9.405492973665373,
+          "fragmentation": 15.976495726495726,
+          "timeliness": 19.12826666666667,
+          "tracking_length": 18.785089744198228
+        },
+        "total": 92.01681072008284,
+        "total_literal_max": 93.23172097588461,
+        "total_first_hit": 91.93967225854439
+      },
+      "rescue_65": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 156,
+        "tracks": 156,
+        "raw_percent_scores": {
+          "coverage": 96.20588398988443,
+          "timeliness": 96.92715384615383,
+          "timeliness_first_hit": 96.86279487179488,
+          "tracking_length": 94.23123229361241,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 79.5619658119658,
+          "false_alarm": 93.97581283200844
+        },
+        "weighted_points": {
+          "coverage": 28.86176519696533,
+          "false_alarm": 9.397581283200845,
+          "fragmentation": 15.912393162393162,
+          "timeliness": 19.385430769230766,
+          "tracking_length": 18.846246458722483
+        },
+        "total": 92.40341687051259,
+        "total_literal_max": 93.55717041179011,
+        "total_first_hit": 92.3905450756408
+      },
+      "rescue_80": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 156,
+        "tracks": 156,
+        "raw_percent_scores": {
+          "coverage": 96.15801212492559,
+          "timeliness": 96.73479487179489,
+          "timeliness_first_hit": 96.67043589743591,
+          "tracking_length": 94.22511251189292,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 79.5619658119658,
+          "false_alarm": 93.98711524695777
+        },
+        "weighted_points": {
+          "coverage": 28.84740363747768,
+          "false_alarm": 9.398711524695777,
+          "fragmentation": 15.912393162393162,
+          "timeliness": 19.346958974358976,
+          "tracking_length": 18.845022502378583
+        },
+        "total": 92.35048980130418,
+        "total_literal_max": 93.5054672989256,
+        "total_first_hit": 92.33761800643238
+      },
+      "rescue_92": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 156,
+        "tracks": 156,
+        "raw_percent_scores": {
+          "coverage": 96.11067227992991,
+          "timeliness": 96.60664102564101,
+          "timeliness_first_hit": 96.41400000000002,
+          "tracking_length": 94.18528899441306,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 79.88247863247862,
+          "false_alarm": 94.00218513355686
+        },
+        "weighted_points": {
+          "coverage": 28.833201683978977,
+          "false_alarm": 9.400218513355687,
+          "fragmentation": 15.976495726495726,
+          "timeliness": 19.321328205128204,
+          "tracking_length": 18.83705779888261
+        },
+        "total": 92.3683019278412,
+        "total_literal_max": 93.53124412895859,
+        "total_first_hit": 92.329773722713
+      },
+      "combined_05_65": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 156,
+        "tracks": 156,
+        "raw_percent_scores": {
+          "coverage": 96.20588398988443,
+          "timeliness": 96.92715384615383,
+          "timeliness_first_hit": 96.86279487179488,
+          "tracking_length": 94.23123229361241,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 79.5619658119658,
+          "false_alarm": 93.97581283200844
+        },
+        "weighted_points": {
+          "coverage": 28.86176519696533,
+          "false_alarm": 9.397581283200845,
+          "fragmentation": 15.912393162393162,
+          "timeliness": 19.385430769230766,
+          "tracking_length": 18.846246458722483
+        },
+        "total": 92.40341687051259,
+        "total_literal_max": 93.55717041179011,
+        "total_first_hit": 92.3905450756408
+      },
+      "combined_10_80": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 156,
+        "tracks": 156,
+        "raw_percent_scores": {
+          "coverage": 96.15801212492559,
+          "timeliness": 96.73479487179489,
+          "timeliness_first_hit": 96.67043589743591,
+          "tracking_length": 94.22511251189292,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 79.5619658119658,
+          "false_alarm": 93.98711524695777
+        },
+        "weighted_points": {
+          "coverage": 28.84740363747768,
+          "false_alarm": 9.398711524695777,
+          "fragmentation": 15.912393162393162,
+          "timeliness": 19.346958974358976,
+          "tracking_length": 18.845022502378583
+        },
+        "total": 92.35048980130418,
+        "total_literal_max": 93.5054672989256,
+        "total_first_hit": 92.33761800643238
+      },
+      "combined_20_92": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 156,
+        "tracks": 156,
+        "raw_percent_scores": {
+          "coverage": 96.11067227992991,
+          "timeliness": 96.60664102564101,
+          "timeliness_first_hit": 96.41400000000002,
+          "tracking_length": 94.18528899441306,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 79.88247863247862,
+          "false_alarm": 94.00218513355686
+        },
+        "weighted_points": {
+          "coverage": 28.833201683978977,
+          "false_alarm": 9.400218513355687,
+          "fragmentation": 15.976495726495726,
+          "timeliness": 19.321328205128204,
+          "tracking_length": 18.83705779888261
+        },
+        "total": 92.3683019278412,
+        "total_literal_max": 93.53124412895859,
+        "total_first_hit": 92.329773722713
+      }
+    }
+  ]
+}

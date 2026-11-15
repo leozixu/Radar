@@ -1,0 +1,57 @@
+{
+  "packet_ids": [
+    11,
+    24,
+    51
+  ],
+  "packets": {
+    "train_011.csv": {
+      "clean_owner_present": 12922,
+      "clean_in_gate": 12788,
+      "clean_above_floor": 12632,
+      "damaged_owner_present": 1920,
+      "damaged_in_gate": 1847,
+      "damaged_above_floor": 792,
+      "clean_missed_gate": 134,
+      "damaged_missed_gate": 73,
+      "damaged_rescued_by_either_older_gate": 26,
+      "clean_rescued_by_either_older_gate": 19
+    },
+    "train_024.csv": {
+      "clean_owner_present": 20476,
+      "clean_in_gate": 20398,
+      "clean_above_floor": 20171,
+      "damaged_owner_present": 5397,
+      "damaged_in_gate": 5158,
+      "damaged_above_floor": 2011,
+      "clean_missed_gate": 78,
+      "damaged_missed_gate": 239,
+      "damaged_rescued_by_either_older_gate": 77,
+      "clean_rescued_by_either_older_gate": 25
+    },
+    "train_051.csv": {
+      "clean_owner_present": 11386,
+      "clean_in_gate": 11184,
+      "clean_above_floor": 11103,
+      "damaged_owner_present": 1849,
+      "damaged_in_gate": 1842,
+      "damaged_above_floor": 747,
+      "damaged_missed_gate": 7,
+      "damaged_rescued_by_either_older_gate": 1,
+      "clean_missed_gate": 202,
+      "clean_rescued_by_either_older_gate": 43
+    }
+  },
+  "total": {
+    "clean_owner_present": 44784,
+    "clean_in_gate": 44370,
+    "clean_above_floor": 43906,
+    "damaged_owner_present": 9166,
+    "damaged_in_gate": 8847,
+    "damaged_above_floor": 3550,
+    "clean_missed_gate": 414,
+    "damaged_missed_gate": 319,
+    "damaged_rescued_by_either_older_gate": 104,
+    "clean_rescued_by_either_older_gate": 87
+  }
+}

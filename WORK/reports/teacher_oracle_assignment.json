@@ -1,0 +1,123 @@
+{
+  "scope": "offline oracle with true past measurements",
+  "packet_ids": [
+    2,
+    11,
+    28,
+    36
+  ],
+  "weights_sha256": "19d4dbb184558ff049a8be8f33ce291d38eea081ab22fbe7ae0966b37a0240ae",
+  "present": 73239,
+  "emission_rules": [
+    {
+      "threshold": 0.1,
+      "log_margin": null,
+      "correct": 71390,
+      "wrong_id": 1381,
+      "clutter": 294,
+      "unknown": 20,
+      "recall": 0.9747538879558705,
+      "precision": 0.9768078265033865
+    },
+    {
+      "threshold": 0.23,
+      "log_margin": null,
+      "correct": 71216,
+      "wrong_id": 1361,
+      "clutter": 216,
+      "unknown": 19,
+      "recall": 0.9723781045617772,
+      "precision": 0.9780805361753557
+    },
+    {
+      "threshold": 0.35,
+      "log_margin": null,
+      "correct": 70622,
+      "wrong_id": 1322,
+      "clutter": 188,
+      "unknown": 19,
+      "recall": 0.9642676715957346,
+      "precision": 0.9788083325248438
+    },
+    {
+      "threshold": 0.5,
+      "log_margin": null,
+      "correct": 68371,
+      "wrong_id": 1245,
+      "clutter": 152,
+      "unknown": 19,
+      "recall": 0.9335326806755964,
+      "precision": 0.9797096880507831
+    },
+    {
+      "threshold": 0.65,
+      "log_margin": null,
+      "correct": 64010,
+      "wrong_id": 1073,
+      "clutter": 124,
+      "unknown": 18,
+      "recall": 0.8739879026201887,
+      "precision": 0.9813721732464545
+    },
+    {
+      "threshold": 0.8,
+      "log_margin": null,
+      "correct": 59406,
+      "wrong_id": 753,
+      "clutter": 94,
+      "unknown": 17,
+      "recall": 0.8111252201695818,
+      "precision": 0.9856645097063216
+    },
+    {
+      "threshold": 0.23,
+      "log_margin": 0.0,
+      "correct": 69983,
+      "wrong_id": 1201,
+      "clutter": 189,
+      "unknown": 19,
+      "recall": 0.9555428118898401,
+      "precision": 0.9802638951142986
+    },
+    {
+      "threshold": 0.23,
+      "log_margin": 0.2,
+      "correct": 68737,
+      "wrong_id": 1026,
+      "clutter": 175,
+      "unknown": 19,
+      "recall": 0.9385300181597236,
+      "precision": 0.9825607158683191
+    },
+    {
+      "threshold": 0.23,
+      "log_margin": 0.45,
+      "correct": 64454,
+      "wrong_id": 768,
+      "clutter": 158,
+      "unknown": 18,
+      "recall": 0.8800502464533924,
+      "precision": 0.9855653078075782
+    },
+    {
+      "threshold": 0.23,
+      "log_margin": 0.75,
+      "correct": 58020,
+      "wrong_id": 454,
+      "clutter": 139,
+      "unknown": 14,
+      "recall": 0.7922008765821489,
+      "precision": 0.989646408651304
+    },
+    {
+      "threshold": 0.23,
+      "log_margin": 1.25,
+      "correct": 52696,
+      "wrong_id": 208,
+      "clutter": 115,
+      "unknown": 11,
+      "recall": 0.7195073662939144,
+      "precision": 0.9937016782953045
+    }
+  ]
+}

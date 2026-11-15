@@ -1,0 +1,25 @@
+{
+  "rows": 303876,
+  "positives": 179392,
+  "geometric_recall": 0.9987918200090196,
+  "packets": [
+    1,
+    6,
+    9,
+    14,
+    17,
+    25,
+    35,
+    46,
+    69
+  ],
+  "model_sha256": "4198a5f025037118ad5156b71403c69f6c008ffc20b6fadf275856ba900bdc9d",
+  "teacher_settings": {
+    "floor": 0.23,
+    "mix": 0.2,
+    "coast": 5,
+    "ambiguity": 0.0,
+    "robust": 0.0
+  },
+  "teacher_sha256": "19d4dbb184558ff049a8be8f33ce291d38eea081ab22fbe7ae0966b37a0240ae"
+}

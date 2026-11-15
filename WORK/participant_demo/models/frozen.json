@@ -1,0 +1,54 @@
+{
+  "feature_version": 1,
+  "backend": "precision",
+  "settings": {
+    "association_floor": 0.035,
+    "association_margin": 0.3,
+    "birth_floor": 0.86,
+    "pair_start_floor": 0.985,
+    "pair_link_floor": 0.95,
+    "pair_fallback_floor": 0.96,
+    "raw_floor": 0.025,
+    "quality_threshold": 0.16,
+    "emission_detection_floor": 0.25,
+    "emission_raw_floor": 0.8
+  },
+  "models": {
+    "quality": {
+      "file": "quality.txt",
+      "sha256": "9f58e8855ee6b0fd6b0ac5cdb1ba9f2603b2028888a0587b9283129a0cf4d248"
+    },
+    "teacher": {
+      "file": "precision/teacher.txt",
+      "sha256": "5d823e1869b4a0275c61e13441e62743b95b0ca86fefe3e99f6ddc5a9d6dfe2d"
+    },
+    "pair_orientation": {
+      "file": "precision/pair_orientation.txt",
+      "sha256": "ed192441218ab2585bd80477ad9c1e1b14637dbee8855598979c1d8594515588"
+    },
+    "birth": {
+      "file": "precision/birth.txt",
+      "sha256": "6e3b30307708f1f2136fa155b31835c1684ebb171ccc56d596d39dc5ac2ae008"
+    },
+    "scan_clock": {
+      "file": "precision/scan_clock.txt",
+      "sha256": "70a52d51d8770d84cec6ca09e4dee026a6f77790aace77e6733a6a855f99559f"
+    },
+    "pair_signature": {
+      "file": "precision/pair_signature.txt",
+      "sha256": "c72ee4defcdd760cd9c54f4afd1343c09371ca818e31ebf2f297cf0c6651c56c"
+    },
+    "raw_return": {
+      "file": "precision/raw_return.txt",
+      "sha256": "e5e3e37626e4526332c3a54ca6365a0327822a4aa699febae9dd70ea79634a30"
+    },
+    "emission_detection": {
+      "file": "precision/emission_detection.txt",
+      "sha256": "8bd6161036cce13e17107316d30219979b74295a9c4eeec3f8179ba13031abc0"
+    },
+    "emission_ownership": {
+      "file": "precision/emission_ownership.txt",
+      "sha256": "0d2e034e63940c44f8c9f8ef9d20e36a96bd55f6d6aa50216483f98682602b34"
+    }
+  }
+}

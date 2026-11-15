@@ -1,0 +1,39 @@
+{
+  "packet_ids": [22, 24, 26, 28],
+  "method": "Oracle histories built from earlier true observations only. Compare reciprocal pairs of two present true points, predicted from the same overlapping history. Also repeat with reversed track roles and with missing-but-still-alive tracks included in the competition features.",
+  "pairs": 17347,
+  "correct_independent_teacher": 16853,
+  "correct_pair_model": 17343,
+  "correct_pair_model_reversed": 17344,
+  "orientation_decision_changes": 3,
+  "orientation_score_changes_gt_0_1": 12,
+  "correct_elevation_sign_from_relative_linear_forecast": 16807,
+  "correct_elevation_sign_from_last_relative_observation": 16238,
+  "pairs_with_extra_alive_but_missing_histories": 14763,
+  "correct_before_and_after_adding_missing_histories": [14759, 14759],
+  "elevation_forecast": {
+    "pairs_with_at_least_three_overlapping_scans": 17345,
+    "median_overlapping_scans": 8,
+    "individual_rms": [0.01672773, 0.01667527],
+    "paired_independent_rms_reference": 0.02361951996270232,
+    "differenced_rms": 0.003271589907711127,
+    "error_correlation": 0.9808098904649055,
+    "individual_median_absolute_error": [0.00897403, 0.008946],
+    "differenced_median_absolute_error": 0.000005279534629413184
+  },
+  "spatial_transfer_probe": {
+    "packet_ids": [22, 24],
+    "method": "Forecast from five immediately preceding true elevation measurements. Split current forecast errors into two halves by range and subtract the other half's median error.",
+    "observations": 37985,
+    "scans": 1255,
+    "uncorrected_rms": 0.020552446848871492,
+    "opposite_range_half_corrected_rms": 0.021302075417679048,
+    "uncorrected_median_abs": 0.0107452,
+    "opposite_range_half_corrected_median_abs": 0.0117556,
+    "azimuth_half_median_error_difference_median_and_p90": [0.005469, 0.01544212],
+    "range_half_median_error_difference_median_and_p90": [0.0055796, 0.01484588]
+  },
+  "pair_model_sha256": "ed192441218ab2585bd80477ad9c1e1b14637dbee8855598979c1d8594515588",
+  "teacher_model_sha256": "5d823e1869b4a0275c61e13441e62743b95b0ca86fefe3e99f6ddc5a9d6dfe2d",
+  "limit": "The probe conditions on correct histories and two true candidate points. It does not measure online precision with mixed tracks, clutter proposals or missed observations."
+}

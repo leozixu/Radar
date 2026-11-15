@@ -1,56 +1,72 @@
-# B02 传统雷达跟踪基线
+# B02 雷达逐圈跟踪
 
-[参赛处理函数](participant_demo/src/algorithm.py) 实现官方 Python 接口 `process_circle(points, state)`。示例客户端通过 TCP 收发二进制报文。程序按包重置状态，只回传当前圈收到的原始点和预测的 `BatchID`。
+参赛处理函数是 [`process_circle(points, state)`](participant_demo/src/algorithm.py)。客户端逐圈接收点迹，回传本圈选中的原始点和包内 `BatchID`。空结果也立即回包，新数据包使用全新的状态。容器入口和协议见 [运行说明](participant_demo/README.md)。
 
-## 跟踪逻辑
+后续航迹身份优化的模型、调参分数与复跑命令见 [身份连续性实验](experimental/README.md)。本页记录当前冻结提交包的验收与手动验证方法。
 
-- 使用匀速卡尔曼滤波器估计归一化方位、俯仰和距离及各自的变化率，并按圈预测当前位置。方位差按归一化整圈处理，运动间隔以圈数为单位。
-- 在预测位置附近用匈牙利算法进行一对一匹配。先匹配已确认航迹，再匹配候选。幅度参与匹配代价。
-- 候选连续匹配三圈，并达到运动和平均幅度门限后，在第三圈首次上报。已确认航迹允许连续漏三圈，期间只保留内部状态。
+## 固定数据范围
 
-## 回放固定验证集
+| 包号 | 用途 |
+| --- | --- |
+| 001–070 | 训练、特征标定和诊断 |
+| 071–085 | 调参及消融，含 `079` 性能压力包 |
+| 086–100 | 冻结后验收 |
+| 101–200 | 交付后由用户手动验证 |
 
-在 `project/WORK` 目录中运行以下命令。回放默认读取 `../DATA/data` 的 20 个固定验证 CSV。启动实时 TCP 客户端时使用 [Docker 示例](participant_demo/README.md)。
+在 `WORK` 下安装依赖和运行回放。默认回放 `071–085`，`--all` 仅指 `001–100`，`--packets` 也只接受此范围。计时对比使用单进程，其余回放可加 `--jobs`。
 
 ```powershell
 python -m pip install -r participant_demo/requirements.txt
-python -B replay_validation.py --report cv_kf_validation_report.json
+python -B replay_validation.py --engine baseline --summary-only --report reports/baseline_tuning_replay.json
+python -B replay_validation.py --engine candidate --summary-only --report reports/precision_tuning_replay.json
+python -B replay_validation.py --engine candidate --packets 79 --summary-only --report reports/precision_stress_079_replay.json
 ```
 
-可用 `--packets 6 9` 只回放其中两个验证包。回放通过示例的输入解码和输出校验，计时包含解码、跟踪和编码。真值标签只用于回放结束后的评估。
+基线为 Git 提交 `0b77719` 的跟踪器。回放经过参赛客户端的编解码和输出检查。训练标签只用于生成监督目标，回放标签只用于计算报告。历史根目录报告和 `training_200_report.json` 属于此前实验，本轮选型和验收使用固定包号重新计分。
 
-用 `--all` 回放训练目录的全部 200 包。`--jobs` 设置同时处理的包数，每个包仍按圈顺序处理并独立保存状态。并行运行的单圈耗时会受本机负载影响。
+`participant_demo/models/frozen.json` 指定参赛默认配置。冻结版用扫描内时序特征过滤杂波，利用相邻雷达时刻和跨圈稳定的有符号幅度差关联双目标，再对剩余点迹作带漏检选项的一对一分配。高速双目标的起批和续接同时放宽运动门并校验原始幅度差与角色方向。已登记双轨最多保留 12 圈，第 8–12 圈需成对证据才能接回原 ID。回包只使用本圈原始点，航迹和回传状态在包首重置。
+
+CV 保持按圈差预测，雷达时刻用于点迹判别和配对。跨圈多假设与 CV/CA 对照保留在实验记录中。旧的 [质量过滤配置](participant_demo/models/compat.json) 与 [关联重构配置](participant_demo/models/learned.json) 可用于重现实验。冻结模型训练包、特征和各阶段消融见[实验记录](experimental/README.md)。以下命令把旧配置的实验权重写入单独目录。
 
 ```powershell
-python -B replay_validation.py --all --jobs 6 --report cv_kf_training_200_report.json
+python -B train_compat_quality.py --jobs 4 --model-dir experiments\compat --report experiments\compat\training_report.json
+python -B train_tracker.py --phase train --settings training_calibration.json --jobs 4 --output experiments\models --report experiments\training_report.json
+python -B replay_validation.py --config participant_demo/models/learned.json --summary-only
 ```
 
-## 回放指标
+消融通过 `replay_validation.py --config <实验配置>` 显式加载。候选回放选择 `086–100` 时，工具会校验交付版本并禁止实验配置覆盖。
 
-报告保留逐包和逐航迹数据。按包内 `PntID` 将回传点和真值标签对应，以下为本地诊断口径。
+## 评分口径
 
-- **漏报**为没有回传的正标签点。点覆盖率按全部真值点计算，平均航迹覆盖率先按真值航迹计算比例再取平均。
-- **潜在虚警**为回传的 `0` 或 `-1` 标签点。报告分别列出已知杂波点和属性未确定点。虚警比例以真值点数作分母。
-- **拆轨**为一条真值航迹使用过多个输出 `BatchID`。**中途漏报段**为两次成功上报之间连续漏掉的一段真值观测。首尾漏报计入覆盖率。
-- **合轨**为一个输出 `BatchID` 关联到多条真值航迹。**换号**统计同一真值航迹相邻的两次已上报观测使用不同编号的次数。
+本地总分沿用历史五项代理分，分别给平均航迹覆盖率、虚警、零碎度、起批及时性和最长同 ID 跟踪赋权 30、10、20、20、20。最长同 ID 项排除真值前两次观测，以同一输出 ID 的命中数计算。虚警分按 `0` 和 `-1` 的已回传点计数。报告同时给出首次真实命中及时性、换号、合轨和 IDF1，便于检查身份错误。平台实际匹配口径以官方评分为准。
 
-## α–β 基线回放结果
+## 冻结验收结果
 
-[完整结果](validation_report.json) 覆盖 20 包、14,323 圈和 2,799,909 个输入点。
+部署入口在 `071–085` 精确复现实验版的逐包得分及身份计数，合计 **96.0047**。校验清单锁定运行源码、配置和权重后，才启动 `086–100` 的候选验收。[部署回放](reports/precision_runtime_tuning.json) · [冻结清单](frozen_candidate.json)
 
-| 指标 | 结果 |
-| --- | ---: |
-| 正确上报的真值点 | 378,015 / 400,664（94.35%） |
-| 平均航迹覆盖率 | 90.12% |
-| 漏报真值点 | 22,649（5.65%） |
-| 已知杂波上报 | 150,940 |
-| 属性未确定点上报 | 39,889 |
-| 潜在虚警占真值点数 | 47.63% |
-| 有中途漏报的真值航迹 | 1,795 / 2,445，共 6,266 段 |
-| 使用多个输出编号的真值航迹 | 1,886 / 2,445，共换号 11,348 次 |
-| 关联到多个真值目标的输出航迹 | 1,857 / 23,610 |
-| 平均 / 最慢单圈处理 | 4.94 / 42.59 ms |
+| `086–100` 验收项 | 基线 | 冻结版 |
+| --- | ---: | ---: |
+| 总分 | 75.8009 | **95.7062** |
+| 首次真实命中口径总分 | 75.4986 | 95.7007 |
+| 平均航迹覆盖率 | 92.10% | 94.46% |
+| 虚警比例 | 58.91% | 3.09% |
+| IDF1 | 56.10% | 95.31% |
+| 拆轨 | 1,243 | 118 |
+| 换号 | 7,004 | 180 |
+| 合轨 | 1,119 | 60 |
 
-`train_188.csv` 的潜在虚警比例最高（112.71%）。该比例的分母为该包真值点数，可能超过 100%。
+合计通过 95.00 分验收线。15 包中 14 包达到 95 分，最低为 `091` 的 94.5772。零碎度 19.32/20、最长同 ID 跟踪 19.08/20、虚警 3.09%，均达到分项目标。平均覆盖率 94.46% 距 97% 目标 2.54 个百分点，起批及时性 19.28/20 距 19.40 目标 0.12 分。[同包原始基线](reports/precision_baseline_acceptance.json) · [冻结验收](reports/precision_frozen_acceptance.json)
 
-另在 Windows 上用官方 `serve.exe` 和 `train_005.dat` 联调，参赛客户端经 TCP 完成 719 圈收发，回传 30,397 个点，服务端成功保存航迹及耗时文件。
+`train_079` 单进程回放包含单圈 8,797 点的压力输入。冻结版 P99 为 51.42 ms，最慢圈 184.52 ms，满足 100 ms / 1 s 工程预算。[压力报告](reports/precision_frozen_stress_079.json)
+
+冻结入口的合成验证覆盖交叉目标、高速双轨方位环绕、空圈、跳圈重连与跨包重置。在单点轨迹起批后，将幅度降为 0.11，并连续两圈传入异常雷达时刻，原 ID 仍保持。每圈只有一个点、幅度自始为 0.20–0.28 的合成场景连续观察 12 圈仍无法起批，低幅度的孤立目标起批仍有改进空间。
+
+冻结镜像 `radar-b02:paired-precision-frozen` 的 41 个运行文件与冻结清单一致，21 项容器测试通过。`001–005.dat` 完成真实 TCP 联调，共 3,596 圈，接收 908,636 个点并回传 95,315 个点。原版 `serve.exe` 校验了五份结果文件和五份逐圈耗时文件。[容器联调报告](reports/paired_precision_frozen_docker_tcp.json)
+
+## 交付后手动验证
+
+在 `WORK` 下运行独立入口。它先校验冻结源码、配置和模型，然后读取 `101–200` 并写入新报告。
+
+```powershell
+python -B evaluate_holdout.py --data-dir ..\DATA\data --report holdout_101_200.json
+```

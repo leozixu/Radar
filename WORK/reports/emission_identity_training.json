@@ -1,0 +1,78 @@
+{
+  "packets": [
+    11,
+    17,
+    24,
+    35,
+    43,
+    51,
+    63,
+    69
+  ],
+  "samples_by_class": {
+    "detection": [
+      107806,
+      160181
+    ],
+    "ownership": [
+      3818,
+      123851
+    ]
+  },
+  "features": [
+    "hits",
+    "amp_running_mean",
+    "speed_az",
+    "speed_el",
+    "speed_range",
+    "span_per_hit_az",
+    "span_per_hit_el",
+    "span_per_hit_range",
+    "amp_oldest",
+    "amp_current",
+    "amp_std",
+    "amp_min",
+    "amp_max",
+    "current_error_az",
+    "current_error_el",
+    "current_error_range",
+    "mean_error_az",
+    "mean_error_el",
+    "mean_error_range",
+    "max_error_az",
+    "max_error_el",
+    "max_error_range",
+    "current_gap",
+    "mean_gap",
+    "max_gap",
+    "legacy_quality",
+    "link_probability",
+    "clock_probability",
+    "scan_phase_error",
+    "snr",
+    "previous_proposals",
+    "trusted_proposals",
+    "previous_gap",
+    "trusted_gap",
+    "recent_link_mean",
+    "recent_clock_mean",
+    "recent_quality_mean",
+    "amplitude_deviation",
+    "step_azimuth",
+    "step_elevation",
+    "step_range",
+    "trusted_forecast_azimuth",
+    "trusted_forecast_elevation",
+    "trusted_forecast_range",
+    "recent_forecast_azimuth",
+    "recent_forecast_elevation",
+    "recent_forecast_range"
+  ],
+  "source_sha256": "df91b0e4fcd55c1d2add7ffc05a8d3d0c549e867b40633160b57b5fd246a1093",
+  "input_models": {
+    "teacher": "5d823e1869b4a0275c61e13441e62743b95b0ca86fefe3e99f6ddc5a9d6dfe2d",
+    "pair": "ed192441218ab2585bd80477ad9c1e1b14637dbee8855598979c1d8594515588",
+    "birth": "6e3b30307708f1f2136fa155b31835c1684ebb171ccc56d596d39dc5ac2ae008",
+    "clock": "70a52d51d8770d84cec6ca09e4dee026a6f77790aace77e6733a6a855f99559f"
+  }
+}

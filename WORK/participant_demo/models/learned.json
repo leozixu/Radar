@@ -1,0 +1,32 @@
+{
+  "feature_version": 1,
+  "models": {
+    "association": {
+      "file": "association.txt",
+      "sha256": "9f66c340aa3719736f8d9d89840b9396e87ad0e765fe29232ec91a8aec8a6079"
+    },
+    "birth": {
+      "file": "birth.txt",
+      "sha256": "e2c4f1427b8fd76dd4ed9c3aa4fd85feb489d3d306cefdebfb7daf75c05a6792"
+    }
+  },
+  "settings": {
+    "measurement": [
+      3.069961351859222e-06,
+      9.782919311107573e-05,
+      2.8477581636358657e-07
+    ],
+    "process": [
+      4.995571825377068e-07,
+      1.792819432152733e-06,
+      9.170791636957674e-08
+    ],
+    "association_weight": 0.29,
+    "birth_weight": 0.08,
+    "birth_threshold": 0.44,
+    "survival_threshold": 0.14,
+    "seed_amplitude": 0.13,
+    "gate_scale": 1.1,
+    "ambiguity_margin": 0.022
+  }
+}

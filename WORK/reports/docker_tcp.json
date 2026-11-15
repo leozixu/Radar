@@ -1,0 +1,68 @@
+{
+  "status": "success",
+  "image": "radar-b02:cv-quality-frozen",
+  "image_id": "sha256:ea1476a19d7a3bf1bcf9eba51e5559a413c45291ff42505847eadc7be4d4d7a0",
+  "packet_ids": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "circles": 3596,
+  "tracks": 104687,
+  "config_sha256": "b83e87eecc21addf2b78a3813e531fe063899a544add30abcc81a8b9854a7102",
+  "tests_in_image": 20,
+  "per_package": [
+    {
+      "name": "train_001.dat",
+      "circles": 720,
+      "tracks": 21741,
+      "wall_seconds": 570.469,
+      "output_files": {
+        "train_001.dat": 608763,
+        "train_001_rt.dat": 10227
+      }
+    },
+    {
+      "name": "train_002.dat",
+      "circles": 719,
+      "tracks": 15954,
+      "wall_seconds": 523.793,
+      "output_files": {
+        "train_002.dat": 446727,
+        "train_002_rt.dat": 10160
+      }
+    },
+    {
+      "name": "train_003.dat",
+      "circles": 719,
+      "tracks": 24440,
+      "wall_seconds": 531.83,
+      "output_files": {
+        "train_003.dat": 684335,
+        "train_003_rt.dat": 10162
+      }
+    },
+    {
+      "name": "train_004.dat",
+      "circles": 719,
+      "tracks": 22250,
+      "wall_seconds": 539.189,
+      "output_files": {
+        "train_004.dat": 623015,
+        "train_004_rt.dat": 10160
+      }
+    },
+    {
+      "name": "train_005.dat",
+      "circles": 719,
+      "tracks": 20302,
+      "wall_seconds": 492.351,
+      "output_files": {
+        "train_005.dat": 568471,
+        "train_005_rt.dat": 10160
+      }
+    }
+  ]
+}

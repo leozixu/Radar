@@ -1,0 +1,253 @@
+{
+  "metadata": {
+    "engine": "candidate",
+    "config": "geom_new_seed.json",
+    "config_sha256": "73d09797006564b48727e4254d941b2c9ad77f58670f10289d8426d4f49ed819",
+    "algorithm_sha256": "6160203d538d5590a735684cf73852f45e838656c2979e4ca4881f87d3b8b9c9",
+    "runtime_source_sha256": {
+      "participant_demo/Dockerfile": "1b1cec2c2724c998f8011ddcb3f2d425dd64219d2effb732f405ee9465ecc719",
+      "participant_demo/requirements.txt": "baa21e99c13308057e13a8c2cf0b89a8a24434f99409954671b4d6c27ce8ca76",
+      "participant_demo/run.sh": "5f033165877886859cf80cd27c8374573e2f9d983b52a457ffaa9c3de8d68cd6",
+      "participant_demo/run_client.sh": "1f3ba2465cac483ff0e79dcd76282b25a9574cd99f3f9e029379c44b574ba6ab",
+      "participant_demo/src/algorithm.py": "6160203d538d5590a735684cf73852f45e838656c2979e4ca4881f87d3b8b9c9",
+      "participant_demo/src/client.py": "c44f5431f562cabea95b2d895dd23cff1bacc530abef0301dc1ffa025bbe7a5e",
+      "participant_demo/src/exe_runtime.py": "adfb7be9d05b2c18c730de3090aaf1c3c3c6c47928d2ac1879fbcde4209a3986",
+      "participant_demo/src/main.py": "2128dd02ad13c8cd66b66e5f340a3752c4a50d8cb49031f76deb35c640aa5d98",
+      "participant_demo/src/serve.py": "aeb29e986bee401c9903606c05a4b78e2cc8c8df4dd17800cc4b5141c6d65d10",
+      "participant_demo/src/tracker.py": "d817907888a6ed00026c938f484465f91ac37710a3da8d72bdc9a0e34c70b090",
+      "participant_demo/src/tracker_assoc.py": "ad4e0392c3bccaed6cf504109c6bdc957e5b37b13e230a991778d0d2443847b4",
+      "participant_demo/src/windows_job.py": "0e6f8f7777d563dd36096c8df236801052333f04537ac1e54c32931c0573c8ab"
+    },
+    "runtime": {
+      "profile": "geom_new_seed.json",
+      "profile_sha256": "73d09797006564b48727e4254d941b2c9ad77f58670f10289d8426d4f49ed819",
+      "feature_version": 1,
+      "models": {
+        "association": {
+          "file": "association.txt",
+          "sha256": "1a7ba8d12ec145a98d077295efa78340b9769595cc7a826120c7abafaf239038"
+        },
+        "birth": {
+          "file": "birth.txt",
+          "sha256": "d1301088503af5795b78ca867357d207bca77d4b2aa9c3a81ad74ab06cf5ddfc"
+        }
+      },
+      "settings": {
+        "measurement": [
+          3.069961351859222e-06,
+          9.782919311107573e-05,
+          2.8477581636358657e-07
+        ],
+        "process": [
+          4.995571825377068e-07,
+          1.792819432152733e-06,
+          9.170791636957674e-08
+        ],
+        "use_timestamp": true,
+        "use_acceleration": false,
+        "use_history": true,
+        "use_covariance_gate": true,
+        "gate_scale": 1.1,
+        "association_weight": 0.3,
+        "mature_association_scale": 0.18,
+        "birth_weight": 0.1,
+        "mature_birth_scale": 0.0,
+        "use_link_confidence": true,
+        "confirmed_bonus": 0.58,
+        "confirmed_link_floor": 0.0,
+        "robust_sigma": 2.8,
+        "protect_geometric_mature": true,
+        "birth_threshold": 0.43,
+        "survival_threshold": 0.12,
+        "seed_amplitude": 0.16,
+        "seed_tentative_matches": true,
+        "ambiguity_margin": 0.03,
+        "max_tentative_age": 8,
+        "max_coast": 5,
+        "max_dormant": 12,
+        "dormant_threshold": 0.58,
+        "recovery_probability": 0.7,
+        "recovery_margin": 0.22
+      }
+    },
+    "packet_ids": [
+      76,
+      85
+    ],
+    "score_version": "b02-local-pntid-v1",
+    "score_source_sha256": "11a7bb7d52f3321b5396638449ef26a2ece499401bbd08932475ab2c3c9daf81"
+  },
+  "summary": {
+    "truth_points": 47587,
+    "output_points": 49865,
+    "matched_points": 40112,
+    "clutter_output_points": 7220,
+    "unknown_output_points": 2533,
+    "output_tracks": 1731,
+    "merged_output_tracks": 347,
+    "merged_truth_points": 2539,
+    "identity_true_positive_points": 26933,
+    "truth_tracks": 297,
+    "matched_truth_tracks": 297,
+    "missed_truth_points": 7475,
+    "unmatched_output_points": 9753,
+    "point_coverage": 0.8429192846785887,
+    "mean_track_coverage": 0.8073103267462627,
+    "false_alarm_ratio": 0.20495093197722067,
+    "idf1": 0.5527439149530025,
+    "merged_truth_point_ratio": 0.06329776625448744,
+    "split_truth_tracks": 242,
+    "id_switches": 1671,
+    "missed_segments": 1702,
+    "circle_gaps": 2775,
+    "score": {
+      "version": "b02-local-pntid-v1",
+      "matched_tracks": 297,
+      "tracks": 297,
+      "raw_percent_scores": {
+        "coverage": 80.73103267462626,
+        "timeliness": 85.82510437710438,
+        "timeliness_first_hit": 84.47797306397305,
+        "tracking_length": 55.751402893432925,
+        "tracking_length_literal": 100.0,
+        "fragmentation": 40.141480155688285,
+        "false_alarm": 79.50490680227793
+      },
+      "weighted_points": {
+        "coverage": 24.21930980238788,
+        "false_alarm": 7.950490680227793,
+        "fragmentation": 8.028296031137657,
+        "timeliness": 17.165020875420876,
+        "tracking_length": 11.150280578686584
+      },
+      "total": 68.51339796786078,
+      "total_literal_max": 77.36311738917419,
+      "total_first_hit": 68.24397170523451
+    },
+    "input_points": 305771,
+    "circles_replayed": 1433,
+    "empty_circles": 0,
+    "processing_ms": 57071.857999733766,
+    "packets_replayed": 2,
+    "parallel_jobs": 1,
+    "mean_circle_ms": 39.82683740386167,
+    "p99_circle_ms": 85.32149999518879,
+    "max_circle_ms": 173.72280001291074,
+    "slowest_file": "train_076.csv",
+    "slowest_circle": 346
+  },
+  "packets": [
+    {
+      "file": "train_076.csv",
+      "input_points": 156908,
+      "circles_replayed": 719,
+      "empty_circles": 0,
+      "processing_ms": 32195.461999930558,
+      "p99_circle_ms": 93.87430000060704,
+      "max_circle_ms": 173.72280001291074,
+      "slowest_circle": 346,
+      "truth_points": 21044,
+      "output_points": 24229,
+      "matched_points": 17812,
+      "clutter_output_points": 5382,
+      "unknown_output_points": 1035,
+      "output_tracks": 886,
+      "merged_output_tracks": 140,
+      "merged_truth_points": 1171,
+      "identity_true_positive_points": 11517,
+      "truth_tracks": 141,
+      "matched_truth_tracks": 141,
+      "missed_truth_points": 3232,
+      "unmatched_output_points": 6417,
+      "point_coverage": 0.8464170309827029,
+      "mean_track_coverage": 0.8109708701226013,
+      "false_alarm_ratio": 0.304932522334157,
+      "idf1": 0.5087800675899543,
+      "merged_truth_point_ratio": 0.06574219627217606,
+      "split_truth_tracks": 109,
+      "id_switches": 752,
+      "missed_segments": 763,
+      "circle_gaps": 1264,
+      "score": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 141,
+        "tracks": 141,
+        "raw_percent_scores": {
+          "coverage": 81.09708701226013,
+          "timeliness": 84.96533333333332,
+          "timeliness_first_hit": 83.47553191489362,
+          "tracking_length": 57.70006342243546,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 41.97333530666864,
+          "false_alarm": 69.5067477665843
+        },
+        "weighted_points": {
+          "coverage": 24.32912610367804,
+          "false_alarm": 6.950674776658429,
+          "fragmentation": 8.394667061333728,
+          "timeliness": 16.993066666666664,
+          "tracking_length": 11.540012684487094
+        },
+        "total": 68.20754729282396,
+        "total_literal_max": 76.66753460833687,
+        "total_first_hit": 67.90958700913602
+      }
+    },
+    {
+      "file": "train_085.csv",
+      "input_points": 148863,
+      "circles_replayed": 714,
+      "empty_circles": 0,
+      "processing_ms": 24876.395999803208,
+      "p99_circle_ms": 69.51839999237563,
+      "max_circle_ms": 161.82329998991918,
+      "slowest_circle": 294,
+      "truth_points": 26543,
+      "output_points": 25636,
+      "matched_points": 22300,
+      "clutter_output_points": 1838,
+      "unknown_output_points": 1498,
+      "output_tracks": 845,
+      "merged_output_tracks": 207,
+      "merged_truth_points": 1368,
+      "identity_true_positive_points": 15416,
+      "truth_tracks": 156,
+      "matched_truth_tracks": 156,
+      "missed_truth_points": 4243,
+      "unmatched_output_points": 3336,
+      "point_coverage": 0.8401461779000113,
+      "mean_track_coverage": 0.804001758694572,
+      "false_alarm_ratio": 0.12568285423652187,
+      "idf1": 0.5908890549838057,
+      "merged_truth_point_ratio": 0.06134529147982063,
+      "split_truth_tracks": 133,
+      "id_switches": 919,
+      "missed_segments": 939,
+      "circle_gaps": 1511,
+      "score": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 156,
+        "tracks": 156,
+        "raw_percent_scores": {
+          "coverage": 80.4001758694572,
+          "timeliness": 86.60220512820513,
+          "timeliness_first_hit": 85.38402564102566,
+          "tracking_length": 53.990113569142174,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 38.48576492307142,
+          "false_alarm": 87.43171457634782
+        },
+        "weighted_points": {
+          "coverage": 24.12005276083716,
+          "false_alarm": 8.743171457634782,
+          "fragmentation": 7.697152984614285,
+          "timeliness": 17.320441025641024,
+          "tracking_length": 10.798022713828434
+        },
+        "total": 68.67884094255568,
+        "total_literal_max": 77.88081822872725,
+        "total_first_hit": 68.43520504511979
+      }
+    }
+  ]
+}

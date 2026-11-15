@@ -1,0 +1,126 @@
+{
+  "metadata": {
+    "packet_ids": [
+      79
+    ],
+    "settings": {
+      "floor": 0.2,
+      "mix": 0.0,
+      "coast": 7,
+      "ambiguity": 0.3,
+      "robust": 4.0
+    },
+    "model_sha256": "5d823e1869b4a0275c61e13441e62743b95b0ca86fefe3e99f6ddc5a9d6dfe2d",
+    "source_sha256": "c84dbeab33fc18fbb8f5c05d46ecb10929b1206255f02eca668e41e272fe5e58"
+  },
+  "summary": {
+    "truth_points": 18450,
+    "output_points": 18913,
+    "matched_points": 17506,
+    "clutter_output_points": 763,
+    "unknown_output_points": 644,
+    "output_tracks": 470,
+    "merged_output_tracks": 55,
+    "merged_truth_points": 3058,
+    "identity_true_positive_points": 13828,
+    "truth_tracks": 119,
+    "matched_truth_tracks": 119,
+    "missed_truth_points": 944,
+    "unmatched_output_points": 1407,
+    "point_coverage": 0.9488346883468834,
+    "mean_track_coverage": 0.9106749284943901,
+    "false_alarm_ratio": 0.07626016260162602,
+    "idf1": 0.7401975216122902,
+    "merged_truth_point_ratio": 0.17468296584028334,
+    "split_truth_tracks": 58,
+    "id_switches": 316,
+    "missed_segments": 239,
+    "circle_gaps": 736,
+    "score": {
+      "version": "b02-local-pntid-v1",
+      "matched_tracks": 119,
+      "tracks": 119,
+      "raw_percent_scores": {
+        "coverage": 91.06749284943902,
+        "timeliness": 79.28542857142857,
+        "timeliness_first_hit": 78.36927731092437,
+        "tracking_length": 79.91423272423407,
+        "tracking_length_literal": 100.0,
+        "fragmentation": 73.62745098039215,
+        "false_alarm": 92.3739837398374
+      },
+      "weighted_points": {
+        "coverage": 27.320247854831702,
+        "false_alarm": 9.237398373983739,
+        "fragmentation": 14.72549019607843,
+        "timeliness": 15.857085714285715,
+        "tracking_length": 15.982846544846813
+      },
+      "total": 83.1230686840264,
+      "total_literal_max": 87.1402221391796,
+      "total_first_hit": 82.93983843192557
+    },
+    "circles_replayed": 568,
+    "p99_circle_ms": 32.28020000096876,
+    "max_circle_ms": 282.14830000069924,
+    "parallel_jobs": 1
+  },
+  "packets": [
+    {
+      "file": "train_079.csv",
+      "input_points": 139645,
+      "circles_replayed": 568,
+      "empty_circles": 0,
+      "processing_ms": 10765.14269981999,
+      "p99_circle_ms": 32.28020000096876,
+      "max_circle_ms": 282.14830000069924,
+      "slowest_circle": 567,
+      "truth_points": 18450,
+      "output_points": 18913,
+      "matched_points": 17506,
+      "clutter_output_points": 763,
+      "unknown_output_points": 644,
+      "output_tracks": 470,
+      "merged_output_tracks": 55,
+      "merged_truth_points": 3058,
+      "identity_true_positive_points": 13828,
+      "truth_tracks": 119,
+      "matched_truth_tracks": 119,
+      "missed_truth_points": 944,
+      "unmatched_output_points": 1407,
+      "point_coverage": 0.9488346883468834,
+      "mean_track_coverage": 0.9106749284943901,
+      "false_alarm_ratio": 0.07626016260162602,
+      "idf1": 0.7401975216122902,
+      "merged_truth_point_ratio": 0.17468296584028334,
+      "split_truth_tracks": 58,
+      "id_switches": 316,
+      "missed_segments": 239,
+      "circle_gaps": 736,
+      "score": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 119,
+        "tracks": 119,
+        "raw_percent_scores": {
+          "coverage": 91.06749284943902,
+          "timeliness": 79.28542857142857,
+          "timeliness_first_hit": 78.36927731092437,
+          "tracking_length": 79.91423272423407,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 73.62745098039215,
+          "false_alarm": 92.3739837398374
+        },
+        "weighted_points": {
+          "coverage": 27.320247854831702,
+          "false_alarm": 9.237398373983739,
+          "fragmentation": 14.72549019607843,
+          "timeliness": 15.857085714285715,
+          "tracking_length": 15.982846544846813
+        },
+        "total": 83.1230686840264,
+        "total_literal_max": 87.1402221391796,
+        "total_first_hit": 82.93983843192557
+      }
+    }
+  ]
+}

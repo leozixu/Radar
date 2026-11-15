@@ -1,0 +1,131 @@
+{
+  "summary": {
+    "truth_points": 18450,
+    "output_points": 19086,
+    "matched_points": 17698,
+    "clutter_output_points": 769,
+    "unknown_output_points": 619,
+    "output_tracks": 461,
+    "merged_output_tracks": 50,
+    "merged_truth_points": 1841,
+    "identity_true_positive_points": 15039,
+    "truth_tracks": 119,
+    "matched_truth_tracks": 119,
+    "missed_truth_points": 752,
+    "unmatched_output_points": 1388,
+    "point_coverage": 0.9592411924119241,
+    "mean_track_coverage": 0.9297831856730052,
+    "false_alarm_ratio": 0.07523035230352304,
+    "idf1": 0.8013107416879796,
+    "merged_truth_point_ratio": 0.1040230534523675,
+    "split_truth_tracks": 54,
+    "id_switches": 237,
+    "missed_segments": 176,
+    "circle_gaps": 684,
+    "score": {
+      "version": "b02-local-pntid-v1",
+      "matched_tracks": 119,
+      "tracks": 119,
+      "raw_percent_scores": {
+        "coverage": 92.97831856730052,
+        "timeliness": 85.13410084033613,
+        "timeliness_first_hit": 84.4596974789916,
+        "tracking_length": 85.1875498708984,
+        "tracking_length_literal": 100.0,
+        "fragmentation": 75.16806722689076,
+        "false_alarm": 92.4769647696477
+      },
+      "weighted_points": {
+        "coverage": 27.893495570190158,
+        "false_alarm": 9.24769647696477,
+        "fragmentation": 15.033613445378151,
+        "timeliness": 17.02682016806723,
+        "tracking_length": 17.037509974179677
+      },
+      "total": 86.23913563477998,
+      "total_literal_max": 89.2016256606003,
+      "total_first_hit": 86.10425496251108
+    }
+  },
+  "packets": [
+    {
+      "file": "train_079.csv",
+      "input_points": 139645,
+      "circles_replayed": 568,
+      "empty_circles": 0,
+      "processing_ms": 20624.216099939076,
+      "p99_circle_ms": 60.076900001149625,
+      "max_circle_ms": 439.63979999534786,
+      "slowest_circle": 567,
+      "truth_points": 18450,
+      "output_points": 19086,
+      "matched_points": 17698,
+      "clutter_output_points": 769,
+      "unknown_output_points": 619,
+      "output_tracks": 461,
+      "merged_output_tracks": 50,
+      "merged_truth_points": 1841,
+      "identity_true_positive_points": 15039,
+      "truth_tracks": 119,
+      "matched_truth_tracks": 119,
+      "missed_truth_points": 752,
+      "unmatched_output_points": 1388,
+      "point_coverage": 0.9592411924119241,
+      "mean_track_coverage": 0.9297831856730052,
+      "false_alarm_ratio": 0.07523035230352304,
+      "idf1": 0.8013107416879796,
+      "merged_truth_point_ratio": 0.1040230534523675,
+      "split_truth_tracks": 54,
+      "id_switches": 237,
+      "missed_segments": 176,
+      "circle_gaps": 684,
+      "score": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 119,
+        "tracks": 119,
+        "raw_percent_scores": {
+          "coverage": 92.97831856730052,
+          "timeliness": 85.13410084033613,
+          "timeliness_first_hit": 84.4596974789916,
+          "tracking_length": 85.1875498708984,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 75.16806722689076,
+          "false_alarm": 92.4769647696477
+        },
+        "weighted_points": {
+          "coverage": 27.893495570190158,
+          "false_alarm": 9.24769647696477,
+          "fragmentation": 15.033613445378151,
+          "timeliness": 17.02682016806723,
+          "tracking_length": 17.037509974179677
+        },
+        "total": 86.23913563477998,
+        "total_literal_max": 89.2016256606003,
+        "total_first_hit": 86.10425496251108
+      },
+      "path_confirmations": 106,
+      "paired_path_confirmations": 6,
+      "two_hit_confirmations": 6,
+      "reanchored_paths": 0,
+      "fast_seed_confirmations": 0
+    }
+  ],
+  "metadata": {
+    "packet_ids": [
+      79
+    ],
+    "floor": 0.86,
+    "work": "tune",
+    "mode": "supplement",
+    "paired_birth": true,
+    "joint": true,
+    "two_hit_pairs": true,
+    "reanchor": false,
+    "sha256": {
+      "model": "6e3b30307708f1f2136fa155b31835c1684ebb171ccc56d596d39dc5ac2ae008",
+      "clock": "70a52d51d8770d84cec6ca09e4dee026a6f77790aace77e6733a6a855f99559f",
+      "teacher": "5d823e1869b4a0275c61e13441e62743b95b0ca86fefe3e99f6ddc5a9d6dfe2d",
+      "pair": "ed192441218ab2585bd80477ad9c1e1b14637dbee8855598979c1d8594515588"
+    }
+  }
+}

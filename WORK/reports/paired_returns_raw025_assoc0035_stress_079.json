@@ -1,0 +1,159 @@
+{
+  "metadata": {
+    "packet_ids": [
+      79
+    ],
+    "decision": "rescue25_raw80",
+    "emission_thresholds": [
+      0.0,
+      0.25,
+      0.0
+    ],
+    "emission_raw_floor": 0.8,
+    "pairing": {
+      "start_floor": 0.985,
+      "link_floor": 0.95,
+      "wide": true,
+      "fallback_floor": 0.96
+    },
+    "tracker": {
+      "floor": 0.86,
+      "mode": "supplement",
+      "paired_birth": true,
+      "joint": true,
+      "two_hit_pairs": true,
+      "association_floor": 0.035
+    },
+    "raw_model_sha256": "e5e3e37626e4526332c3a54ca6365a0327822a4aa699febae9dd70ea79634a30",
+    "raw_floor": 0.025,
+    "reference_tuning_score": 94.48291355664169,
+    "reference_report_sha256": "8573776763e959e7101d9c9fe9c8a106e7df71dd6e2acca6fc0ac2225488ba56",
+    "exact_reference_score_match": true,
+    "source_sha256": {
+      "experimental/stress_protected_emission_079.py": "633fe253fc472a120ee291dc4fc92fdb6557326282fccabf8f786366f5d855db",
+      "experimental/emission_identity.py": "390d946e07ac891e44ddd09a6312bfced7b60b82cf8067a650a13d2cad5bdeed",
+      "experimental/causal_birth_paths.py": "d52e61bfb1747765250fd6a7dda6b64e98d3c37bb3cc872f6356874e9bc876b4",
+      "experimental/paired_returns.py": "3d3106ecc77b00dcd499220ba7aef4d4bd3656576aeb98d7adcc83e676743ef1",
+      "experimental/clock_association.py": "f52bae2e96fc3bb5502cc5719436f499a0d57ebb50786304bfba90cbd7615841",
+      "experimental/teacher_assoc.py": "c84dbeab33fc18fbb8f5c05d46ecb10929b1206255f02eca668e41e272fe5e58",
+      "experimental/pair_swap_probe.py": "e2a89f73ca57d5adde6cc15e5fee4c483f3efda721d14dc94b5c98f5c42aa1a6",
+      "experimental/raw_timing_detection.py": "6b125d5ad6ab27725be534718b8691c1f415403071e4db4d64804bd0d132756e",
+      "replay_validation.py": "22bb32beeda77deb25503eb95ea13e09ffe20b9e1a1ecf912dc65d652f4bd15b",
+      "metrics.py": "11a7bb7d52f3321b5396638449ef26a2ece499401bbd08932475ab2c3c9daf81",
+      "packet_scope.py": "204ec3a66ebc0fc70a8718edda4e441a78a65505404643a5bf373ea251bda910",
+      "participant_demo/Dockerfile": "1b1cec2c2724c998f8011ddcb3f2d425dd64219d2effb732f405ee9465ecc719",
+      "participant_demo/requirements.txt": "baa21e99c13308057e13a8c2cf0b89a8a24434f99409954671b4d6c27ce8ca76",
+      "participant_demo/run.sh": "5f033165877886859cf80cd27c8374573e2f9d983b52a457ffaa9c3de8d68cd6",
+      "participant_demo/run_client.sh": "1f3ba2465cac483ff0e79dcd76282b25a9574cd99f3f9e029379c44b574ba6ab",
+      "participant_demo/src/algorithm.py": "c0d7d596a32db9ef06fd4c99a22ea87acb3352f3bcf59243b872b5dd6763c633",
+      "participant_demo/src/baseline_cv.py": "e74104b6fe6d8676bca09c34f867230bd62981be27fbcb6209ec200898bb4c36",
+      "participant_demo/src/client.py": "c44f5431f562cabea95b2d895dd23cff1bacc530abef0301dc1ffa025bbe7a5e",
+      "participant_demo/src/exe_runtime.py": "adfb7be9d05b2c18c730de3090aaf1c3c3c6c47928d2ac1879fbcde4209a3986",
+      "participant_demo/src/main.py": "2128dd02ad13c8cd66b66e5f340a3752c4a50d8cb49031f76deb35c640aa5d98",
+      "participant_demo/src/serve.py": "aeb29e986bee401c9903606c05a4b78e2cc8c8df4dd17800cc4b5141c6d65d10",
+      "participant_demo/src/tracker.py": "e6d78c6f73ee9d4047ed6558f3838197c03ff39b8fc1e084ecc2912d222bb3a1",
+      "participant_demo/src/tracker_assoc.py": "bb4c708b57e2a5f633be2595e41047bbba29a66c17f513f9ffec7ea7a5eada70",
+      "participant_demo/src/tracker_compat.py": "dab4e69038b4c08bffc8c9e0e5c38bedb4b6327112987ed48cce1fd41697741e",
+      "participant_demo/src/windows_job.py": "0e6f8f7777d563dd36096c8df236801052333f04537ac1e54c32931c0573c8ab"
+    },
+    "model_sha256": {
+      "experimental/teacher_assoc_wide.txt": "5d823e1869b4a0275c61e13441e62743b95b0ca86fefe3e99f6ddc5a9d6dfe2d",
+      "experimental/models/pair_swap_wide.txt": "ed192441218ab2585bd80477ad9c1e1b14637dbee8855598979c1d8594515588",
+      "experimental/models/causal_birth_paths.txt": "6e3b30307708f1f2136fa155b31835c1684ebb171ccc56d596d39dc5ac2ae008",
+      "experimental/models/scan_clock.txt": "70a52d51d8770d84cec6ca09e4dee026a6f77790aace77e6733a6a855f99559f",
+      "experimental/models/paired_returns.txt": "c72ee4defcdd760cd9c54f4afd1343c09371ca818e31ebf2f297cf0c6651c56c",
+      "experimental/models/emission_detection.txt": "8bd6161036cce13e17107316d30219979b74295a9c4eeec3f8179ba13031abc0",
+      "experimental/models/emission_ownership.txt": "0d2e034e63940c44f8c9f8ef9d20e36a96bd55f6d6aa50216483f98682602b34",
+      "experimental/models/raw_timing_detection.txt": "e5e3e37626e4526332c3a54ca6365a0327822a4aa699febae9dd70ea79634a30"
+    },
+    "compatibility_config": {
+      "backend": "compat",
+      "profile": "compat.json",
+      "profile_sha256": "d3216d83526ef526117c35d6d1827728b641d63feb1cd9d0eb888ae6ab1dfa1f",
+      "feature_version": 1,
+      "models": {
+        "quality": {
+          "file": "quality.txt",
+          "sha256": "9f58e8855ee6b0fd6b0ac5cdb1ba9f2603b2028888a0587b9283129a0cf4d248"
+        }
+      },
+      "settings": {
+        "threshold": 0.2
+      }
+    },
+    "effective_legacy_threshold": 0.16,
+    "timed_region": "POINT unpack, input snapshot, causal tracker, TRACK validation and encode",
+    "environment": {
+      "platform": "Windows-10-10.0.19045-SP0",
+      "python": "3.12.7",
+      "numpy": "1.26.4",
+      "scipy": "1.13.1",
+      "lightgbm": "4.6.0",
+      "OMP_NUM_THREADS": null,
+      "OPENBLAS_NUM_THREADS": null
+    }
+  },
+  "summary": {
+    "file": "train_079.csv",
+    "input_points": 139645,
+    "circles_replayed": 568,
+    "empty_circles": 0,
+    "processing_ms": 12763.029300404014,
+    "p99_circle_ms": 38.14550000242889,
+    "max_circle_ms": 157.85069999401458,
+    "slowest_circle": 567,
+    "truth_points": 18450,
+    "output_points": 18132,
+    "matched_points": 17551,
+    "clutter_output_points": 20,
+    "unknown_output_points": 561,
+    "output_tracks": 146,
+    "merged_output_tracks": 6,
+    "merged_truth_points": 42,
+    "identity_true_positive_points": 17304,
+    "truth_tracks": 119,
+    "matched_truth_tracks": 119,
+    "missed_truth_points": 899,
+    "unmatched_output_points": 581,
+    "point_coverage": 0.9512737127371274,
+    "mean_track_coverage": 0.925367399899557,
+    "false_alarm_ratio": 0.03149051490514905,
+    "idf1": 0.9460390355912744,
+    "merged_truth_point_ratio": 0.00239302603840237,
+    "split_truth_tracks": 13,
+    "id_switches": 18,
+    "missed_segments": 301,
+    "circle_gaps": 824,
+    "score": {
+      "version": "b02-local-pntid-v1",
+      "matched_tracks": 119,
+      "tracks": 119,
+      "raw_percent_scores": {
+        "coverage": 92.53673998995569,
+        "timeliness": 91.6143361344538,
+        "timeliness_first_hit": 91.53003361344537,
+        "tracking_length": 93.1035950082386,
+        "tracking_length_literal": 100.0,
+        "fragmentation": 93.97759103641457,
+        "false_alarm": 96.8509485094851
+      },
+      "weighted_points": {
+        "coverage": 27.76102199698671,
+        "false_alarm": 9.68509485094851,
+        "fragmentation": 18.795518207282914,
+        "timeliness": 18.322867226890757,
+        "tracking_length": 18.62071900164772
+      },
+      "total": 93.18522128375662,
+      "total_literal_max": 94.5645022821089,
+      "total_first_hit": 93.16836077955493
+    },
+    "largest_input_scan": {
+      "circle": 567,
+      "points": 8797,
+      "time_ms": 157.85069999401458
+    },
+    "parallel_jobs": 1,
+    "mean_circle_ms": 22.470122007753545
+  }
+}

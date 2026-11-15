@@ -1,0 +1,13 @@
+{
+  "feature_version": 1,
+  "backend": "compat",
+  "models": {
+    "quality": {
+      "file": "quality.txt",
+      "sha256": "9f58e8855ee6b0fd6b0ac5cdb1ba9f2603b2028888a0587b9283129a0cf4d248"
+    }
+  },
+  "settings": {
+    "threshold": 0.2
+  }
+}

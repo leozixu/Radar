@@ -1,0 +1,158 @@
+{
+  "status": "success",
+  "started_at_asia_shanghai": "2026-11-15T23:48:27.446954+08:00",
+  "completed_at_asia_shanghai": "2026-11-15T23:57:14.071141+08:00",
+  "image": "radar-b02:paired-precision-frozen",
+  "image_id": "sha256:2b0076658871112439026069c89d82b764a520720aefffec5f4616853d38f7d5",
+  "config_sha256": "468daf6e1b69a83bf1bec8aec3d285a7168ac3634c0c9e009f5a2399d8408716",
+  "frozen_manifest_sha256": "d11a87101daef4742f4d0875afb12c8f68f951637f53dce09825021575fca4d5",
+  "verified_frozen_image_assets": 41,
+  "runtime": {
+    "backend": "precision",
+    "profile": "frozen.json",
+    "profile_sha256": "468daf6e1b69a83bf1bec8aec3d285a7168ac3634c0c9e009f5a2399d8408716",
+    "feature_version": 1,
+    "models": {
+      "teacher": {
+        "file": "precision/teacher.txt",
+        "sha256": "5d823e1869b4a0275c61e13441e62743b95b0ca86fefe3e99f6ddc5a9d6dfe2d"
+      },
+      "pair_orientation": {
+        "file": "precision/pair_orientation.txt",
+        "sha256": "ed192441218ab2585bd80477ad9c1e1b14637dbee8855598979c1d8594515588"
+      },
+      "birth": {
+        "file": "precision/birth.txt",
+        "sha256": "6e3b30307708f1f2136fa155b31835c1684ebb171ccc56d596d39dc5ac2ae008"
+      },
+      "scan_clock": {
+        "file": "precision/scan_clock.txt",
+        "sha256": "70a52d51d8770d84cec6ca09e4dee026a6f77790aace77e6733a6a855f99559f"
+      },
+      "pair_signature": {
+        "file": "precision/pair_signature.txt",
+        "sha256": "c72ee4defcdd760cd9c54f4afd1343c09371ca818e31ebf2f297cf0c6651c56c"
+      },
+      "raw_return": {
+        "file": "precision/raw_return.txt",
+        "sha256": "e5e3e37626e4526332c3a54ca6365a0327822a4aa699febae9dd70ea79634a30"
+      },
+      "quality": {
+        "file": "quality.txt",
+        "sha256": "9f58e8855ee6b0fd6b0ac5cdb1ba9f2603b2028888a0587b9283129a0cf4d248"
+      },
+      "emission_detection": {
+        "file": "precision/emission_detection.txt",
+        "sha256": "8bd6161036cce13e17107316d30219979b74295a9c4eeec3f8179ba13031abc0"
+      },
+      "emission_ownership": {
+        "file": "precision/emission_ownership.txt",
+        "sha256": "0d2e034e63940c44f8c9f8ef9d20e36a96bd55f6d6aa50216483f98682602b34"
+      }
+    },
+    "settings": {
+      "association_floor": 0.035,
+      "association_margin": 0.3,
+      "birth_floor": 0.86,
+      "pair_start_floor": 0.985,
+      "pair_link_floor": 0.95,
+      "pair_fallback_floor": 0.96,
+      "raw_floor": 0.025,
+      "quality_threshold": 0.16,
+      "emission_detection_floor": 0.25,
+      "emission_raw_floor": 0.8
+    }
+  },
+  "network": "none",
+  "jobs": 2,
+  "timeout_seconds_per_fixture": 900,
+  "packet_ids": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "packages": 5,
+  "circles": 3596,
+  "input_points": 908636,
+  "tracks": 95315,
+  "tests_in_image": 21,
+  "per_package": [
+    {
+      "name": "train_001.dat",
+      "input_sha256": "5365fafb70228e96251e387c57b57ec9ea516b1b3cbbcf70ebfcdba7bdfacfc2",
+      "input_bytes": 7888011,
+      "circles": 720,
+      "input_points": 219111,
+      "tracks": 18719,
+      "wall_seconds": 221.32,
+      "started_at_utc": "2026-11-15T15:48:34.525196+00:00",
+      "output_files": {
+        "train_001.dat": 524147,
+        "train_001_rt.dat": 10161
+      },
+      "official_verified": true
+    },
+    {
+      "name": "train_002.dat",
+      "input_sha256": "69b1639c7364b604592d533df61747b458f8a2c50ce1b7234914af714b131110",
+      "input_bytes": 6149751,
+      "circles": 719,
+      "input_points": 170826,
+      "tracks": 14616,
+      "wall_seconds": 174.778,
+      "started_at_utc": "2026-11-15T15:48:34.527776+00:00",
+      "output_files": {
+        "train_002.dat": 409263,
+        "train_002_rt.dat": 10147
+      },
+      "official_verified": true
+    },
+    {
+      "name": "train_003.dat",
+      "input_sha256": "edfd407c374e81d0cbb0a7cb3ef5957f2b7a0d15b01dab9d972eb3240aa97469",
+      "input_bytes": 6375183,
+      "circles": 719,
+      "input_points": 177088,
+      "tracks": 22705,
+      "wall_seconds": 179.358,
+      "started_at_utc": "2026-11-15T15:51:31.805365+00:00",
+      "output_files": {
+        "train_003.dat": 635755,
+        "train_003_rt.dat": 10147
+      },
+      "official_verified": true
+    },
+    {
+      "name": "train_004.dat",
+      "input_sha256": "b744290142485403644d18f52cc333485e986e1cb6fb9a80efad51092f7602bb",
+      "input_bytes": 6487539,
+      "circles": 719,
+      "input_points": 180209,
+      "tracks": 20555,
+      "wall_seconds": 181.897,
+      "started_at_utc": "2026-11-15T15:52:17.165186+00:00",
+      "output_files": {
+        "train_004.dat": 575555,
+        "train_004_rt.dat": 10147
+      },
+      "official_verified": true
+    },
+    {
+      "name": "train_005.dat",
+      "input_sha256": "1c16d3c38520f7edaaa1afe6e5196a8e348eb519c7f0d9688467eed2d6b22acc",
+      "input_bytes": 5810487,
+      "circles": 719,
+      "input_points": 161402,
+      "tracks": 18720,
+      "wall_seconds": 160.889,
+      "started_at_utc": "2026-11-15T15:54:32.514574+00:00",
+      "output_files": {
+        "train_005.dat": 524175,
+        "train_005_rt.dat": 10147
+      },
+      "official_verified": true
+    }
+  ]
+}

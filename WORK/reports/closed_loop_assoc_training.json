@@ -1,0 +1,85 @@
+{
+  "metadata": {
+    "packet_ids": [
+      4,
+      7,
+      9,
+      12,
+      16,
+      22,
+      43,
+      69
+    ],
+    "blend": 0.4,
+    "source_sha256": "09686006267916aaa436f2e52114f4cc4d39a69d4395d4436fa09fc79c9f834d",
+    "teacher_sha256": "5d823e1869b4a0275c61e13441e62743b95b0ca86fefe3e99f6ddc5a9d6dfe2d",
+    "pair_sha256": "ed192441218ab2585bd80477ad9c1e1b14637dbee8855598979c1d8594515588",
+    "model_sha256": "f6f5e17d094ece22816e7f4607c5fadcbab8f207f0e41cd6a177d9d727a98c01"
+  },
+  "packets": [
+    {
+      "file": "train_004.csv",
+      "edges": 100222,
+      "positive": 15343,
+      "clutter_track_edges": 77180,
+      "damaged_history_edges": 3921,
+      "damaged_positive": 1780
+    },
+    {
+      "file": "train_007.csv",
+      "edges": 41679,
+      "positive": 19268,
+      "clutter_track_edges": 12280,
+      "damaged_history_edges": 5672,
+      "damaged_positive": 2612
+    },
+    {
+      "file": "train_009.csv",
+      "edges": 65177,
+      "positive": 15415,
+      "clutter_track_edges": 40286,
+      "damaged_history_edges": 7427,
+      "damaged_positive": 3346
+    },
+    {
+      "file": "train_012.csv",
+      "edges": 55290,
+      "positive": 14768,
+      "clutter_track_edges": 32326,
+      "damaged_history_edges": 5372,
+      "damaged_positive": 2594
+    },
+    {
+      "file": "train_016.csv",
+      "edges": 67858,
+      "positive": 16567,
+      "clutter_track_edges": 41423,
+      "damaged_history_edges": 6600,
+      "damaged_positive": 2974
+    },
+    {
+      "file": "train_022.csv",
+      "edges": 48030,
+      "positive": 17517,
+      "clutter_track_edges": 19018,
+      "damaged_history_edges": 8970,
+      "damaged_positive": 3790
+    },
+    {
+      "file": "train_043.csv",
+      "edges": 135699,
+      "positive": 22588,
+      "clutter_track_edges": 97381,
+      "damaged_history_edges": 10570,
+      "damaged_positive": 4453
+    },
+    {
+      "file": "train_069.csv",
+      "edges": 103629,
+      "positive": 22323,
+      "clutter_track_edges": 65183,
+      "damaged_history_edges": 11604,
+      "damaged_positive": 5238
+    }
+  ]
+}

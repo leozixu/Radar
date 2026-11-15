@@ -1,154 +1,109 @@
-"""Causal multi-target tracker for the official per-circle Python interface."""
+"""Entrypoint for the original TCP client and explicit experiment profiles."""
 
-from dataclasses import dataclass, field
+from dataclasses import asdict, dataclass
+from functools import lru_cache
+import hashlib
+import json
+from pathlib import Path
 
 import numpy as np
-from scipy.optimize import linear_sum_assignment
+
+from tracker import ASSOCIATION_FEATURES, BIRTH_FEATURES, TrackerModels, TrackerSettings, process_candidates
 
 
-# Coordinates are normalized in the input. Use independent scales for each axis.
-START_GATE = np.array([0.036, 0.090, 0.016])
-FOLLOW_GATE = np.array([0.016, 0.075, 0.006])
-# Continuous acceleration noise per axis, relative to unit measurement variance.
-PROCESS_NOISE = np.array([0.30, 0.01, 1.00])
-OUTPUT_FIELDS = ("Time", "Azimuth", "Elevation", "Distance", "CircleID", "PntID")
-MAX_MISSED_CIRCLES = 3
-SEED_MIN_AMPLITUDE = 0.18
-CONFIRM_MIN_MEAN_AMPLITUDE = 0.30
+DEFAULT_PROFILE = Path(__file__).resolve().parents[1] / "models" / "frozen.json"
+FEATURE_VERSION = 1
 
 
-@dataclass(slots=True)
-class Track:
-    position: np.ndarray
-    velocity: np.ndarray
-    circle: int
-    mean_amplitude: float
-    first_position: np.ndarray
-    hits: int = 1
-    batch_id: int = 0
-    # Position variance, position–velocity covariance, and velocity variance per axis.
-    covariance: np.ndarray | None = field(default=None, init=False)
+@dataclass(frozen=True, slots=True)
+class Runtime:
+    settings: TrackerSettings
+    models: TrackerModels
+    metadata: dict
+
+    def process_circle(self, points, state):
+        return process_candidates(points, state, self.settings, self.models)
 
 
-def residual(observed, predicted):
-    delta = observed - predicted
-    # Use the shortest azimuth difference across the normalized turn boundary.
-    delta[..., 0] = (delta[..., 0] + 0.5) % 1.0 - 0.5
-    return delta
+def _file_hash(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def associate(tracks, positions, amplitudes, circle, initial=False):
-    """Return one-to-one matches, with an explicit unmatched choice per track."""
-    if not tracks or len(positions) == 0:
-        return []
-
-    elapsed = np.asarray([circle - track.circle for track in tracks])
-    predicted = np.stack([track.position for track in tracks])
-    predicted += np.stack([track.velocity for track in tracks]) * elapsed[:, None]
-    gate = START_GATE if initial else FOLLOW_GATE
-    gate = gate * (1 + 0.35 * (elapsed - 1))[:, None]
-    delta = residual(positions[None, :, :], predicted[:, None, :])
-    distance = np.sum(np.square(delta / gate[:, None, :]), axis=2)
-
-    # Weak or inconsistent amplitudes can still match an established track.
-    previous_amp = np.asarray([track.mean_amplitude for track in tracks])
-    amp_change = np.abs(amplitudes[None, :] - previous_amp[:, None])
-    amp_cost = 0.45 * np.maximum(0.35 - amplitudes, 0) / 0.35
-    cost = distance + amp_cost + 0.22 * amp_change
-    cost[distance > 1] = np.inf
-    unmatched = np.full((len(tracks), len(tracks)), np.inf)
-    np.fill_diagonal(unmatched, 1.0)
-    rows, columns = linear_sum_assignment(np.hstack((cost, unmatched)))
-    return [(row, col) for row, col in zip(rows, columns) if col < len(positions)]
+def _settings(values):
+    settings = TrackerSettings(**values)
+    for variances in (settings.measurement, settings.process):
+        if np.shape(variances) != (3,) or not np.all(np.isfinite(variances)) or np.any(np.array(variances) <= 0):
+            raise ValueError("Measurement and process variances must each contain three finite positive values")
+    return settings
 
 
-def update_track(track, position, amplitude, circle):
-    elapsed = circle - track.circle
-    if track.hits == 1:
-        track.velocity = residual(position, track.position) / elapsed
-        track.position = position.copy()
-        # The velocity uses both measurements, including the current position.
-        track.covariance = np.array(
-            [np.ones(3), np.full(3, 1 / elapsed), np.full(3, 2 / elapsed**2)]
-        )
+def _load_model(profile, descriptor, features, kind):
+    if descriptor is None:
+        return None, None
+    from lightgbm import Booster
+
+    if isinstance(descriptor, str):
+        name, expected_hash = descriptor, None
     else:
-        position_var, cross_cov, velocity_var = track.covariance
-        # Propagate covariance with the constant-velocity transition and white acceleration.
-        prior_position_var = (
-            position_var + 2 * elapsed * cross_cov + elapsed**2 * velocity_var
-            + PROCESS_NOISE * elapsed**3 / 3
-        )
-        prior_cross_cov = cross_cov + elapsed * velocity_var + PROCESS_NOISE * elapsed**2 / 2
-        prior_velocity_var = velocity_var + PROCESS_NOISE * elapsed
-        innovation_var = prior_position_var + 1
-        position_gain = prior_position_var / innovation_var
-        velocity_gain = prior_cross_cov / innovation_var
+        name, expected_hash = descriptor["file"], descriptor.get("sha256")
+    path = (profile.parent / name).resolve(strict=True)
+    digest = _file_hash(path)
+    if expected_hash is not None and digest != expected_hash.lower():
+        raise ValueError(f"{kind} model hash mismatch: {path}")
+    model = Booster(model_file=str(path))
+    if tuple(model.feature_name()) != features:
+        raise ValueError(f"{kind} model feature schema disagrees with tracker: {path}")
+    return model, {"file": name, "sha256": digest}
 
-        prediction = track.position + elapsed * track.velocity
-        error = residual(position, prediction)
-        track.position = prediction + position_gain * error
-        track.velocity += velocity_gain * error
-        # With unit measurement variance the first two posterior entries equal the gains.
-        position_var[:] = position_gain
-        cross_cov[:] = velocity_gain
-        velocity_var[:] = prior_velocity_var - velocity_gain * prior_cross_cov
 
-    track.position[0] %= 1.0
-    track.circle = circle
-    track.hits += 1
-    track.mean_amplitude += (amplitude - track.mean_amplitude) / min(track.hits, 8)
+@lru_cache(maxsize=8)
+def _read_runtime(profile):
+    document = json.loads(profile.read_text(encoding="utf-8-sig"))
+    if document.get("feature_version", FEATURE_VERSION) != FEATURE_VERSION:
+        raise ValueError(f"Unsupported tracker feature version: {profile}")
+    predictors = document.get("models", {})
+    backend = document.get("backend", "learned")
+    if backend == "precision":
+        from precision_tracking.runtime import load_precision
+
+        return load_precision(profile, document.get("settings", {}), predictors,
+                              FEATURE_VERSION, _file_hash, _load_model)
+    if backend == "compat":
+        from tracker_compat import CompatibilityRuntime, QUALITY_FEATURES
+
+        threshold = document.get("settings", {}).get("threshold", 0.20)
+        if not 0.0 <= threshold <= 1.0:
+            raise ValueError("Compatibility quality threshold must be within [0, 1]")
+        model, info = _load_model(profile, predictors.get("quality"), QUALITY_FEATURES, "quality")
+        if model is None:
+            raise ValueError("The compatibility profile requires its trained quality model")
+        return CompatibilityRuntime(model, threshold, {
+            "backend": backend, "profile": profile.name, "profile_sha256": _file_hash(profile),
+            "feature_version": FEATURE_VERSION, "models": {"quality": info},
+            "settings": {"threshold": threshold},
+        })
+    if backend != "learned":
+        raise ValueError(f"Unsupported tracker backend: {backend}")
+    names = {"association": ASSOCIATION_FEATURES, "birth": BIRTH_FEATURES}
+    if profile == DEFAULT_PROFILE and any(predictors.get(kind) is None for kind in names):
+        raise ValueError("The frozen profile must include both trained models")
+    settings = _settings(document.get("settings", {}))
+    models, model_info = {}, {}
+    for kind, features in names.items():
+        models[kind], model_info[kind] = _load_model(profile, predictors.get(kind), features, kind)
+    settings_dict = asdict(settings)
+    settings_dict["measurement"] = list(settings.measurement)
+    settings_dict["process"] = list(settings.process)
+    return Runtime(settings, TrackerModels(**models), {
+        "backend": backend, "profile": profile.name, "profile_sha256": _file_hash(profile),
+        "feature_version": FEATURE_VERSION, "models": model_info, "settings": settings_dict,
+    })
+
+
+def load_runtime(config_path=None):
+    profile = DEFAULT_PROFILE if config_path is None else Path(config_path).resolve()
+    return _read_runtime(profile)
 
 
 def process_circle(points, state):
-    """Select current-circle source points and attach persistent positive IDs."""
-    circle = points[0]["CircleID"] if points else state.get("circle", -1) + 1
-    state["circle"] = circle
-    established, tentative, seeds = state.get("tracks", ([], [], []))
-    established = [track for track in established if circle - track.circle <= MAX_MISSED_CIRCLES + 1]
-    tentative = [track for track in tentative if circle - track.circle == 1]
-    seeds = [track for track in seeds if circle - track.circle == 1]
-
-    positions = np.asarray(
-        [(p["Azimuth"], p["Elevation"], p["Distance"]) for p in points], dtype=float
-    ).reshape(-1, 3)
-    amplitudes = np.asarray([p["Amp"] for p in points], dtype=float)
-    remaining = np.arange(len(points))
-    matched_tracks = []
-    next_tentative = []
-    batch_id = state.get("next_batch_id", 1)
-
-    # Established tracks get first choice, then two-hit candidates, then one-hit seeds.
-    for tier, tracks in enumerate((established, tentative, seeds)):
-        matches = associate(tracks, positions[remaining], amplitudes[remaining], circle, initial=tier == 2)
-        keep = np.ones(len(remaining), dtype=bool)
-        for track_index, remaining_index in matches:
-            track = tracks[track_index]
-            point_index = remaining[remaining_index]
-            position = positions[point_index]
-            update_track(track, position, amplitudes[point_index], circle)
-            keep[remaining_index] = False
-            if tier == 2:
-                next_tentative.append(track)
-                continue
-            if tier == 1:
-                movement = residual(position, track.first_position)
-                if (track.mean_amplitude < CONFIRM_MIN_MEAN_AMPLITUDE
-                        or np.linalg.norm(movement / np.array([0.002, 0.025, 0.0012])) < 1):
-                    continue
-                track.batch_id = batch_id
-                batch_id += 1
-                established.append(track)
-            matched_tracks.append((point_index, track.batch_id))
-        remaining = remaining[keep]
-
-    next_seeds = [
-        Track(positions[index].copy(), np.zeros(3), circle, amplitudes[index], positions[index].copy())
-        for index in remaining
-        if amplitudes[index] >= SEED_MIN_AMPLITUDE
-    ]
-    state["tracks"] = (established, next_tentative, next_seeds)
-    state["next_batch_id"] = batch_id
-    return [
-        {**{field: points[index][field] for field in OUTPUT_FIELDS}, "BatchID": track_id}
-        for index, track_id in sorted(matched_tracks)
-    ]
+    return load_runtime().process_circle(points, state)

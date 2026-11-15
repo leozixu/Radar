@@ -1,0 +1,127 @@
+{
+  "metadata": {
+    "packet_ids": [
+      1,
+      6,
+      14,
+      27,
+      35,
+      44,
+      57,
+      70
+    ],
+    "model_sha256": "5f399bf92937f6a3b2d6470cb9836781e82d9a94263d0e127da7d6ae7fa9a0c2"
+  },
+  "settings": {
+    "iterations": 140,
+    "leaves": 39,
+    "threads": 1,
+    "history_corruption": 0.18,
+    "seed": 4311
+  },
+  "features": [
+    "gap",
+    "hits",
+    "amplitude",
+    "amplitude_last",
+    "amplitude_mean",
+    "amplitude_difference",
+    "amplitude_std",
+    "row_neighbors",
+    "column_neighbors",
+    "distance",
+    "row_rank",
+    "row_excess",
+    "column_excess",
+    "kf_az",
+    "kf_el",
+    "kf_range",
+    "short_az",
+    "short_el",
+    "short_range",
+    "long_az",
+    "long_el",
+    "long_range",
+    "short_uncertainty_az",
+    "short_uncertainty_el",
+    "short_uncertainty_range",
+    "long_uncertainty_az",
+    "long_uncertainty_el",
+    "long_uncertainty_range",
+    "velocity_az",
+    "velocity_el",
+    "velocity_range",
+    "recent_velocity_difference_az",
+    "recent_velocity_difference_el",
+    "recent_velocity_difference_range",
+    "long_velocity_difference_az",
+    "long_velocity_difference_el",
+    "long_velocity_difference_range"
+  ],
+  "packets": [
+    {
+      "file": "train_001.csv",
+      "edges": 36253,
+      "positives": 23048,
+      "gate_hits": 23048,
+      "gate_total": 23145,
+      "corruptions": 841
+    },
+    {
+      "file": "train_006.csv",
+      "edges": 34837,
+      "positives": 21508,
+      "gate_hits": 21508,
+      "gate_total": 21601,
+      "corruptions": 899
+    },
+    {
+      "file": "train_014.csv",
+      "edges": 33068,
+      "positives": 19780,
+      "gate_hits": 19780,
+      "gate_total": 19876,
+      "corruptions": 888
+    },
+    {
+      "file": "train_027.csv",
+      "edges": 33566,
+      "positives": 22424,
+      "gate_hits": 22424,
+      "gate_total": 22503,
+      "corruptions": 710
+    },
+    {
+      "file": "train_035.csv",
+      "edges": 23297,
+      "positives": 15230,
+      "gate_hits": 15230,
+      "gate_total": 15319,
+      "corruptions": 482
+    },
+    {
+      "file": "train_044.csv",
+      "edges": 27274,
+      "positives": 16715,
+      "gate_hits": 16715,
+      "gate_total": 16803,
+      "corruptions": 665
+    },
+    {
+      "file": "train_057.csv",
+      "edges": 30296,
+      "positives": 19335,
+      "gate_hits": 19335,
+      "gate_total": 19403,
+      "corruptions": 672
+    },
+    {
+      "file": "train_070.csv",
+      "edges": 28423,
+      "positives": 18619,
+      "gate_hits": 18619,
+      "gate_total": 18719,
+      "corruptions": 567
+    }
+  ]
+}

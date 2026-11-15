@@ -1,0 +1,133 @@
+{
+  "summary": {
+    "truth_points": 18450,
+    "output_points": 19304,
+    "matched_points": 17835,
+    "clutter_output_points": 862,
+    "unknown_output_points": 607,
+    "output_tracks": 465,
+    "merged_output_tracks": 32,
+    "merged_truth_points": 426,
+    "identity_true_positive_points": 17118,
+    "truth_tracks": 119,
+    "matched_truth_tracks": 119,
+    "missed_truth_points": 615,
+    "unmatched_output_points": 1469,
+    "point_coverage": 0.9666666666666667,
+    "mean_track_coverage": 0.9412246279864813,
+    "false_alarm_ratio": 0.07962059620596205,
+    "idf1": 0.9068178206282778,
+    "merged_truth_point_ratio": 0.02388561816652649,
+    "split_truth_tracks": 42,
+    "id_switches": 130,
+    "missed_segments": 138,
+    "circle_gaps": 658,
+    "score": {
+      "version": "b02-local-pntid-v1",
+      "matched_tracks": 119,
+      "tracks": 119,
+      "raw_percent_scores": {
+        "coverage": 94.12246279864813,
+        "timeliness": 87.24571428571429,
+        "timeliness_first_hit": 86.74117647058823,
+        "tracking_length": 93.99485734257232,
+        "tracking_length_literal": 100.0,
+        "fragmentation": 81.44257703081233,
+        "false_alarm": 92.03794037940379
+      },
+      "weighted_points": {
+        "coverage": 28.23673883959444,
+        "false_alarm": 9.20379403794038,
+        "fragmentation": 16.288515406162464,
+        "timeliness": 17.449142857142856,
+        "tracking_length": 18.798971468514463
+      },
+      "total": 89.97716260935461,
+      "total_literal_max": 91.17819114084014,
+      "total_first_hit": 89.87625504632939
+    }
+  },
+  "packets": [
+    {
+      "file": "train_079.csv",
+      "input_points": 139645,
+      "circles_replayed": 568,
+      "empty_circles": 0,
+      "processing_ms": 23292.719900171505,
+      "p99_circle_ms": 74.59650000964757,
+      "max_circle_ms": 405.2426000125706,
+      "slowest_circle": 567,
+      "truth_points": 18450,
+      "output_points": 19304,
+      "matched_points": 17835,
+      "clutter_output_points": 862,
+      "unknown_output_points": 607,
+      "output_tracks": 465,
+      "merged_output_tracks": 32,
+      "merged_truth_points": 426,
+      "identity_true_positive_points": 17118,
+      "truth_tracks": 119,
+      "matched_truth_tracks": 119,
+      "missed_truth_points": 615,
+      "unmatched_output_points": 1469,
+      "point_coverage": 0.9666666666666667,
+      "mean_track_coverage": 0.9412246279864813,
+      "false_alarm_ratio": 0.07962059620596205,
+      "idf1": 0.9068178206282778,
+      "merged_truth_point_ratio": 0.02388561816652649,
+      "split_truth_tracks": 42,
+      "id_switches": 130,
+      "missed_segments": 138,
+      "circle_gaps": 658,
+      "score": {
+        "version": "b02-local-pntid-v1",
+        "matched_tracks": 119,
+        "tracks": 119,
+        "raw_percent_scores": {
+          "coverage": 94.12246279864813,
+          "timeliness": 87.24571428571429,
+          "timeliness_first_hit": 86.74117647058823,
+          "tracking_length": 93.99485734257232,
+          "tracking_length_literal": 100.0,
+          "fragmentation": 81.44257703081233,
+          "false_alarm": 92.03794037940379
+        },
+        "weighted_points": {
+          "coverage": 28.23673883959444,
+          "false_alarm": 9.20379403794038,
+          "fragmentation": 16.288515406162464,
+          "timeliness": 17.449142857142856,
+          "tracking_length": 18.798971468514463
+        },
+        "total": 89.97716260935461,
+        "total_literal_max": 91.17819114084014,
+        "total_first_hit": 89.87625504632939
+      },
+      "pair_counters": {
+        "locked_points": 9616,
+        "matched_pairs": 4837,
+        "early_pair_starts": 24
+      }
+    }
+  ],
+  "metadata": {
+    "packets": [
+      79
+    ],
+    "mode": "early",
+    "start_floor": 0.985,
+    "link_floor": 0.95,
+    "score_version": "b02-local-pntid-v1",
+    "source_sha256": {
+      "paired_returns.py": "749e02238d98be6a0ff74852b39b3da4ddb0abe04956fff1ffe9b29991576703",
+      "causal_birth_paths.py": "43e6062ea71168057e819cab008ba3ba11ee2a419eedad4d6089610c68eaf277"
+    },
+    "model_sha256": {
+      "teacher": "5d823e1869b4a0275c61e13441e62743b95b0ca86fefe3e99f6ddc5a9d6dfe2d",
+      "pair": "ed192441218ab2585bd80477ad9c1e1b14637dbee8855598979c1d8594515588",
+      "birth": "6e3b30307708f1f2136fa155b31835c1684ebb171ccc56d596d39dc5ac2ae008",
+      "clock": "70a52d51d8770d84cec6ca09e4dee026a6f77790aace77e6733a6a855f99559f",
+      "paired_returns": "c72ee4defcdd760cd9c54f4afd1343c09371ca818e31ebf2f297cf0c6651c56c"
+    }
+  }
+}

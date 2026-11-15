@@ -1,0 +1,253 @@
+{
+  "packet_ids": [
+    1,
+    6,
+    11,
+    14,
+    22,
+    24,
+    26,
+    35,
+    41,
+    49,
+    57,
+    63,
+    70
+  ],
+  "by_packet": {
+    "train_001": {
+      "repeated_true_pairs": 5343,
+      "earlier_louder_in_repeat": 5343,
+      "earlier_higher_elevation_in_repeat": 0,
+      "earlier_farther_in_repeat": 1971,
+      "earlier_greater_azimuth_in_repeat": 2113,
+      "sole_earlier": 220,
+      "sole_earlier_after_1_scan": 121,
+      "sole_louder_previous_arm": 220,
+      "sole_later": 225,
+      "sole_later_after_1_scan": 117
+    },
+    "train_006": {
+      "repeated_true_pairs": 5733,
+      "earlier_louder_in_repeat": 5733,
+      "earlier_higher_elevation_in_repeat": 0,
+      "earlier_farther_in_repeat": 2724,
+      "earlier_greater_azimuth_in_repeat": 2861,
+      "sole_earlier": 232,
+      "sole_earlier_after_1_scan": 138,
+      "sole_louder_previous_arm": 232,
+      "sole_later": 226,
+      "sole_later_after_1_scan": 126
+    },
+    "train_011": {
+      "repeated_true_pairs": 3086,
+      "earlier_louder_in_repeat": 3086,
+      "earlier_higher_elevation_in_repeat": 0,
+      "earlier_farther_in_repeat": 1472,
+      "earlier_greater_azimuth_in_repeat": 1228,
+      "sole_earlier": 152,
+      "sole_earlier_after_1_scan": 72,
+      "sole_louder_previous_arm": 152,
+      "sole_later": 127,
+      "sole_later_after_1_scan": 70
+    },
+    "train_014": {
+      "repeated_true_pairs": 5657,
+      "earlier_louder_in_repeat": 5657,
+      "earlier_higher_elevation_in_repeat": 0,
+      "earlier_farther_in_repeat": 3701,
+      "earlier_greater_azimuth_in_repeat": 2473,
+      "sole_later": 224,
+      "sole_later_after_1_scan": 132,
+      "sole_louder_previous_arm": 235,
+      "sole_earlier": 235,
+      "sole_earlier_after_1_scan": 134
+    },
+    "train_022": {
+      "repeated_true_pairs": 4615,
+      "earlier_louder_in_repeat": 4615,
+      "earlier_higher_elevation_in_repeat": 0,
+      "earlier_farther_in_repeat": 2070,
+      "earlier_greater_azimuth_in_repeat": 2264,
+      "sole_earlier": 177,
+      "sole_earlier_after_1_scan": 103,
+      "sole_louder_previous_arm": 177,
+      "sole_later": 168,
+      "sole_later_after_1_scan": 98
+    },
+    "train_024": {
+      "repeated_true_pairs": 6202,
+      "earlier_louder_in_repeat": 6202,
+      "earlier_higher_elevation_in_repeat": 0,
+      "earlier_farther_in_repeat": 2539,
+      "earlier_greater_azimuth_in_repeat": 3650,
+      "sole_later": 270,
+      "sole_later_after_1_scan": 140,
+      "sole_louder_previous_arm": 276,
+      "sole_earlier": 276,
+      "sole_earlier_after_1_scan": 151
+    },
+    "train_026": {
+      "repeated_true_pairs": 2437,
+      "earlier_louder_in_repeat": 2437,
+      "earlier_higher_elevation_in_repeat": 0,
+      "earlier_farther_in_repeat": 1054,
+      "earlier_greater_azimuth_in_repeat": 1209,
+      "sole_earlier": 100,
+      "sole_earlier_after_1_scan": 57,
+      "sole_louder_previous_arm": 100,
+      "sole_later": 105,
+      "sole_later_after_1_scan": 58
+    },
+    "train_035": {
+      "repeated_true_pairs": 3371,
+      "earlier_louder_in_repeat": 3371,
+      "earlier_higher_elevation_in_repeat": 0,
+      "earlier_farther_in_repeat": 1725,
+      "earlier_greater_azimuth_in_repeat": 1915,
+      "sole_later": 142,
+      "sole_later_after_1_scan": 75,
+      "sole_louder_previous_arm": 131,
+      "sole_earlier": 131,
+      "sole_earlier_after_1_scan": 79
+    },
+    "train_041": {
+      "repeated_true_pairs": 6435,
+      "earlier_louder_in_repeat": 6435,
+      "earlier_higher_elevation_in_repeat": 0,
+      "earlier_farther_in_repeat": 2878,
+      "earlier_greater_azimuth_in_repeat": 3193,
+      "sole_earlier": 281,
+      "sole_earlier_after_1_scan": 156,
+      "sole_louder_previous_arm": 281,
+      "sole_later": 249,
+      "sole_later_after_1_scan": 143
+    },
+    "train_049": {
+      "repeated_true_pairs": 4981,
+      "earlier_louder_in_repeat": 4981,
+      "earlier_higher_elevation_in_repeat": 0,
+      "earlier_farther_in_repeat": 2155,
+      "earlier_greater_azimuth_in_repeat": 2704,
+      "sole_earlier": 206,
+      "sole_earlier_after_1_scan": 109,
+      "sole_louder_previous_arm": 206,
+      "sole_later": 193,
+      "sole_later_after_1_scan": 107
+    },
+    "train_057": {
+      "repeated_true_pairs": 4236,
+      "earlier_louder_in_repeat": 4236,
+      "earlier_higher_elevation_in_repeat": 0,
+      "earlier_farther_in_repeat": 2007,
+      "earlier_greater_azimuth_in_repeat": 2253,
+      "sole_later": 174,
+      "sole_later_after_1_scan": 91,
+      "sole_louder_previous_arm": 195,
+      "sole_earlier": 195,
+      "sole_earlier_after_1_scan": 95
+    },
+    "train_063": {
+      "repeated_true_pairs": 5656,
+      "earlier_louder_in_repeat": 5656,
+      "earlier_higher_elevation_in_repeat": 0,
+      "earlier_farther_in_repeat": 2967,
+      "earlier_greater_azimuth_in_repeat": 2788,
+      "sole_later": 243,
+      "sole_later_after_1_scan": 127,
+      "sole_louder_previous_arm": 238,
+      "sole_earlier": 238,
+      "sole_earlier_after_1_scan": 133
+    },
+    "train_070": {
+      "repeated_true_pairs": 3952,
+      "earlier_louder_in_repeat": 3952,
+      "earlier_higher_elevation_in_repeat": 0,
+      "earlier_farther_in_repeat": 2381,
+      "earlier_greater_azimuth_in_repeat": 2003,
+      "sole_earlier": 163,
+      "sole_earlier_after_1_scan": 96,
+      "sole_louder_previous_arm": 163,
+      "sole_later": 164,
+      "sole_later_after_1_scan": 95
+    }
+  },
+  "totals": {
+    "repeated_true_pairs": 61704,
+    "earlier_louder_in_repeat": 61704,
+    "earlier_farther_in_repeat": 29644,
+    "earlier_greater_azimuth_in_repeat": 30654,
+    "sole_earlier": 2606,
+    "sole_earlier_after_1_scan": 1444,
+    "sole_louder_previous_arm": 2606,
+    "sole_later": 2510,
+    "sole_later_after_1_scan": 1379
+  },
+  "sole_return_role_measurements": {
+    "absolute_phase": {
+      "auc": 0.49146590919514577,
+      "earlier_n": 2606,
+      "later_n": 2510,
+      "earlier_median": 0.0037319925129111198,
+      "later_median": 0.004028761608083187
+    },
+    "timestamp_odd": {
+      "auc": 0.49658312261315446,
+      "earlier_n": 2606,
+      "later_n": 2510,
+      "earlier_median": 0.0,
+      "later_median": 0.0
+    },
+    "absolute_amplitude": {
+      "auc": 0.5239677514042067,
+      "earlier_n": 2606,
+      "later_n": 2510,
+      "earlier_median": 0.4716250002384186,
+      "later_median": 0.4545789957046509
+    }
+  },
+  "late_minus_early_difference_percentiles": {
+    "0": {
+      "azimuth": -0.017582997679710388,
+      "elevation": 0.0,
+      "range": -0.00219900906085968,
+      "amplitude": -0.024956047534942627
+    },
+    "1": {
+      "azimuth": -0.005736797451972962,
+      "elevation": 0.0,
+      "range": -0.0018410086631774902,
+      "amplitude": -0.024775981903076172
+    },
+    "10": {
+      "azimuth": -0.002030014991760254,
+      "elevation": 0.00047200918197631836,
+      "range": -0.0012580156326293945,
+      "amplitude": -0.02285003662109375
+    },
+    "50": {
+      "azimuth": 1.901388168334961e-05,
+      "elevation": 0.0009519979357719421,
+      "range": 6.300210952758789e-05,
+      "amplitude": -0.013210475444793701
+    },
+    "90": {
+      "azimuth": 0.0020869970321655273,
+      "elevation": 0.002307996153831482,
+      "range": 0.0012939870357513428,
+      "amplitude": -0.003215968608856201
+    },
+    "99": {
+      "azimuth": 0.005538969635963441,
+      "elevation": 0.004872023612260818,
+      "range": 0.0018439888954162598,
+      "amplitude": -0.0004000067710876465
+    },
+    "100": {
+      "azimuth": 0.01649099588394165,
+      "elevation": 0.010100007057189941,
+      "range": 0.0028109997510910034,
+      "amplitude": -4.0084123611450195e-06
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "packet_ids": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "examples": 133208,
+  "positives": 96640,
+  "boosting_rounds": 180,
+  "training_params": {
+    "objective": "binary",
+    "learning_rate": 0.08,
+    "max_depth": 5,
+    "num_leaves": 23,
+    "num_threads": 2,
+    "verbosity": -1,
+    "force_col_wise": true,
+    "deterministic": true,
+    "seed": 84
+  },
+  "features": [
+    "hits",
+    "amp_running_mean",
+    "speed_az",
+    "speed_el",
+    "speed_range",
+    "span_per_hit_az",
+    "span_per_hit_el",
+    "span_per_hit_range",
+    "amp_oldest",
+    "amp_current",
+    "amp_std",
+    "amp_min",
+    "amp_max",
+    "current_error_az",
+    "current_error_el",
+    "current_error_range",
+    "mean_error_az",
+    "mean_error_el",
+    "mean_error_range",
+    "max_error_az",
+    "max_error_el",
+    "max_error_range",
+    "current_gap",
+    "mean_gap",
+    "max_gap"
+  ],
+  "lightgbm": "4.6.0",
+  "model": {
+    "file": "quality.txt",
+    "sha256": "9f58e8855ee6b0fd6b0ac5cdb1ba9f2603b2028888a0587b9283129a0cf4d248"
+  }
+}
