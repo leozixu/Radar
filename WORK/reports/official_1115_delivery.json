@@ -1,0 +1,108 @@
+{
+  "status": "success",
+  "official_version": "11.15",
+  "started_at_asia_shanghai": "2026-11-16T13:12:47.335709+08:00",
+  "completed_at_asia_shanghai": "2026-11-16T13:30:30.889765+08:00",
+  "official_sources": {
+    "FILE/智能体应用赛题B02--目标检测跟踪--赛题任务详细描述文档（11.15更新）.pdf": "2ef8a9603f0544be83a4727aad26049bffc18a0d241e6e3c8d885e1cba7d9970",
+    "SUBMISSION/智能体应用赛题B02--目标检测跟踪--代码样例及数据收发程序（11.15更新）.zip": "89e6f59b82784e344a991be4267513f5d41814c58ef40b23c7c8f90002379d0d"
+  },
+  "image": "radar-b02:official-1115",
+  "image_id": "sha256:b49fcbed302049d883b39eb5e91127236e3735ea094a5a17ef8c82a9f7800488",
+  "image_bytes": 859649854,
+  "wine_packages": [
+    "wine\t10.0~repack-6",
+    "wine32:i386\t10.0~repack-6",
+    "wine64\t10.0~repack-6"
+  ],
+  "network_during_tests": "none",
+  "archive": {
+    "path": "C:\\A_FPGA_File\\Radar\\radar_b02_official_1115_code.zip",
+    "sha256": "c032a472b7ac60522774786f470f72585e9b3c675cc0fe3720ab31b67d897df5",
+    "bytes": 47401654,
+    "files": 58
+  },
+  "frozen_manifest_sha256": "286dedf3808b5e0bf98a08bc8a9d121996e850edf476c8c739c4dc81c97fb65d",
+  "verified_image_hashes": 57,
+  "local_tests_passed": 13,
+  "container_tests_passed": 21,
+  "changed_frozen_files": [
+    "metrics.py",
+    "participant_demo/Dockerfile"
+  ],
+  "algorithm_config_model_hashes_unchanged": true,
+  "scorer_executable_ast_unchanged": true,
+  "score_note": "主分已使用11.15公式的min；95.70620729774423是原验收的本地代理分，本轮未重算官方成绩。",
+  "official_server_sha256": "48aa6093df02aca85887410fe681e0439c6083bc267cc16c8c61a4ea6618ed87",
+  "tcp": {
+    "status": "success",
+    "input": "/input",
+    "output": "/output",
+    "task": "all",
+    "test": true,
+    "started_at": "2026-11-16T05:13:53.943764+00:00",
+    "packages": 5,
+    "circles": 3596,
+    "tracks": 95315,
+    "per_package": [
+      {
+        "name": "train_001.dat",
+        "circles": 720,
+        "tracks": 18719
+      },
+      {
+        "name": "train_002.dat",
+        "circles": 719,
+        "tracks": 14616
+      },
+      {
+        "name": "train_003.dat",
+        "circles": 719,
+        "tracks": 22705
+      },
+      {
+        "name": "train_004.dat",
+        "circles": 719,
+        "tracks": 20555
+      },
+      {
+        "name": "train_005.dat",
+        "circles": 719,
+        "tracks": 18720
+      }
+    ],
+    "wall_seconds": 996.039,
+    "input_points": 908636
+  },
+  "same_fixture_counts_as_previous_frozen_run": true,
+  "fixture_sha256": {
+    "train_001.dat": "5365fafb70228e96251e387c57b57ec9ea516b1b3cbbcf70ebfcdba7bdfacfc2",
+    "train_002.dat": "69b1639c7364b604592d533df61747b458f8a2c50ce1b7234914af714b131110",
+    "train_003.dat": "edfd407c374e81d0cbb0a7cb3ef5957f2b7a0d15b01dab9d972eb3240aa97469",
+    "train_004.dat": "b744290142485403644d18f52cc333485e986e1cb6fb9a80efad51092f7602bb",
+    "train_005.dat": "1c16d3c38520f7edaaa1afe6e5196a8e348eb519c7f0d9688467eed2d6b22acc"
+  },
+  "output_sha256": {
+    "train_001.dat": "68353aa7aff5ef8dce666215e275dbdb1169cb511e136d5597d1a907cf3366c9",
+    "train_001_rt.dat": "60f5ee669c2c0c1c9d1a368c7a25f78abfeef002fd96ba4feee4012ec67fd91f",
+    "train_002.dat": "a03db81fdd2900a4cc6d11745fa0e0579c13b21068d87a47dad265660255fdbc",
+    "train_002_rt.dat": "e49215df1cc868d0d610b674f36c50ea3596c62331a5812a1d8b185bb564562d",
+    "train_003.dat": "9669b4ff776da51c2e885c0db33b43b41b5734929413fc3e4d97002bc0468cf6",
+    "train_003_rt.dat": "3abb9e655175aa6d942b359fde228d290a90053c0cdbb0d94b63209a97d7039a",
+    "train_004.dat": "322733bf215d9700143e776b75df096b6ad6c89a7b7541e6743e0d63f8279010",
+    "train_004_rt.dat": "fef85c223ec12307afc267fdf3f7f1eda02f34277b60fe30a7f85ff4a93f02a4",
+    "train_005.dat": "a627da7b324268ed3c2dd52b6de3951773a52f5ecd6544c2aeccbb7cd07e3d6d",
+    "train_005_rt.dat": "10cc155e80b48886009c9b8abebe9f9a17534fde90c99bc89be1452fe3499eb7"
+  },
+  "logs": "C:\\A_FPGA_File\\Radar\\project\\WORK\\reports\\official_1115",
+  "submission_note": "样例联调输出不是官方验证集结果包。最终上传前用同一版本程序运行官方验证输入并提交对应结果，文件名换成实际team_id。",
+  "image_export": {
+    "path": "C:\\A_FPGA_File\\Radar\\radar-b02-official-1115.tar.gz",
+    "bytes": 854677122,
+    "sha256": "a22f204a682afd4967f147b3f4589261ff81c46b159a2de137ded2f116d5b789",
+    "image_id": "sha256:b49fcbed302049d883b39eb5e91127236e3735ea094a5a17ef8c82a9f7800488",
+    "gzip_integrity_verified": true,
+    "docker_manifest_verified": true
+  },
+  "old_official_archive": "C:/A_FPGA_File/Radar/archive/official_pre_1115"
+}

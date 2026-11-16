@@ -1,4 +1,14 @@
-"""Historical local score and packet-local diagnostics from exact PntID matches."""
+"""Local score proxy and packet diagnostics from exact PntID matches.
+
+The main tracking-length score already uses the min(1, ratio) cap confirmed by
+the 11.15 task-PDF correction. This proxy counts hits belonging to one BatchID;
+the separate consecutive-circle diagnostic measures uninterrupted scan runs.
+It does not establish equivalence with the official platform's matcher.
+
+The legacy ``tracking_length_literal`` and ``total_literal_max`` report fields
+retain the old PDF's literal max(1, ratio) calculation for historical comparison
+only. Neither field contributes to the main ``total`` score.
+"""
 
 from collections import Counter, defaultdict
 from collections.abc import Iterable
@@ -8,6 +18,8 @@ import numpy as np
 from scipy.optimize import linear_sum_assignment
 
 
+# Keep v1: the 11.15 clarification changes neither this proxy's main formula nor
+# its report schema, so existing main scores remain directly comparable.
 SCORE_VERSION = "b02-local-pntid-v1"
 SCORE_WEIGHTS = {
     "coverage": 30,
@@ -126,12 +138,15 @@ def _evaluate_track(
     truth_count = len(points)
     matched_count = sum(output_batches.values())
     third_truth_circle = points[2][0] if truth_count >= 3 else None
-    # The historical scorer assumes at least three observations. For a shorter
+    # The local proxy assumes at least three observations. For a shorter
     # synthetic or future track, compare against its last observation instead.
     reference_time = time_by_point[points[min(2, truth_count - 1)][1]]
     matched_start = min((start_by_output_batch[batch] for batch in output_batches), default=None)
     if truth_count < 3:
         after_initial_batches = output_batches
+    # Count all hits of the best-supported BatchID after the first two truth
+    # observations, including hits separated by missing scans. Do not substitute
+    # longest_run here: it is a separate consecutive-circle diagnostic.
     longest_ratio = max(after_initial_batches.values(), default=0) / max(
         1, truth_count if truth_count < 3 else truth_count - 2
     )
@@ -149,6 +164,7 @@ def _evaluate_track(
         # Consecutive reported points separated by at least one scan, whether or
         # not the skipped scans contain any observation of this truth track.
         "circle_gaps": circle_gaps,
+        # Diagnostic only; not the numerator of tracking_length below.
         "longest_same_batch_consecutive_circle_matches": longest_run,
         "first_truth_circle": points[0][0],
         "third_truth_observation_circle": third_truth_circle,
@@ -162,6 +178,7 @@ def _evaluate_track(
         "timeliness": _timeliness(matched_start, reference_time),
         "timeliness_first_hit": _timeliness(first_true_match_time, reference_time),
         "tracking_length": min(1., longest_ratio),
+        # Legacy pre-11.15 PDF calculation; excluded from the main total.
         "tracking_length_literal": max(1., longest_ratio),
     }
 
@@ -202,6 +219,7 @@ def _score(tracks, false_alarm_ratio):
         "raw_percent_scores": {key: value * 100 for key, value in scores.items()},
         "weighted_points": weighted,
         "total": total,
+        # Legacy comparison only; current reports should use total above.
         "total_literal_max": total + 20 * (scores["tracking_length_literal"] - scores["tracking_length"]),
         "total_first_hit": total + 20 * (scores["timeliness_first_hit"] - scores["timeliness"]),
     }

@@ -1,12 +1,12 @@
-# 参赛程序使用说明（Docker 版）
+# B02 冻结跟踪程序使用说明（11.15 适配版）
 
-`WORK` 中的副本接入了逐圈雷达跟踪器。下文中的固定首点代码用于说明接口。当前实现和验证集回放见 [WORK 说明](../README.md)。
+本目录是当前冻结的 `precision` 雷达逐圈跟踪程序，默认配置为 [`models/frozen.json`](models/frozen.json)，交付镜像标签为 `radar-b02:official-1115`。程序使用随包源码、配置和模型进行离线推理；11.15 适配保留冻结算法与权重，并对齐官方运行环境和提交说明。
 
 ## 1. 概览
 
 本项目在一个 Docker 容器内完成「接收点迹 → 调用参赛方程序 → 回传航迹 → 保存结果」。包内包含原版收发软件 `serve.exe`、输入输出接口、跟踪模型和 5 包联调数据。
 
-**参赛方只需安装 Docker。** Python 3.12 和收发软件运行环境由镜像提供；当前示例不需要显卡。按第 2 节构建、运行后，Python 用户按第 4 节修改处理函数，其他语言用户按第 5 节替换客户端启动命令。
+**运行前安装并启动 Docker。** Python 3.12、NumPy、SciPy、LightGBM 和收发软件运行环境由镜像提供。当前冻结算法采用 CPU 推理，运行命令不请求 GPU；这是本实现的部署方式，官方硬件约束仍以赛题文件为准。Docker 环境按官方 11.15 更新补充 i386 架构与 `wine32:i386`。按第 2 节构建和运行，第 4 节说明当前算法入口，第 5 节保留通信协议及调试方法。
 
 ### 1.1 数据交互流程
 
@@ -22,17 +22,17 @@ flowchart TD
     F -->|目录挂载| G[宿主机输出目录]
 ```
 
-**每圈都必须回传，包括没有航迹结果的圈。** 示例在有点迹时回传第一个点，没有点迹时返回空列表；客户端会发送对应回包，服务端保存结果和逐圈耗时。
+**每圈都必须回传，包括没有航迹结果的圈。** 跟踪器逐圈抑制杂波、建立和维护航迹，回传本圈通过筛选的原始点及其 `BatchID`；输出点数随场景变化。没有可上报航迹时返回空列表，客户端仍发送对应回包，服务端保存结果和逐圈耗时。
 
-### 1.2 参赛方要做的
+### 1.2 当前交付与算法入口
 
-参赛方需要完成「点迹 → 航迹」的关联与跟踪：判断哪些点来自同一目标，并为同一目标在不同圈的点分配一致的航迹批号 `BatchID`。
+[`src/algorithm.py`](src/algorithm.py) 中的 `process_circle(points, state)` 默认加载冻结配置，并调用 [`src/precision_tracking/runtime.py`](src/precision_tracking/runtime.py)。当前实现结合扫描内时序特征、双目标配对、起批与关联模型以及回传筛选，判断点迹归属并维护包内航迹编号 `BatchID`。模型加载时校验 SHA256 和特征字段，换包时重置跟踪状态。
 
-使用 Python 时，主要修改 [`src/algorithm.py`](src/algorithm.py) 中的 `process_circle(points, state)`，示例已封装数据接收、结果编码和回传。使用其他语言时，修改 [`run_client.sh`](run_client.sh) 启动自己的 TCP 客户端，按第 5 节实现收发协议。两种方式均由独立运行的 `serve.exe` 保存结果。
+直接复现当前交付时使用随包配置和模型即可。继续开发可从第 4 节的算法入口开始；若更换语言，则修改 [`run_client.sh`](run_client.sh) 并按第 5 节实现协议。任何源码、配置或模型变更都应作为新版本重新构建、验证并生成对应结果包，避免提交的程序与结果来自不同版本。
 
 ## 2. 快速开始（首次使用请从这里开始）
 
-解压后进入 `participant_demo` 目录，以下命令均在该目录执行。
+源码位于工程中的 `WORK/participant_demo`。独立代码包解压后，进入直接包含 `Dockerfile`、`run.sh` 和 `src/` 的目录，以下命令均在该目录执行。
 
 ### 第 0 步：准备 Docker
 
@@ -49,7 +49,7 @@ docker version
 下面这条命令在 Bash 和 PowerShell 中都可以执行：
 
 ```bash
-docker build --platform linux/amd64 -t participant-demo:v1 .
+docker build --platform linux/amd64 -t radar-b02:official-1115 .
 ```
 
 构建成功后，镜像中已包含收发软件、Python 接口和运行环境。
@@ -65,14 +65,14 @@ mkdir -p output
 docker run --rm --network none \
   --mount "type=bind,source=$(pwd)/data/inputs,target=/input,readonly" \
   --mount "type=bind,source=$(pwd)/output,target=/output" \
-  participant-demo:v1 --task all --test --out-dir /output
+  radar-b02:official-1115 --task all --test --out-dir /output
 ```
 
 #### Windows（PowerShell）
 
 ```powershell
 New-Item -ItemType Directory -Path output
-docker run --rm --network none --mount "type=bind,source=${PWD}/data/inputs,target=/input,readonly" --mount "type=bind,source=${PWD}/output,target=/output" participant-demo:v1 --task all --test --out-dir /output
+docker run --rm --network none --mount "type=bind,source=${PWD}/data/inputs,target=/input,readonly" --mount "type=bind,source=${PWD}/output,target=/output" radar-b02:official-1115 --task all --test --out-dir /output
 ```
 
 #### Bash 命令详解
@@ -85,7 +85,7 @@ docker run --rm --network none --mount "type=bind,source=${PWD}/data/inputs,targ
 | 第 2 行 | `docker run --rm --network none` | 从镜像创建并启动一个容器。`--rm` 表示运行结束后自动删除该容器；挂载在宿主机上的输出文件仍保留。`--network none` 禁用容器的外部网络，容器内的服务端和参赛端仍可通过 `127.0.0.1` 通信。 |
 | 第 3 行 | `--mount "type=bind,source=$(pwd)/data/inputs,target=/input,readonly"` | 将当前目录下的 `data/inputs` 文件夹映射为容器内的 `/input`，供程序读取测试数据；`readonly` 表示容器不能通过此挂载修改输入文件。 |
 | 第 4 行 | `--mount "type=bind,source=$(pwd)/output,target=/output"` | 将当前目录下的 `output` 文件夹映射为容器内的 `/output`。程序写入 `/output` 的结果会直接保存在宿主机的 `output` 中；此处没有 `readonly`，允许写入。 |
-| 第 5 行 | `participant-demo:v1 --task all --test --out-dir /output` | 使用第 1 步构建的 `participant-demo:v1` 镜像启动程序，并将镜像名后面的三个参数传给容器内的程序，具体含义见下表。 |
+| 第 5 行 | `radar-b02:official-1115 --task all --test --out-dir /output` | 使用第 1 步构建的 `radar-b02:official-1115` 镜像启动程序，并将镜像名后面的三个参数传给容器内的程序，具体含义见下表。 |
 
 **`--mount` 参数说明**
 
@@ -109,7 +109,7 @@ docker run --rm --network none --mount "type=bind,source=${PWD}/data/inputs,targ
 
 | 命令中的部分 | 作用 |
 | --- | --- |
-| `participant-demo:v1` | 镜像名称及标签，与第 1 步构建命令中的 `-t participant-demo:v1` 对应。 |
+| `radar-b02:official-1115` | 镜像名称及标签，与第 1 步构建命令中的 `-t radar-b02:official-1115` 对应。 |
 | `--task all` | 将任务标识设为 `all`，记录到运行摘要中。本示例不会据此筛选数据包，而是处理输入目录中的全部有效数据包。 |
 | `--test` | 启用与评测平台兼容的调用标志，无需在后面填写值。本示例仍处理全部输入圈次，不会因此缩短运行。 |
 | `--out-dir /output` | 告诉程序将结果写入容器内的 `/output`；它与输出挂载的 `target=/output` 对应，结果才能保存到宿主机的 `output` 文件夹。 |
@@ -143,7 +143,7 @@ output/
 
 输入有多个数据包时，每包分别生成 `<包名>.dat` 和 `<包名>_rt.dat`。
 
-示例对每个有点迹的圈回传 1 个点，空圈回传 0 个点。它只演示输入输出格式，不包含关联与跟踪算法或评分软件。
+冻结跟踪器可能在一圈回传零个、一个或多个航迹点；不能按“每圈一个点”判断运行是否正常。`status=success` 仅表示收发与输出检查成功，不代表官方评分或排名。本包不包含官方评分软件；开发仓库中的本地回放分数属于代理指标，不可作为 A/B 榜成绩或官方复现分差的证明。
 
 ### 第 4 步：更换数据或再次运行
 
@@ -167,9 +167,11 @@ participant_demo/
 ├── README.md                  参赛方使用说明
 ├── data/
 │   ├── official/serve.exe     原版数据收发软件
-│   └── inputs/train_001.dat   一包原始测试输入
+│   └── inputs/               train_001.dat 至 train_005.dat，共 5 包联调输入
 ├── src/
-│   ├── algorithm.py          参赛方处理函数，主要修改这里
+│   ├── algorithm.py          冻结配置加载与 process_circle 入口
+│   ├── precision_tracking/   当前 precision 跟踪与回传筛选实现
+│   ├── tracker*.py           跟踪基础逻辑与兼容配置实现
 │   ├── client.py             点迹接收、航迹检查与回传
 │   ├── main.py               独立 Python 参赛端入口，只连接 TCP
 │   ├── serve.py              独立服务端入口，运行 serve.exe 并检查输出
@@ -227,32 +229,18 @@ flowchart TD
 
 `run_summary.json` 的包数、圈数和输出点数由服务端日志核对生成，不要求参赛端提供统计文件。Python 客户端另外在终端输出收到的输入点数；更换语言不影响服务端结果文件的生成和检查。
 
-## 4. 参赛方算法接入（Python）
+## 4. 冻结算法与 Python 接口
 
-### 4.1 需要实现的函数
+### 4.1 当前处理函数与模型
 
-打开 [`src/algorithm.py`](src/algorithm.py)，示例取本圈第一个点，逐字段填写输出字典，再用列表返回：
+[`src/algorithm.py`](src/algorithm.py) 的实际处理入口如下。`load_runtime()` 默认读取 `models/frozen.json`，加载 `precision` 后端并缓存模型：
 
 ```python
 def process_circle(points, state):
-    # points：本圈点迹列表；state：同一数据包内保留的跨圈状态。
-    if not points:
-        return []
-
-    point = points[0]
-    track = {
-        "Time": point["Time"],
-        "Azimuth": point["Azimuth"],
-        "Elevation": point["Elevation"],
-        "Distance": point["Distance"],
-        "BatchID": 1,  # 示例编号，实际使用时由参赛方程序分配。
-        "CircleID": point["CircleID"],
-        "PntID": point["PntID"],
-    }
-    return [track]
+    return load_runtime().process_circle(points, state)
 ```
 
-**这段代码仅演示字段赋值和返回格式。** 固定取第一个点、固定填写 `BatchID = 1` 不代表这些点属于同一目标；正式接入时需替换为自己的选点和航迹编号逻辑。
+冻结配置声明 9 个 LightGBM 模型：`teacher`、`pair_orientation`、`birth`、`scan_clock`、`pair_signature`、`raw_return`、`quality`、`emission_detection` 和 `emission_ownership`。权重位于 `models/quality.txt` 与 `models/precision/`；阈值与各权重的 SHA256 由 `models/frozen.json` 固定。`models/learned.json` 和 `models/compat.json` 为保留的实验配置，默认参赛入口不加载它们。
 
 | 名称 | 类型 | 含义 |
 | --- | --- | --- |
@@ -260,7 +248,7 @@ def process_circle(points, state):
 | `state` | `dict` | 同一数据包内持续保留的状态，换包时自动清空 |
 | 返回值 | `list[dict]` | 本圈需要上报的航迹点；没有结果时返回 `[]` |
 
-可将历史点、已有航迹及编号等信息保存在 `state` 中。新数据包到来时，客户端会创建新的空字典，参赛方无需另外实现换包重置函数。
+当前实现将跟踪器、历史特征和航迹状态保存在 `state` 中。新数据包到来时，客户端创建新的空字典，避免前一包航迹状态影响下一包。推理只使用客户端收到的点迹及包内历史，不直接读取测试集原始文件。
 
 ### 4.2 输入点迹格式
 
@@ -291,7 +279,7 @@ def process_circle(points, state):
 | `CircleID` | `int` | 保留原始点的圈号 |
 | `PntID` | `int` | 保留原始点的点号 |
 
-第 4.1 节的示例按上述字段构造 `track`，返回 `[track]`。没有输入点或没有航迹结果时返回 `[]`，客户端会自动发送空 `TRACKS` 回包。
+冻结跟踪器按上述字段返回本圈选中的原始点，并填写所关联的 `BatchID`。没有输入点或没有航迹结果时返回 `[]`，客户端会自动发送空 `TRACKS` 回包。
 
 回传结果需要满足以下要求：
 
@@ -354,7 +342,7 @@ mkdir -p output-debug
 docker run --rm -it --name participant-demo-debug --network none \
   --mount "type=bind,source=$(pwd)/data/inputs,target=/input,readonly" \
   --mount "type=bind,source=$(pwd)/output-debug,target=/output" \
-  --entrypoint bash participant-demo:v1
+  --entrypoint bash radar-b02:official-1115
 ```
 
 在该容器终端内启动服务端，等待出现 `[demo] 启动收发软件`：
@@ -363,10 +351,10 @@ docker run --rm -it --name participant-demo-debug --network none \
 python3 -u src/serve.py --input-dir /input --out-dir /output --port 9902 --task all --test
 ```
 
-再打开一个宿主机终端，在**同一个容器**内启动 Python 客户端；示例输入为 1 包，如替换了数据请同步修改数量：
+再打开一个宿主机终端，在**同一个容器**内启动 Python 客户端；随包联调输入为 5 包，如替换了数据请同步修改数量：
 
 ```bash
-docker exec -it participant-demo-debug python3 -u src/main.py --host 127.0.0.1 --port 9902 --expected-packages 1
+docker exec -it participant-demo-debug python3 -u src/main.py --host 127.0.0.1 --port 9902 --expected-packages 5
 ```
 
 也可以将 `docker exec` 命令中的 `python3 ...` 替换为自己的客户端及参数。手动启动时没有 `run.sh` 的统一进程管理，需要自行停止两端；此时 `run_summary.json` 仅表示服务端检查结果，客户端退出状态应另行确认。调试完成后，退出交互式容器，或执行 `docker stop participant-demo-debug`。
@@ -456,7 +444,7 @@ sequenceDiagram
 | 提示输出目录不为空 | 创建新的空目录，并更新输出挂载的宿主机路径 |
 | 提示输入目录无有效 `.dat` | 确认挂载的输入目录中直接包含非空 `.dat` 文件 |
 | 修改代码后运行效果没有变化 | 修改源码后重新执行 `docker build`，再运行新镜像 |
-| 输出点数一直为 0 | 示例在有输入点时应回传 1 个点；检查处理函数是否返回 `[]`，并确认修改源码后已重新构建镜像 |
+| 输出点数一直为 0 | 单圈没有输出可能是正常的杂波筛选结果；若整包均无输出，检查输入、模型加载日志与冻结配置，并确认修改后已重新构建镜像 |
 | 输出字段或单圈耗时报错 | 按第 4 节检查返回格式与耗时，再查看 `run_summary.json` 和 `logs/server.log` |
 | 收发软件启动失败 | 查看输出目录中的 `logs/server.log` 和 `logs/exe-runtime.log` |
 | 结果 `.dat` 无法作为普通文本打开 | 结果由原版软件保存；运行概况查看 `run_summary.json` 和日志 |
@@ -466,40 +454,57 @@ sequenceDiagram
 如需检查接口代码，在已经构建的镜像中执行：
 
 ```bash
-docker run --rm --network none --entrypoint python participant-demo:v1 -B -m unittest discover -s tests -v
+docker run --rm --network none --entrypoint python radar-b02:official-1115 -B -m unittest discover -s tests -v
 ```
 
 ## 7. 提交与离线交付
 
-### 7.1 整理参赛代码包
+### 7.1 11.15 版提交规则
 
-接入自己的处理逻辑并验证后，将本目录重命名为 `<team_id>_<version>_code`，压缩成同名 ZIP。例如：
+以下按官方《赛题任务详细描述文档（11.15 更新）》第 5–7、11 页整理。平台具体截止时刻与后续通知以组委会公布为准。
+
+- 日常打榜窗口为 2026 年 11 月 15 日至 12 月 15 日，每队每日可提交 1 次，累计最多 15 次。日常结果由原版数据收发软件生成，提交验证集航迹结果包。
+- 日常阶段还须至少提交一次完整程序包，供组织方提前适配并确认可以跑通。不要等到最终截止才首次提交程序；若只最后提交且复核无法运行，官方认定无有效成绩。
+- A 榜用于日常打榜及确定复核名额；最终 A 榜前 30 名接受代码复核，资格取消时依榜单递补，直至有效复核出 30 支队伍。随后在统一测试集进行 B 榜比测，初赛最终排名由 B 榜结果确定，前 10 名晋级。
+- 最终必须提交验证集航迹结果包和与其对应的完整程序包。复核对象是**最终上传的结果版本**，不是历史最佳版本；最终代码必须能够复现该结果。官方原文规定复跑成绩低于最终结果包成绩“1 分以上”时取消成绩，第 6 页同时说明无合理解释时取消排名。
+- 本地代理评分、训练集回放报告与容器收发成功均不等于官方评分。正式提交前应使用准备提交的程序、配置与权重，在完整官方验证输入上重新生成最终结果，并保留该次运行的程序包、镜像、日志及结果文件，确保版本对应。不得人工修改航迹结果。
+
+### 7.2 整理参赛代码包
+
+当前工程交付文件名为 `radar_b02_official_1115_code.zip`。正式上传前，将文件名中的团队标识改为真实 `team_id`，遵守 `<team_id>_<version>_code.zip` 命名规范。代码包内部**根目录直接包含** `Dockerfile`、`run.sh`、`requirements.txt`、`README.md` 和 `src/`，不要再增加 `participant_demo/` 或团队名目录层。例如：
 
 ```text
-team001_v1_code.zip
-└── team001_v1_code/
-    ├── Dockerfile
-    ├── run.sh
-    ├── requirements.txt
-    ├── README.md
-    ├── src/
-    └── data/
+<team_id>_official-1115_code.zip
+├── Dockerfile
+├── run.sh
+├── run_client.sh
+├── requirements.txt
+├── README.md
+├── src/
+├── models/
+├── data/
+├── docs/
+└── tests/
 ```
 
-确认解压后能找到 `<team_id>_<version>_code/Dockerfile`。代码包保留运行所需的软件、依赖、源码和模型。本目录的 `models/frozen.json` 指定参赛默认跟踪器。打包时排除本地输出目录和导出的镜像文件。
+代码包应保留原版 `serve.exe`、运行源码、依赖声明、冻结配置及其全部权重。本目录的 `models/frozen.json` 指定默认跟踪器；打包时排除本地输出目录、缓存和导出的镜像文件。历史版本的验收分数和 TCP 联调报告只证明其记录的版本；修改运行环境后需重新构建并验证当前交付。
 
-### 7.2 离线机器运行
+本次交付包附带 `delivery_manifest.json` 与 `SHA256SUMS`，记录包内文件及官方依据的 SHA256。在 Linux 解压目录运行 `sha256sum -c SHA256SUMS` 可检查交付文件完整性。请保留验证过的镜像；基础镜像标签和系统软件源可能变化，日后重新构建不能代替对当前已验证镜像的保存。
+
+最终结果包与程序代码包分别提交。上面的代码包结构及本目录 5 包联调数据不能替代完整官方验证集结果。
+
+### 7.3 离线机器运行
 
 在已成功构建镜像的机器上导出：
 
 ```bash
-docker save -o participant-demo-v1.tar participant-demo:v1
+docker save -o radar-b02-official-1115.tar radar-b02:official-1115
 ```
 
 将镜像文件和需要使用的输入数据复制到目标机器，在镜像文件所在目录导入：
 
 ```bash
-docker load -i participant-demo-v1.tar
+docker load -i radar-b02-official-1115.tar
 ```
 
 然后按第 2 节的运行命令挂载目标机器上的输入、输出目录。目标机器需要已安装并启动 Docker，导入后无需联网安装 Python 或其他运行依赖。

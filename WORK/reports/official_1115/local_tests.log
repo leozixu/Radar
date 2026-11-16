@@ -1,0 +1,22 @@
+test_development_rejects_mixed_selection_before_open (test_evaluation.BoundaryTests.test_development_rejects_mixed_selection_before_open) ... ok
+test_link_to_out_of_scope_filename_is_rejected (test_evaluation.BoundaryTests.test_link_to_out_of_scope_filename_is_rejected) ... ok
+test_manual_only_requests_holdout_after_frozen_check (test_evaluation.BoundaryTests.test_manual_only_requests_holdout_after_frozen_check) ... ok
+test_reader_guard_rejects_direct_holdout_path (test_evaluation.BoundaryTests.test_reader_guard_rejects_direct_holdout_path) ... ok
+test_history_keeps_first_hit_and_merge_diagnostics_separate (test_evaluation.ScoreTests.test_history_keeps_first_hit_and_merge_diagnostics_separate) ... ok
+test_tracking_length_main_score_gives_no_credit_for_a_missed_track (test_evaluation.ScoreTests.test_tracking_length_main_score_gives_no_credit_for_a_missed_track) ... ok
+test_tracking_length_rewards_same_id_across_scan_gaps (test_evaluation.ScoreTests.test_tracking_length_rewards_same_id_across_scan_gaps) ... ok
+test_association_identity_needs_history_support (test_training.TrainingBoundariesTest.test_association_identity_needs_history_support) ... ok
+test_tuning_and_user_holdout_rejected_before_any_read (test_training.TrainingBoundariesTest.test_tuning_and_user_holdout_rejected_before_any_read) ... ok
+test_unknown_segment_is_omitted_and_padding_is_not_an_observation (test_training.TrainingBoundariesTest.test_unknown_segment_is_omitted_and_padding_is_not_an_observation) ... ok
+test_suppressed_output_does_not_destroy_internal_identity (test_compat_quality.TestCompatibilityQuality.test_suppressed_output_does_not_destroy_internal_identity) ... ok
+test_traces_keep_baseline_decisions_and_use_only_relative_features (test_compat_quality.TestCompatibilityQuality.test_traces_keep_baseline_decisions_and_use_only_relative_features) ... ok
+test_training_rejects_tuning_before_open (test_compat_quality.TestCompatibilityQuality.test_training_rejects_tuning_before_open) ... usage: python.exe -m unittest [-h] [--data-dir DATA_DIR]
+                              [--packets PACKETS [PACKETS ...]] [--jobs JOBS]
+                              [--model-dir MODEL_DIR] [--report REPORT]
+python.exe -m unittest: error: 包号不属于当前数据范围：71
+ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.185s
+
+OK

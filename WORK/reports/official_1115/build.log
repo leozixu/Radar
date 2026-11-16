@@ -1,0 +1,42 @@
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  52.25MB
+
+Step 1/11 : FROM python:3.12-slim
+ ---> 5e2bdb1b0d54
+Step 2/11 : ENV PYTHONUNBUFFERED=1 PYTHONDONTWRITEBYTECODE=1 DATA_ROOT=/input
+ ---> Using cache
+ ---> 780dc5f11d7a
+Step 3/11 : RUN sed -i 's|http://deb.debian.org|https://deb.debian.org|g' /etc/apt/sources.list.d/debian.sources     && dpkg --add-architecture i386     && apt-get -o Acquire::Retries=3 update     && apt-get -o Acquire::Retries=3 install -y --no-install-recommends wine wine64 wine32:i386 xvfb util-linux libgomp1     && rm -rf /var/lib/apt/lists/*
+ ---> Using cache
+ ---> 8cd1d682f50c
+Step 4/11 : WORKDIR /app/program/solution
+ ---> Using cache
+ ---> 0296b1553e36
+Step 5/11 : COPY requirements.txt ./
+ ---> Using cache
+ ---> 0c18530e8917
+Step 6/11 : RUN python -m pip install --no-cache-dir -r requirements.txt
+ ---> Using cache
+ ---> 84a15c108f48
+Step 7/11 : COPY . ./
+ ---> 16796fe630a2
+Step 8/11 : COPY data/inputs/*.dat /input/
+ ---> ea9e597a0f5b
+Step 9/11 : RUN chmod +x run.sh run_client.sh && test -f data/official/serve.exe && command -v setsid
+ ---> Running in e748731ef280
+/usr/bin/setsid
+ ---> Removed intermediate container e748731ef280
+ ---> d1fdb6dddb4d
+Step 10/11 : ENTRYPOINT ["/app/program/solution/run.sh"]
+ ---> Running in 045bc73d7c6c
+ ---> Removed intermediate container 045bc73d7c6c
+ ---> 68d0657df4ec
+Step 11/11 : CMD ["--task", "all", "--test", "--out-dir", "/output"]
+ ---> Running in c7a97bc882b5
+ ---> Removed intermediate container c7a97bc882b5
+ ---> b49fcbed3020
+Successfully built b49fcbed3020
+Successfully tagged radar-b02:official-1115

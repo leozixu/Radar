@@ -13,6 +13,33 @@ import replay_validation
 
 
 class ScoreTests(unittest.TestCase):
+    def test_tracking_length_rewards_same_id_across_scan_gaps(self):
+        labels = dict.fromkeys(range(1, 9), 1)
+        circles = {point: point - 1 for point in labels}
+        times = {point: circle * 5000 for point, circle in circles.items()}
+        # The same track returns in two disjoint two-scan runs. Its four hits
+        # cover four of the six truth observations after the initialization pair.
+        result = evaluate_packet(labels, dict.fromkeys((3, 4, 7, 8), 10), circles, times)
+        track = result["tracks"][0]
+        self.assertEqual(track["longest_same_batch_consecutive_circle_matches"], 2)
+        self.assertEqual(track["missed_segments"], 1)
+        self.assertAlmostEqual(track["tracking_length"], 2/3)
+        self.assertAlmostEqual(result["score"]["weighted_points"]["tracking_length"], 40/3)
+        self.assertAlmostEqual(result["score"]["total"], 235/3)
+        self.assertEqual(result["score"]["total_literal_max"], 85)
+
+    def test_tracking_length_main_score_gives_no_credit_for_a_missed_track(self):
+        labels = dict.fromkeys(range(1, 7), 1)
+        circles = {point: point - 1 for point in labels}
+        times = {point: circle * 5000 for point, circle in circles.items()}
+        missed = evaluate_packet(labels, {}, circles, times)
+        recovered = evaluate_packet(labels, dict.fromkeys(labels, 10), circles, times)
+        self.assertEqual(missed["score"]["weighted_points"]["tracking_length"], 0)
+        self.assertEqual(missed["score"]["total"], 10)  # Only the no-false-alarm term.
+        self.assertEqual(missed["score"]["total_literal_max"], 30)  # Legacy diagnosis only.
+        self.assertEqual(recovered["score"]["weighted_points"]["tracking_length"], 20)
+        self.assertEqual(recovered["score"]["total"], 100)
+
     def test_history_keeps_first_hit_and_merge_diagnostics_separate(self):
         labels = {**dict.fromkeys(range(1, 6), 1), **dict.fromkeys(range(6, 9), 2), 9: 0, 10: -1}
         circles = dict(zip(labels, (0, 1, 2, 3, 4, 0, 1, 2, 0, 3)))
