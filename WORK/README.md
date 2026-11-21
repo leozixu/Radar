@@ -4,6 +4,34 @@
 
 后续航迹身份优化的模型、调参分数与复跑命令见 [身份连续性实验](experimental/README.md)。本页记录当前冻结提交包的验收与手动验证方法。
 
+## precision2 冻结版
+
+`precision2` 由第二轮候选固化，发布代码包与本地测试快照的程序、配置和模型一致。对 `101–200` 共 100 个 case 逐包启动新进程、重新加载模型，本地聚合总分为 **96.9654 / 100**。其中 `101–140` 为 **97.0581**，`141–200` 为 **96.9036**。
+
+队伍 `T001405` 的赛题交付包含同一冻结版本的代码、离线镜像和验证集航迹结果。原版数据收发软件在五包 `SUBMISSION` 验证输入上完成 **3,596 圈**，回传 **95,959 个航迹点**，所有逐圈检查通过。
+
+[交付总包](../../T001405_precision2_delivery.zip) · [提交代码包](../../T001405_precision2_code.zip) · [验证集航迹结果包](../../T001405_precision2_a_results.zip) · [交付校验报告](../../precision2/delivery_validation.json) · [冻结清单](../../precision2/WORK/frozen_candidate.json) · [冷启动报告](../../precision2/precision2_cold_101_200.json)
+
+## 第一阶段优化与验收
+
+第一阶段使用 `001–070` 归因和训练、`071–085` 调参与消融、`086–100` 回归。候选锁定后，用 `101–140` 完整回放验收，现行本地评分器的聚合总分达到 98.0 即通过。正式开发和验收的包号上限是 140。`141–200` 由用户显式启动手动终测。
+
+本轮 `101–140` 同批回放得到 11.15 冻结版 95.8883、首轮候选 96.7835、第二轮候选 97.0581。第二轮增加了基于当前候选唯一性和成对证据的续接，并扩大续接模型的训练样本。第二轮距离当时的 98.0 验收线差 0.9419 分，随后按用户指定另行冻结为 `precision2`。[原版对照](../../stage1_work/baseline_3b2fc76_101_140.json) · [候选验收](../../stage1_work/candidate_combo_b_101_140.json) · [候选清单](../../stage1_work/candidate_combo_b/WORK/frozen_candidate.json)
+
+在 `WORK` 下为候选生成独立冻结清单。后续每次回放都使用该清单校验源码、配置、模型和评分器。
+
+```powershell
+python -B evaluate_holdout.py --freeze --manifest frozen_stage1.json
+python -B evaluate_holdout.py --phase regression --manifest frozen_stage1.json --data-dir ..\DATA\data --report reports\stage1_regression.json
+python -B evaluate_holdout.py --phase stage1 --manifest frozen_stage1.json --data-dir ..\DATA\data --report reports\stage1_acceptance.json
+```
+
+`stage1` 逐一验证全部 40 个包后写报告。退出码 0 表示通过，2 表示总分低于 98，1 表示执行或校验失败。终测时由用户提供同一冻结清单并显式选择 `manual-final`。
+
+```powershell
+python -B evaluate_holdout.py --phase manual-final --manifest frozen_stage1.json --data-dir ..\DATA\data --report manual_final_141_200.json
+```
+
 ## 11.15 官方更新与交付
 
 当前交付以 `FILE` 中的 11.15 更新版任务文档和 `SUBMISSION/participant_demo` 中的新版官方样例为依据。`FILE`、`SUBMISSION` 只保留最新版；旧官方文件已移到工程外的 `../archive/official_pre_1115/`（相对于 `project`）。
@@ -18,7 +46,7 @@
 
 新版交付验证完成：代码包共 58 个文件，最终镜像内 57 项文件哈希一致；13 项本地测试、21 项 Linux 容器测试全部通过。关闭外网的单容器连续完成 5 包官方样例，共 3,596 圈、908,636 个输入点和 95,315 个输出点，各包圈数及输出点数与原冻结版一致，服务端结果及逐圈记录检查通过。离线镜像压缩完整性与内部镜像 ID 已验证。完整版本、输入输出及交付包 SHA256 见上述验证报告；本轮未重新训练、调参或读取 `101–200` 数据。
 
-## 固定数据范围
+## 11.15 版原数据划分
 
 | 包号 | 用途 |
 | --- | --- |
@@ -78,11 +106,3 @@ python -B replay_validation.py --config participant_demo/models/learned.json --s
 冻结入口的合成验证覆盖交叉目标、高速双轨方位环绕、空圈、跳圈重连与跨包重置。在单点轨迹起批后，将幅度降为 0.11，并连续两圈传入异常雷达时刻，原 ID 仍保持。每圈只有一个点、幅度自始为 0.20–0.28 的合成场景连续观察 12 圈仍无法起批，低幅度的孤立目标起批仍有改进空间。
 
 冻结镜像 `radar-b02:paired-precision-frozen` 的 41 个运行文件与冻结清单一致，21 项容器测试通过。`001–005.dat` 完成真实 TCP 联调，共 3,596 圈，接收 908,636 个点并回传 95,315 个点。原版 `serve.exe` 校验了五份结果文件和五份逐圈耗时文件。[容器联调报告](reports/paired_precision_frozen_docker_tcp.json)
-
-## 交付后手动验证
-
-在 `WORK` 下运行独立入口。它先校验冻结源码、配置和模型，然后读取 `101–200` 并写入新报告。
-
-```powershell
-python -B evaluate_holdout.py --data-dir ..\DATA\data --report holdout_101_200.json
-```

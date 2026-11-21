@@ -1,0 +1,218 @@
+{
+  "input_features": [
+    "RADAR_TIME",
+    "X",
+    "Y",
+    "R",
+    "AZ",
+    "EL",
+    "HEIGHT",
+    "AMP",
+    "SNR",
+    "RADIAL_SPEED"
+  ],
+  "regress_features": [
+    "RADAR_TIME",
+    "X",
+    "Y"
+  ],
+  "feature_aug_freqs": {
+    "X": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32,
+      64,
+      128
+    ],
+    "Y": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32,
+      64,
+      128
+    ],
+    "R": [
+      2,
+      16,
+      32,
+      64,
+      128
+    ],
+    "SNR": [
+      1,
+      2,
+      4
+    ],
+    "AMP": [
+      1,
+      2,
+      4
+    ],
+    "AZ": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "EL": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "HEIGHT": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "RADAR_TIME": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "RADIAL_SPEED": [
+      1,
+      2,
+      4
+    ]
+  },
+  "regress_feature_aug_freqs": {
+    "X": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32
+    ],
+    "Y": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32
+    ],
+    "R": [
+      2,
+      16,
+      32,
+      64
+    ],
+    "SNR": [
+      1,
+      2,
+      4
+    ],
+    "AMP": [
+      1,
+      2,
+      4
+    ],
+    "AZ": [
+      1,
+      2,
+      4
+    ],
+    "EL": [
+      1,
+      2,
+      4
+    ],
+    "HEIGHT": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "RADAR_TIME": [
+      1,
+      2,
+      4,
+      8
+    ]
+  },
+  "input_aug_features": [
+    "RADAR_TIME",
+    "X",
+    "Y",
+    "R",
+    "AZ",
+    "EL",
+    "HEIGHT",
+    "AMP",
+    "SNR",
+    "RADIAL_SPEED"
+  ],
+  "regress_aug_features": [
+    "X",
+    "Y"
+  ],
+  "backbone_type": "bert",
+  "d_model": 512,
+  "d_ff": 1024,
+  "n_layers": 8,
+  "n_attn_heads": 4,
+  "n_hidden_layers_of_classifier": 4,
+  "n_hidden_layers_of_regressor": 4,
+  "extra_n_in_features": 1,
+  "use_attn_as_corr": false,
+  "regressor_output_sigmoid": false,
+  "dropout": 0.1,
+  "activation": {
+    "name": "SiLU",
+    "params": {}
+  },
+  "optimizer": {
+    "name": "Adam",
+    "params": {
+      "lr": 0.0001,
+      "weight_decay": 0
+    }
+  },
+  "loss_coeffs": {
+    "classify_coeff": 100,
+    "circle_coeff": 2000,
+    "regress_coeff": 50,
+    "use_uncertainty_weighting": false
+  },
+  "stop_epoch": 125,
+  "train_num_samples": null,
+  "test_num_samples": null,
+  "batch_size": 3,
+  "batches_per_logging": 100,
+  "epochs_per_saving": 1,
+  "epochs_per_test": 1,
+  "seed": 0,
+  "lora": {
+    "lora_r": 8,
+    "lora_alpha": 16,
+    "lora_dropout": 0.1,
+    "target_modules": ["query", "value", "key"],
+    "modules_to_save": ["classify_branch", "regress_branch"],
+    "bias": "none",
+    "init_lora_weights": true,
+    "use_dora": true,
+    "use_rslora": false,
+    "rank_pattern": {
+      "query": 32,
+      "key": 16,
+      "value": 8
+    },
+    "alpha_pattern": {
+      "query": 64,
+      "key": 32,
+      "value": 16
+    }
+  }
+}

@@ -1,0 +1,757 @@
+{
+  "metadata": {
+    "packet_ids": [
+      6,
+      14,
+      22,
+      28,
+      35,
+      42,
+      56,
+      67
+    ],
+    "score_version": "b02-local-pntid-v1",
+    "submission_zip_sha256": "c032a472b7ac60522774786f470f72585e9b3c675cc0fe3720ab31b67d897df5"
+  },
+  "baseline": {
+    "truth_points": 158765,
+    "output_points": 157839,
+    "matched_points": 152961,
+    "clutter_output_points": 119,
+    "unknown_output_points": 4759,
+    "output_tracks": 1097,
+    "merged_output_tracks": 30,
+    "merged_truth_points": 1201,
+    "identity_true_positive_points": 150293,
+    "truth_tracks": 979,
+    "matched_truth_tracks": 979,
+    "missed_truth_points": 5804,
+    "unmatched_output_points": 4878,
+    "point_coverage": 0.9634428243000661,
+    "mean_track_coverage": 0.9483766732116488,
+    "false_alarm_ratio": 0.030724655938021605,
+    "idf1": 0.9494068299831967,
+    "merged_truth_point_ratio": 0.007851674609867874,
+    "split_truth_tracks": 62,
+    "id_switches": 91,
+    "missed_segments": 2446,
+    "circle_gaps": 7130,
+    "score": {
+      "version": "b02-local-pntid-v1",
+      "matched_tracks": 979,
+      "tracks": 979,
+      "raw_percent_scores": {
+        "coverage": 94.83766732116487,
+        "timeliness": 96.23788968335036,
+        "timeliness_first_hit": 96.14591419816139,
+        "tracking_length": 95.51769845976843,
+        "tracking_length_literal": 100.0,
+        "fragmentation": 96.71433435478379,
+        "false_alarm": 96.92753440619784
+      },
+      "weighted_points": {
+        "coverage": 28.451300196349464,
+        "false_alarm": 9.692753440619784,
+        "fragmentation": 19.342866870956758,
+        "timeliness": 19.247577936670073,
+        "tracking_length": 19.103539691953685
+      },
+      "total": 95.83803813654977,
+      "total_literal_max": 96.73449844459608,
+      "total_first_hit": 95.81964303951197
+    }
+  },
+  "missed_truth_points_by_stage": {
+    "no_proposal": 2079,
+    "association_held": 3197,
+    "emission_rejected": 17,
+    "raw_gate": 511
+  },
+  "missed_truth_points_by_phase_and_stage": {
+    "before_first_hit": {
+      "no_proposal": 1800,
+      "emission_rejected": 7,
+      "association_held": 22,
+      "raw_gate": 7
+    },
+    "between_hits": {
+      "association_held": 3065,
+      "raw_gate": 501,
+      "no_proposal": 167,
+      "emission_rejected": 10
+    },
+    "after_last_hit": {
+      "no_proposal": 112,
+      "association_held": 110,
+      "raw_gate": 3
+    }
+  },
+  "coverage_deduction_by_stage": {
+    "no_proposal": 0.7959127312259963,
+    "association_held": 0.6837880056441592,
+    "raw_gate": 0.06718200812164593,
+    "emission_rejected": 0.001817058658734424
+  },
+  "retrospective_stage_recovery_ceiling": {
+    "raw_gate": 95.9647539456103,
+    "association_held": 97.03082508739584,
+    "no_proposal": 97.55409149477346,
+    "emission_rejected": 95.8593282348221
+  },
+  "details": {
+    "raw_q90_by_stage": {
+      "no_proposal": 1966,
+      "association_held": 2932,
+      "emission_rejected": 2
+    },
+    "hold_kinds": {
+      "protected_pair_fallback": 2273,
+      "ordinary_ambiguity": 924
+    },
+    "protected_fallback_quality": {
+      "probability_at_most_0.9": {
+        "all": 753,
+        "same_as_truth_dominant_id": 597,
+        "raw_q90": 691,
+        "raw_q90_and_dominant_id": 545
+      },
+      "probability_at_most_0.25": {
+        "all": 646,
+        "same_as_truth_dominant_id": 381,
+        "raw_q90": 596,
+        "raw_q90_and_dominant_id": 344
+      },
+      "probability_at_most_0.75": {
+        "all": 477,
+        "same_as_truth_dominant_id": 316,
+        "raw_q90": 431,
+        "raw_q90_and_dominant_id": 286
+      },
+      "probability_at_most_0.5": {
+        "all": 186,
+        "same_as_truth_dominant_id": 123,
+        "raw_q90": 170,
+        "raw_q90_and_dominant_id": 114
+      },
+      "probability_at_most_0.1": {
+        "all": 129,
+        "same_as_truth_dominant_id": 87,
+        "raw_q90": 123,
+        "raw_q90_and_dominant_id": 83
+      },
+      "probability_at_most_1.0": {
+        "all": 82,
+        "same_as_truth_dominant_id": 70,
+        "raw_q90": 78,
+        "raw_q90_and_dominant_id": 69
+      }
+    },
+    "non_dominant_emitted_truth_points": 1720
+  },
+  "packets": {
+    "train_006.csv": {
+      "score": 96.7044446984227,
+      "stage_counts": {
+        "no_proposal": 218,
+        "association_held": 459,
+        "emission_rejected": 2,
+        "raw_gate": 41
+      },
+      "phase_counts": {
+        "before_first_hit": {
+          "no_proposal": 191,
+          "emission_rejected": 1,
+          "association_held": 2
+        },
+        "between_hits": {
+          "association_held": 451,
+          "raw_gate": 41,
+          "no_proposal": 15,
+          "emission_rejected": 1
+        },
+        "after_last_hit": {
+          "no_proposal": 12,
+          "association_held": 6
+        }
+      },
+      "missed_truth_points": 720,
+      "details": {
+        "raw_q90_by_stage": {
+          "no_proposal": 201,
+          "association_held": 414
+        },
+        "hold_kinds": {
+          "protected_pair_fallback": 316,
+          "ordinary_ambiguity": 143
+        },
+        "protected_fallback_quality": {
+          "probability_at_most_0.9": {
+            "all": 106,
+            "same_as_truth_dominant_id": 85,
+            "raw_q90": 93,
+            "raw_q90_and_dominant_id": 74
+          },
+          "probability_at_most_0.25": {
+            "all": 97,
+            "same_as_truth_dominant_id": 55,
+            "raw_q90": 90,
+            "raw_q90_and_dominant_id": 50
+          },
+          "probability_at_most_0.75": {
+            "all": 63,
+            "same_as_truth_dominant_id": 38,
+            "raw_q90": 54,
+            "raw_q90_and_dominant_id": 33
+          },
+          "probability_at_most_0.5": {
+            "all": 26,
+            "same_as_truth_dominant_id": 16,
+            "raw_q90": 24,
+            "raw_q90_and_dominant_id": 15
+          },
+          "probability_at_most_0.1": {
+            "all": 20,
+            "same_as_truth_dominant_id": 13,
+            "raw_q90": 19,
+            "raw_q90_and_dominant_id": 12
+          },
+          "probability_at_most_1.0": {
+            "all": 4,
+            "same_as_truth_dominant_id": 2,
+            "raw_q90": 4,
+            "raw_q90_and_dominant_id": 2
+          }
+        },
+        "non_dominant_emitted_truth_points": 64
+      }
+    },
+    "train_014.csv": {
+      "score": 95.65017538971647,
+      "stage_counts": {
+        "no_proposal": 265,
+        "association_held": 457,
+        "raw_gate": 99
+      },
+      "phase_counts": {
+        "before_first_hit": {
+          "no_proposal": 233,
+          "association_held": 1
+        },
+        "between_hits": {
+          "association_held": 433,
+          "raw_gate": 99,
+          "no_proposal": 22
+        },
+        "after_last_hit": {
+          "association_held": 23,
+          "no_proposal": 10
+        }
+      },
+      "missed_truth_points": 821,
+      "details": {
+        "raw_q90_by_stage": {
+          "no_proposal": 250,
+          "association_held": 411
+        },
+        "hold_kinds": {
+          "protected_pair_fallback": 323,
+          "ordinary_ambiguity": 134
+        },
+        "protected_fallback_quality": {
+          "probability_at_most_0.9": {
+            "all": 107,
+            "same_as_truth_dominant_id": 85,
+            "raw_q90": 99,
+            "raw_q90_and_dominant_id": 78
+          },
+          "probability_at_most_0.1": {
+            "all": 15,
+            "same_as_truth_dominant_id": 12,
+            "raw_q90": 13,
+            "raw_q90_and_dominant_id": 11
+          },
+          "probability_at_most_0.25": {
+            "all": 96,
+            "same_as_truth_dominant_id": 58,
+            "raw_q90": 85,
+            "raw_q90_and_dominant_id": 49
+          },
+          "probability_at_most_0.75": {
+            "all": 67,
+            "same_as_truth_dominant_id": 41,
+            "raw_q90": 60,
+            "raw_q90_and_dominant_id": 36
+          },
+          "probability_at_most_0.5": {
+            "all": 29,
+            "same_as_truth_dominant_id": 18,
+            "raw_q90": 27,
+            "raw_q90_and_dominant_id": 16
+          },
+          "probability_at_most_1.0": {
+            "all": 9,
+            "same_as_truth_dominant_id": 7,
+            "raw_q90": 8,
+            "raw_q90_and_dominant_id": 7
+          }
+        },
+        "non_dominant_emitted_truth_points": 418
+      }
+    },
+    "train_022.csv": {
+      "score": 95.42142713954809,
+      "stage_counts": {
+        "no_proposal": 267,
+        "association_held": 456,
+        "raw_gate": 30,
+        "emission_rejected": 1
+      },
+      "phase_counts": {
+        "before_first_hit": {
+          "no_proposal": 210,
+          "raw_gate": 1,
+          "emission_rejected": 1
+        },
+        "between_hits": {
+          "association_held": 439,
+          "raw_gate": 29,
+          "no_proposal": 41
+        },
+        "after_last_hit": {
+          "association_held": 17,
+          "no_proposal": 16
+        }
+      },
+      "missed_truth_points": 754,
+      "details": {
+        "raw_q90_by_stage": {
+          "no_proposal": 259,
+          "association_held": 434
+        },
+        "hold_kinds": {
+          "ordinary_ambiguity": 106,
+          "protected_pair_fallback": 350
+        },
+        "protected_fallback_quality": {
+          "probability_at_most_0.25": {
+            "all": 77,
+            "same_as_truth_dominant_id": 47,
+            "raw_q90": 73,
+            "raw_q90_and_dominant_id": 43
+          },
+          "probability_at_most_0.75": {
+            "all": 87,
+            "same_as_truth_dominant_id": 68,
+            "raw_q90": 84,
+            "raw_q90_and_dominant_id": 65
+          },
+          "probability_at_most_0.9": {
+            "all": 106,
+            "same_as_truth_dominant_id": 83,
+            "raw_q90": 98,
+            "raw_q90_and_dominant_id": 76
+          },
+          "probability_at_most_0.5": {
+            "all": 25,
+            "same_as_truth_dominant_id": 14,
+            "raw_q90": 23,
+            "raw_q90_and_dominant_id": 13
+          },
+          "probability_at_most_1.0": {
+            "all": 43,
+            "same_as_truth_dominant_id": 43,
+            "raw_q90": 43,
+            "raw_q90_and_dominant_id": 43
+          },
+          "probability_at_most_0.1": {
+            "all": 12,
+            "same_as_truth_dominant_id": 9,
+            "raw_q90": 12,
+            "raw_q90_and_dominant_id": 9
+          }
+        },
+        "non_dominant_emitted_truth_points": 253
+      }
+    },
+    "train_028.csv": {
+      "score": 94.12568583484688,
+      "stage_counts": {
+        "no_proposal": 299,
+        "raw_gate": 51,
+        "association_held": 310
+      },
+      "phase_counts": {
+        "before_first_hit": {
+          "no_proposal": 251,
+          "association_held": 6,
+          "raw_gate": 1
+        },
+        "between_hits": {
+          "raw_gate": 50,
+          "association_held": 298,
+          "no_proposal": 33
+        },
+        "after_last_hit": {
+          "no_proposal": 15,
+          "association_held": 6
+        }
+      },
+      "missed_truth_points": 660,
+      "details": {
+        "raw_q90_by_stage": {
+          "no_proposal": 281,
+          "association_held": 280
+        },
+        "hold_kinds": {
+          "protected_pair_fallback": 229,
+          "ordinary_ambiguity": 81
+        },
+        "protected_fallback_quality": {
+          "probability_at_most_0.75": {
+            "all": 48,
+            "same_as_truth_dominant_id": 31,
+            "raw_q90": 42,
+            "raw_q90_and_dominant_id": 28
+          },
+          "probability_at_most_0.25": {
+            "all": 63,
+            "same_as_truth_dominant_id": 37,
+            "raw_q90": 56,
+            "raw_q90_and_dominant_id": 31
+          },
+          "probability_at_most_0.9": {
+            "all": 77,
+            "same_as_truth_dominant_id": 60,
+            "raw_q90": 68,
+            "raw_q90_and_dominant_id": 52
+          },
+          "probability_at_most_0.5": {
+            "all": 17,
+            "same_as_truth_dominant_id": 12,
+            "raw_q90": 17,
+            "raw_q90_and_dominant_id": 12
+          },
+          "probability_at_most_0.1": {
+            "all": 21,
+            "same_as_truth_dominant_id": 14,
+            "raw_q90": 19,
+            "raw_q90_and_dominant_id": 13
+          },
+          "probability_at_most_1.0": {
+            "all": 3,
+            "same_as_truth_dominant_id": 0,
+            "raw_q90": 2,
+            "raw_q90_and_dominant_id": 0
+          }
+        },
+        "non_dominant_emitted_truth_points": 236
+      }
+    },
+    "train_035.csv": {
+      "score": 96.32901949741765,
+      "stage_counts": {
+        "no_proposal": 237,
+        "association_held": 269,
+        "raw_gate": 45,
+        "emission_rejected": 1
+      },
+      "phase_counts": {
+        "before_first_hit": {
+          "no_proposal": 210,
+          "emission_rejected": 1
+        },
+        "between_hits": {
+          "association_held": 261,
+          "raw_gate": 45,
+          "no_proposal": 12
+        },
+        "after_last_hit": {
+          "association_held": 8,
+          "no_proposal": 15
+        }
+      },
+      "missed_truth_points": 552,
+      "details": {
+        "raw_q90_by_stage": {
+          "no_proposal": 220,
+          "association_held": 247
+        },
+        "hold_kinds": {
+          "ordinary_ambiguity": 104,
+          "protected_pair_fallback": 165
+        },
+        "protected_fallback_quality": {
+          "probability_at_most_0.9": {
+            "all": 55,
+            "same_as_truth_dominant_id": 50,
+            "raw_q90": 53,
+            "raw_q90_and_dominant_id": 48
+          },
+          "probability_at_most_0.75": {
+            "all": 36,
+            "same_as_truth_dominant_id": 23,
+            "raw_q90": 32,
+            "raw_q90_and_dominant_id": 20
+          },
+          "probability_at_most_0.25": {
+            "all": 52,
+            "same_as_truth_dominant_id": 30,
+            "raw_q90": 50,
+            "raw_q90_and_dominant_id": 29
+          },
+          "probability_at_most_0.1": {
+            "all": 13,
+            "same_as_truth_dominant_id": 8,
+            "raw_q90": 13,
+            "raw_q90_and_dominant_id": 8
+          },
+          "probability_at_most_0.5": {
+            "all": 7,
+            "same_as_truth_dominant_id": 5,
+            "raw_q90": 6,
+            "raw_q90_and_dominant_id": 4
+          },
+          "probability_at_most_1.0": {
+            "all": 2,
+            "same_as_truth_dominant_id": 1,
+            "raw_q90": 2,
+            "raw_q90_and_dominant_id": 1
+          }
+        },
+        "non_dominant_emitted_truth_points": 25
+      }
+    },
+    "train_042.csv": {
+      "score": 96.61006968299921,
+      "stage_counts": {
+        "no_proposal": 229,
+        "emission_rejected": 3,
+        "raw_gate": 83,
+        "association_held": 462
+      },
+      "phase_counts": {
+        "before_first_hit": {
+          "no_proposal": 207,
+          "emission_rejected": 2,
+          "association_held": 7,
+          "raw_gate": 1
+        },
+        "between_hits": {
+          "raw_gate": 82,
+          "association_held": 423,
+          "no_proposal": 3,
+          "emission_rejected": 1
+        },
+        "after_last_hit": {
+          "association_held": 32,
+          "no_proposal": 19
+        }
+      },
+      "missed_truth_points": 777,
+      "details": {
+        "raw_q90_by_stage": {
+          "no_proposal": 220,
+          "association_held": 436
+        },
+        "hold_kinds": {
+          "protected_pair_fallback": 332,
+          "ordinary_ambiguity": 130
+        },
+        "protected_fallback_quality": {
+          "probability_at_most_0.75": {
+            "all": 66,
+            "same_as_truth_dominant_id": 40,
+            "raw_q90": 59,
+            "raw_q90_and_dominant_id": 36
+          },
+          "probability_at_most_0.5": {
+            "all": 34,
+            "same_as_truth_dominant_id": 27,
+            "raw_q90": 30,
+            "raw_q90_and_dominant_id": 24
+          },
+          "probability_at_most_0.9": {
+            "all": 118,
+            "same_as_truth_dominant_id": 92,
+            "raw_q90": 114,
+            "raw_q90_and_dominant_id": 89
+          },
+          "probability_at_most_0.1": {
+            "all": 20,
+            "same_as_truth_dominant_id": 12,
+            "raw_q90": 20,
+            "raw_q90_and_dominant_id": 12
+          },
+          "probability_at_most_0.25": {
+            "all": 87,
+            "same_as_truth_dominant_id": 50,
+            "raw_q90": 83,
+            "raw_q90_and_dominant_id": 47
+          },
+          "probability_at_most_1.0": {
+            "all": 7,
+            "same_as_truth_dominant_id": 7,
+            "raw_q90": 6,
+            "raw_q90_and_dominant_id": 6
+          }
+        },
+        "non_dominant_emitted_truth_points": 2
+      }
+    },
+    "train_056.csv": {
+      "score": 95.66546451400777,
+      "stage_counts": {
+        "no_proposal": 325,
+        "association_held": 368,
+        "raw_gate": 88,
+        "emission_rejected": 5
+      },
+      "phase_counts": {
+        "before_first_hit": {
+          "no_proposal": 288,
+          "raw_gate": 1,
+          "emission_rejected": 2
+        },
+        "between_hits": {
+          "raw_gate": 86,
+          "association_held": 357,
+          "no_proposal": 20,
+          "emission_rejected": 3
+        },
+        "after_last_hit": {
+          "association_held": 11,
+          "raw_gate": 1,
+          "no_proposal": 17
+        }
+      },
+      "missed_truth_points": 786,
+      "details": {
+        "raw_q90_by_stage": {
+          "no_proposal": 305,
+          "association_held": 328,
+          "emission_rejected": 2
+        },
+        "hold_kinds": {
+          "protected_pair_fallback": 247,
+          "ordinary_ambiguity": 121
+        },
+        "protected_fallback_quality": {
+          "probability_at_most_0.9": {
+            "all": 85,
+            "same_as_truth_dominant_id": 62,
+            "raw_q90": 74,
+            "raw_q90_and_dominant_id": 53
+          },
+          "probability_at_most_0.25": {
+            "all": 79,
+            "same_as_truth_dominant_id": 54,
+            "raw_q90": 71,
+            "raw_q90_and_dominant_id": 48
+          },
+          "probability_at_most_0.75": {
+            "all": 45,
+            "same_as_truth_dominant_id": 33,
+            "raw_q90": 42,
+            "raw_q90_and_dominant_id": 31
+          },
+          "probability_at_most_0.1": {
+            "all": 9,
+            "same_as_truth_dominant_id": 4,
+            "raw_q90": 9,
+            "raw_q90_and_dominant_id": 4
+          },
+          "probability_at_most_1.0": {
+            "all": 7,
+            "same_as_truth_dominant_id": 4,
+            "raw_q90": 6,
+            "raw_q90_and_dominant_id": 4
+          },
+          "probability_at_most_0.5": {
+            "all": 22,
+            "same_as_truth_dominant_id": 13,
+            "raw_q90": 19,
+            "raw_q90_and_dominant_id": 12
+          }
+        },
+        "non_dominant_emitted_truth_points": 530
+      }
+    },
+    "train_067.csv": {
+      "score": 96.19943517805521,
+      "stage_counts": {
+        "no_proposal": 239,
+        "raw_gate": 74,
+        "association_held": 416,
+        "emission_rejected": 5
+      },
+      "phase_counts": {
+        "before_first_hit": {
+          "no_proposal": 210,
+          "raw_gate": 3,
+          "association_held": 6
+        },
+        "between_hits": {
+          "association_held": 403,
+          "raw_gate": 69,
+          "no_proposal": 21,
+          "emission_rejected": 5
+        },
+        "after_last_hit": {
+          "raw_gate": 2,
+          "association_held": 7,
+          "no_proposal": 8
+        }
+      },
+      "missed_truth_points": 734,
+      "details": {
+        "raw_q90_by_stage": {
+          "no_proposal": 230,
+          "association_held": 382
+        },
+        "hold_kinds": {
+          "protected_pair_fallback": 311,
+          "ordinary_ambiguity": 105
+        },
+        "protected_fallback_quality": {
+          "probability_at_most_0.75": {
+            "all": 65,
+            "same_as_truth_dominant_id": 42,
+            "raw_q90": 58,
+            "raw_q90_and_dominant_id": 37
+          },
+          "probability_at_most_0.1": {
+            "all": 19,
+            "same_as_truth_dominant_id": 15,
+            "raw_q90": 18,
+            "raw_q90_and_dominant_id": 14
+          },
+          "probability_at_most_0.25": {
+            "all": 95,
+            "same_as_truth_dominant_id": 50,
+            "raw_q90": 88,
+            "raw_q90_and_dominant_id": 47
+          },
+          "probability_at_most_0.9": {
+            "all": 99,
+            "same_as_truth_dominant_id": 80,
+            "raw_q90": 92,
+            "raw_q90_and_dominant_id": 75
+          },
+          "probability_at_most_0.5": {
+            "all": 26,
+            "same_as_truth_dominant_id": 18,
+            "raw_q90": 24,
+            "raw_q90_and_dominant_id": 18
+          },
+          "probability_at_most_1.0": {
+            "all": 7,
+            "same_as_truth_dominant_id": 6,
+            "raw_q90": 7,
+            "raw_q90_and_dominant_id": 6
+          }
+        },
+        "non_dominant_emitted_truth_points": 192
+      }
+    }
+  }
+}

@@ -191,7 +191,8 @@ class BirthOnline:
 
     def __init__(self, teacher_model, pair_model, birth_model, clock_model, floor=.86,
                  mode='supplement', paired_birth=True, joint=True, two_hit_pairs=True,
-                 pairing=None, raw_gate=None, association_floor=.035, association_margin=.30):
+                 pairing=None, raw_gate=None, association_floor=.035, association_margin=.30,
+                 residual_linker=None, association_robustness=4.):
         self.teacher_model = teacher_model
         corrector = PairCorrector(pair_model, cutoff=.85)
         self.matcher = JointElevationMatcher(corrector) if joint else corrector
@@ -205,6 +206,8 @@ class BirthOnline:
         self.raw_gate = raw_gate
         self.association_floor = association_floor
         self.association_margin = association_margin
+        self.association_robustness = association_robustness
+        self.residual_linker = residual_linker
 
     @staticmethod
     def confirm(history, active, output, ident, observe):
@@ -290,8 +293,20 @@ class BirthOnline:
         else:
             matches, held = self.matcher.associate(active, position, amp, circle, self.teacher_model,
                                                    self.association_floor, 0., self.association_margin)
+        rejected = ()
         if pair_frame:
+            original = matches
             matches, held = self.pairing.protect_fallback(pair_frame, active, position, circle, matches, held)
+            if self.residual_linker is not None:
+                accepted = {(row, col) for row, col, _ in matches}
+                rejected = [(row, col, prob) for row, col, prob in original if (row, col) not in accepted]
+        if self.residual_linker is not None and "raw_return_probability" in state:
+            recoveries = self.residual_linker.recover(
+                active, raw, times, state["raw_return_probability"], circle, pair_frame,
+                state.get("previous_pairs", ()), matches, held, rejected,
+            )
+            state["residual_matches"] = {int(keys[col]) for _, col, _ in recoveries}
+            matches += recoveries
         remaining = available
         remaining[held] = False
         output, association = {}, {}
@@ -299,7 +314,8 @@ class BirthOnline:
             track = active[row]
             if observe:
                 observe(track, position[col], amp[col], circle)
-            teacher.update(track, position[col], amp[col], circle, probability=probability, robust=4.)
+            teacher.update(track, position[col], amp[col], circle, probability=probability,
+                           robust=self.association_robustness)
             remaining[col] = False
             ident = points[col]['PntID']
             output[ident] = track.batch_id

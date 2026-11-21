@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "packet_ids": [
+      1,
+      6,
+      14,
+      22,
+      35,
+      42,
+      56,
+      67
+    ],
+    "score_version": "b02-local-pntid-v1",
+    "submission_zip_sha256": "c032a472b7ac60522774786f470f72585e9b3c675cc0fe3720ab31b67d897df5",
+    "teacher_sha256": "2e5d27b83d70120ab8b923a5f7a325faf13cd75a190dbb4908d6c0f4f904c168"
+  },
+  "count": 87793,
+  "positives": 81586,
+  "settings": {
+    "objective": "binary",
+    "learning_rate": 0.025,
+    "num_leaves": 39,
+    "min_data_in_leaf": 100,
+    "num_threads": 2,
+    "force_col_wise": true,
+    "deterministic": true,
+    "verbosity": -1,
+    "seed": 9711
+  },
+  "additional_rounds": 60,
+  "training_edges": [
+    {
+      "edges": 13094,
+      "positives": 12377
+    },
+    {
+      "edges": 10820,
+      "positives": 10024
+    },
+    {
+      "edges": 9304,
+      "positives": 8495
+    },
+    {
+      "edges": 9831,
+      "positives": 9188
+    },
+    {
+      "edges": 9064,
+      "positives": 8527
+    },
+    {
+      "edges": 11474,
+      "positives": 10675
+    },
+    {
+      "edges": 14819,
+      "positives": 13479
+    },
+    {
+      "edges": 9387,
+      "positives": 8821
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+    "time_range":  {
+                       "start_time":  0,
+                       "end_time":  86400000
+                   },
+    "time_step":  1000,
+    "time_delay":  30000,
+    "only_regress":  false,
+    "reg_the_last_but_one_point":  true,
+    "circle_config":  {
+                          "circle_time":  0,
+                          "circle_length":  5,
+                          "circle_num":  0,
+                           "time_len":  50
+                      },
+    "preprocess_config":  {
+                              "channel_filter":  0,
+                              "nan_filter":  false,
+                               "manual_label_filter":  false,
+                              "distance_filter":  true,
+                              "elevation_filter":  false,
+                              "only_primary_and_fused_points":  false
+                          },
+    "cluster_config":  {
+                           "on-off":  true,
+                            "time_thresh":  3,
+                            "r_thresh":  0.0004,
+                            "az_thresh":  8.7266e-05
+                       },
+    "track_config":  {
+                         "speed_thresh_max":  5000,
+                         "acceleration_thresh":  600,
+                         "direc_change_thresh":  30,
+                         "speed_thresh_min":  1,
+                         "r_velocities_thresh":  3000,
+                         "save_all_data":  true,
+                         "save_columns":  [
+                                              "RADAR_TIME",
+                                              "AZ",
+                                              "EL",
+                                              "R",
+                                              "AMP",
+                                              "SNR",
+                                              "X",
+                                              "Y",
+                                              "TRACK_ID_MANUAL",
+                                              "TRACK_ID_ALGO",
+                                              "CIRCLE_ID",
+                                              "POINT_ID",
+                                              "MODEL_CLASS"
+                                          ]
+                     }
+}

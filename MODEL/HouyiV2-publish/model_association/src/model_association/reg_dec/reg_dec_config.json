@@ -1,0 +1,19 @@
+{
+  "n_layers": 4,
+  "n_attn_heads": 4,
+  "n_hidden_layers_of_regress_dense_net": 2,
+  "optimizer": "Adam",
+  "lr": 0.0001,
+  "weight_decay": 0,
+  "batch_size": 8,
+  "stop_epoch": 125,
+  "classify_loss_coeff": 0.0,
+  "regress_loss_coeff": 1e3,
+  "train_num_batches": 1000000,
+  "test_num_batches": 400000,
+  "dropout": 0.15,
+  "seed": 0,
+  "log_interval": 100,
+  "save_interval": 50000,
+  "regressor_output_sigmoid": false
+}

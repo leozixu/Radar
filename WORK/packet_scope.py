@@ -9,7 +9,8 @@ TRAIN_PACKETS = tuple(range(1, 71))
 TUNING_PACKETS = tuple(range(71, 86))
 ACCEPTANCE_PACKETS = tuple(range(86, 101))
 DEVELOPMENT_PACKETS = TRAIN_PACKETS + TUNING_PACKETS + ACCEPTANCE_PACKETS
-HOLDOUT_PACKETS = tuple(range(101, 201))
+STAGE_ONE_PACKETS = tuple(range(101, 141))
+MANUAL_FINAL_PACKETS = tuple(range(141, 201))
 
 
 def validate_packet_path(path, allowed=DEVELOPMENT_PACKETS):

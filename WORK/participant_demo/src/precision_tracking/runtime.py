@@ -7,7 +7,9 @@ import tracker_compat
 
 from . import causal_birth_paths, clock_association, emission_identity, paired_returns, pair_swap_probe
 from . import raw_timing_detection, teacher_assoc
+from .early_births import EarlyBirthTracker, FEATURES as EARLY_BIRTH_FEATURES
 from .registered_pair_recovery import BothRecoveries
+from .residual_links import FEATURES as RESIDUAL_FEATURES, TEMPORAL_FEATURES, ResidualLinker
 
 
 FEATURE_SCHEMAS = {
@@ -36,12 +38,21 @@ class PrecisionSettings:
     quality_threshold: float = .16
     emission_detection_floor: float = .25
     emission_raw_floor: float = .80
+    residual_floor: float = .93
+    residual_margin: float = .12
+    residual_corroborated: bool = False
+    association_robustness: float = 4.
 
     def __post_init__(self):
         thresholds = asdict(self)
         margin = thresholds.pop("association_margin")
         if not isfinite(margin) or margin < 0:
             raise ValueError("The association margin must be finite and nonnegative")
+        robustness = thresholds.pop("association_robustness")
+        if not isfinite(robustness) or robustness < 0:
+            raise ValueError("The association robustness must be finite and nonnegative")
+        if not isinstance(thresholds.pop("residual_corroborated"), bool):
+            raise ValueError("Residual corroboration must be a boolean")
         if not all(isfinite(value) and 0 < value < 1 for value in thresholds.values()):
             raise ValueError("Precision tracking thresholds must be between zero and one")
         if self.pair_link_floor > self.pair_start_floor:
@@ -59,12 +70,22 @@ class PrecisionRuntime:
         pairing = BothRecoveries(models["pair_signature"], config.pair_start_floor, config.pair_link_floor,
                                  early=True, wide=True, fallback_floor=config.pair_fallback_floor)
         raw_gate = raw_timing_detection.RawReturnGate(models["raw_return"], config.raw_floor)
+        linker = None
+        if "residual_temporal" in models:
+            linker = ResidualLinker(models["residual_temporal"], config.residual_floor, config.residual_margin,
+                                    temporal=True, corroborated=config.residual_corroborated)
+        elif "residual_link" in models:
+            linker = ResidualLinker(models["residual_link"], config.residual_floor, config.residual_margin,
+                                    corroborated=config.residual_corroborated)
         tracker = causal_birth_paths.BirthOnline(
             models["teacher"], models["pair_orientation"], models["birth"], models["scan_clock"],
             config.birth_floor, "supplement", paired_birth=True, joint=True, two_hit_pairs=True,
             pairing=pairing, raw_gate=raw_gate, association_floor=config.association_floor,
-            association_margin=config.association_margin,
+            association_margin=config.association_margin, residual_linker=linker,
+            association_robustness=config.association_robustness,
         )
+        if "early_birth" in models:
+            tracker = EarlyBirthTracker(tracker, models["early_birth"])
         return tracker, emission_identity.EmissionFeatures()
 
     def process_circle(self, points, state):
@@ -96,6 +117,13 @@ def load_precision(profile, settings, descriptors, feature_version, file_hash, l
         models[name], info[name] = load_model(profile, descriptors.get(name), features, name)
         if models[name] is None:
             raise ValueError(f"Missing precision tracking model {name}: {profile}")
+    optional = (("residual_link", RESIDUAL_FEATURES), ("residual_temporal", TEMPORAL_FEATURES),
+                ("early_birth", EARLY_BIRTH_FEATURES))
+    for name, features in optional:
+        if name in descriptors:
+            models[name], info[name] = load_model(profile, descriptors[name], features, name)
+            if models[name] is None:
+                raise ValueError(f"Missing precision tracking model {name}: {profile}")
     return PrecisionRuntime(settings, models, {
         "backend": "precision", "profile": profile.name, "profile_sha256": file_hash(profile),
         "feature_version": feature_version, "models": info, "settings": asdict(settings),

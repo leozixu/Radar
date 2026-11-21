@@ -1,0 +1,668 @@
+{
+  "metadata": {
+    "train_packets": [
+      6,
+      14,
+      22,
+      35,
+      56,
+      67
+    ],
+    "tune_packets": [
+      71,
+      76,
+      85
+    ],
+    "profile_sha256": "b540079382990a3c3a7e80abc5b38a33834c6882a7a35e6f10240e10d7ee98a7",
+    "runtime_source_sha256": {
+      "algorithm.py": "4ac413b6acbea6fd18a11296d1bd59f2fb39ebe1cc14482df0063d1b0bafee85",
+      "baseline_cv.py": "e74104b6fe6d8676bca09c34f867230bd62981be27fbcb6209ec200898bb4c36",
+      "client.py": "c44f5431f562cabea95b2d895dd23cff1bacc530abef0301dc1ffa025bbe7a5e",
+      "exe_runtime.py": "adfb7be9d05b2c18c730de3090aaf1c3c3c6c47928d2ac1879fbcde4209a3986",
+      "main.py": "2128dd02ad13c8cd66b66e5f340a3752c4a50d8cb49031f76deb35c640aa5d98",
+      "precision_tracking/__init__.py": "3d48c1afc786b3df23101b8b9d01229205abb59e9116bfe597cd6e2aa8433829",
+      "precision_tracking/causal_birth_paths.py": "155c83b54fa3f51dd854b902f2e4abb70a1065704528b6ac3143cbbf1c8d1393",
+      "precision_tracking/clock_association.py": "c5c240edbca854e9f27ba66f99fb4175b348af9e9b3762d57aa140193782bcd9",
+      "precision_tracking/early_births.py": "b5ba3a88fa5d9d7109b65a6d771ccc4263aa81d10247d7e3fc95cacd9b019f28",
+      "precision_tracking/emission_identity.py": "375844f7bd842bfd77537959f2f4a11ee65689441f5eae2d8a61bdec41ca592c",
+      "precision_tracking/fast_pair_center.py": "b3c66e656021dcc7dbadf31b5bf07356376ee1306a1f53a7f247d9d3881fcc5d",
+      "precision_tracking/joint_elevation_pairs.py": "a9e46850420b1045bb7496d8d47a8891bfdfb1b720c0370507eb7730f66e9853",
+      "precision_tracking/pair_swap_probe.py": "d3cc8f426c94ebd95da14cb84af9de11dac85d75d4037c13c3d870bed3c9d7e2",
+      "precision_tracking/paired_returns.py": "94f954a1d7212ae489338614867ca1165b5346bd4e949699ce878a7d391f8a67",
+      "precision_tracking/raw_timing_detection.py": "ec6c4c473966523405002a9370c6fed06f2dd8a98747296c0cdd460d03c933b9",
+      "precision_tracking/registered_pair_recovery.py": "3c49cc5849b8fb48437903e5d7a0493b43dd4d8a49e2035057373767db9e60d6",
+      "precision_tracking/relative_elevation_assoc.py": "6f7a84be1101d9c1c8685aac9342c55851f282e2d820e377e678f46cb73869f4",
+      "precision_tracking/residual_links.py": "868ece3e35dd5ed57d1f41744d5fa6c029fd890e73df4af2e904e552de92db40",
+      "precision_tracking/runtime.py": "f4d4f4169a816550da453d70d390eb733b8cfcd36a37799d49bf589d6549d898",
+      "precision_tracking/teacher_assoc.py": "7256fe93d3b6dbabb096fcbfe74b792d8921f36c6c6c38a66e8ffc7bcb363544",
+      "serve.py": "aeb29e986bee401c9903606c05a4b78e2cc8c8df4dd17800cc4b5141c6d65d10",
+      "tracker.py": "e6d78c6f73ee9d4047ed6558f3838197c03ff39b8fc1e084ecc2912d222bb3a1",
+      "tracker_assoc.py": "bb4c708b57e2a5f633be2595e41047bbba29a66c17f513f9ffec7ea7a5eada70",
+      "tracker_compat.py": "e1037de89668a9d93ab4f46e40eab29448ffb39f2a275658e15e65d0dfcbf15b",
+      "windows_job.py": "0e6f8f7777d563dd36096c8df236801052333f04537ac1e54c32931c0573c8ab"
+    },
+    "model_sha256": "b687345bf8ac953f72bf78cb074071cfced062481b585b346ffb5ebda5a1aedd",
+    "score_version": "b02-local-pntid-v1"
+  },
+  "training": {
+    "counts": {
+      "emitted": 119756,
+      "unknown": 3312,
+      "clutter": 74
+    },
+    "settings": {
+      "objective": "binary",
+      "learning_rate": 0.045,
+      "num_leaves": 23,
+      "min_data_in_leaf": 75,
+      "force_col_wise": true,
+      "deterministic": true,
+      "num_threads": 2,
+      "verbosity": -1,
+      "seed": 804
+    },
+    "trees": 140
+  },
+  "replay": {
+    "baseline": {
+      "summary": {
+        "truth_points": 64105,
+        "output_points": 63916,
+        "matched_points": 62108,
+        "clutter_output_points": 61,
+        "unknown_output_points": 1747,
+        "output_tracks": 447,
+        "merged_output_tracks": 13,
+        "merged_truth_points": 314,
+        "identity_true_positive_points": 61625,
+        "truth_tracks": 396,
+        "matched_truth_tracks": 396,
+        "missed_truth_points": 1997,
+        "unmatched_output_points": 1808,
+        "point_coverage": 0.9688479837766165,
+        "mean_track_coverage": 0.9578537549819861,
+        "false_alarm_ratio": 0.028203728258326184,
+        "idf1": 0.9627326766702338,
+        "merged_truth_point_ratio": 0.0050557094094158565,
+        "split_truth_tracks": 16,
+        "id_switches": 21,
+        "missed_segments": 877,
+        "circle_gaps": 2735,
+        "score": {
+          "version": "b02-local-pntid-v1",
+          "matched_tracks": 396,
+          "tracks": 396,
+          "raw_percent_scores": {
+            "coverage": 95.7853754981986,
+            "timeliness": 98.13661111111111,
+            "timeliness_first_hit": 98.08600505050504,
+            "tracking_length": 96.6515724510419,
+            "tracking_length_literal": 100.0,
+            "fragmentation": 97.91666666666666,
+            "false_alarm": 97.17962717416738
+          },
+          "weighted_points": {
+            "coverage": 28.735612649459583,
+            "false_alarm": 9.717962717416738,
+            "fragmentation": 19.583333333333332,
+            "timeliness": 19.627322222222222,
+            "tracking_length": 19.33031449020838
+          },
+          "total": 96.99454541264025,
+          "total_literal_max": 97.66423092243187,
+          "total_first_hit": 96.98442420051904
+        }
+      },
+      "removed": {
+        "truth": 0,
+        "unknown": 0,
+        "clutter": 0
+      },
+      "packet_scores": [
+        97.08378092449313,
+        96.82993491758846,
+        97.08009346289282
+      ]
+    },
+    "oracle": {
+      "summary": {
+        "truth_points": 64105,
+        "output_points": 62108,
+        "matched_points": 62108,
+        "clutter_output_points": 0,
+        "unknown_output_points": 0,
+        "output_tracks": 401,
+        "merged_output_tracks": 13,
+        "merged_truth_points": 314,
+        "identity_true_positive_points": 61625,
+        "truth_tracks": 396,
+        "matched_truth_tracks": 396,
+        "missed_truth_points": 1997,
+        "unmatched_output_points": 0,
+        "point_coverage": 0.9688479837766165,
+        "mean_track_coverage": 0.9578537549819861,
+        "false_alarm_ratio": 0.0,
+        "idf1": 0.9765238129194298,
+        "merged_truth_point_ratio": 0.0050557094094158565,
+        "split_truth_tracks": 16,
+        "id_switches": 21,
+        "missed_segments": 877,
+        "circle_gaps": 2735,
+        "score": {
+          "version": "b02-local-pntid-v1",
+          "matched_tracks": 396,
+          "tracks": 396,
+          "raw_percent_scores": {
+            "coverage": 95.7853754981986,
+            "timeliness": 98.13661111111111,
+            "timeliness_first_hit": 98.08600505050504,
+            "tracking_length": 96.6515724510419,
+            "tracking_length_literal": 100.0,
+            "fragmentation": 97.91666666666666,
+            "false_alarm": 100.0
+          },
+          "weighted_points": {
+            "coverage": 28.735612649459583,
+            "false_alarm": 10.0,
+            "fragmentation": 19.583333333333332,
+            "timeliness": 19.627322222222222,
+            "tracking_length": 19.33031449020838
+          },
+          "total": 97.27658269522351,
+          "total_literal_max": 97.94626820501513,
+          "total_first_hit": 97.2664614831023
+        }
+      },
+      "removed": {
+        "truth": 0,
+        "unknown": 1747,
+        "clutter": 61
+      },
+      "packet_scores": [
+        97.16732614788579,
+        97.19345896244685,
+        97.42104964719752
+      ]
+    },
+    "0.7": {
+      "summary": {
+        "truth_points": 64105,
+        "output_points": 63527,
+        "matched_points": 61770,
+        "clutter_output_points": 30,
+        "unknown_output_points": 1727,
+        "output_tracks": 428,
+        "merged_output_tracks": 13,
+        "merged_truth_points": 314,
+        "identity_true_positive_points": 61288,
+        "truth_tracks": 396,
+        "matched_truth_tracks": 396,
+        "missed_truth_points": 2335,
+        "unmatched_output_points": 1757,
+        "point_coverage": 0.9635753841354029,
+        "mean_track_coverage": 0.9554479101549334,
+        "false_alarm_ratio": 0.02740815848997738,
+        "idf1": 0.960386110066441,
+        "merged_truth_point_ratio": 0.005083373806054719,
+        "split_truth_tracks": 16,
+        "id_switches": 21,
+        "missed_segments": 936,
+        "circle_gaps": 2782,
+        "score": {
+          "version": "b02-local-pntid-v1",
+          "matched_tracks": 396,
+          "tracks": 396,
+          "raw_percent_scores": {
+            "coverage": 95.54479101549333,
+            "timeliness": 98.08593434343435,
+            "timeliness_first_hit": 98.03532828282829,
+            "tracking_length": 96.41582032073256,
+            "tracking_length_literal": 100.0,
+            "fragmentation": 97.91666666666666,
+            "false_alarm": 97.25918415100226
+          },
+          "weighted_points": {
+            "coverage": 28.663437304648,
+            "false_alarm": 9.725918415100226,
+            "fragmentation": 19.583333333333332,
+            "timeliness": 19.61718686868687,
+            "tracking_length": 19.283164064146515
+          },
+          "total": 96.87303998591494,
+          "total_literal_max": 97.58987592176842,
+          "total_first_hit": 96.86291877379374
+        }
+      },
+      "removed": {
+        "truth": 338,
+        "unknown": 20,
+        "clutter": 31
+      },
+      "packet_scores": [
+        97.06507518759436,
+        96.52318588544217,
+        97.06097466721674
+      ]
+    },
+    "0.8": {
+      "summary": {
+        "truth_points": 64105,
+        "output_points": 63651,
+        "matched_points": 61874,
+        "clutter_output_points": 36,
+        "unknown_output_points": 1741,
+        "output_tracks": 435,
+        "merged_output_tracks": 13,
+        "merged_truth_points": 314,
+        "identity_true_positive_points": 61392,
+        "truth_tracks": 396,
+        "matched_truth_tracks": 396,
+        "missed_truth_points": 2231,
+        "unmatched_output_points": 1777,
+        "point_coverage": 0.9651977224865456,
+        "mean_track_coverage": 0.9561361542745944,
+        "false_alarm_ratio": 0.027720146634427893,
+        "idf1": 0.9610820626819876,
+        "merged_truth_point_ratio": 0.005074829492193813,
+        "split_truth_tracks": 16,
+        "id_switches": 21,
+        "missed_segments": 939,
+        "circle_gaps": 2787,
+        "score": {
+          "version": "b02-local-pntid-v1",
+          "matched_tracks": 396,
+          "tracks": 396,
+          "raw_percent_scores": {
+            "coverage": 95.61361542745944,
+            "timeliness": 98.08593434343435,
+            "timeliness_first_hit": 98.03532828282829,
+            "tracking_length": 96.48501811253689,
+            "tracking_length_literal": 100.0,
+            "fragmentation": 97.91666666666666,
+            "false_alarm": 97.22798533655721
+          },
+          "weighted_points": {
+            "coverage": 28.684084628237834,
+            "false_alarm": 9.722798533655721,
+            "fragmentation": 19.583333333333332,
+            "timeliness": 19.61718686868687,
+            "tracking_length": 19.29700362250738
+          },
+          "total": 96.90440698642114,
+          "total_literal_max": 97.60740336391376,
+          "total_first_hit": 96.89428577429993
+        }
+      },
+      "removed": {
+        "truth": 234,
+        "unknown": 6,
+        "clutter": 25
+      },
+      "packet_scores": [
+        97.06883865711042,
+        96.6031015442556,
+        97.06555729481755
+      ]
+    },
+    "0.9": {
+      "summary": {
+        "truth_points": 64105,
+        "output_points": 63824,
+        "matched_points": 62033,
+        "clutter_output_points": 48,
+        "unknown_output_points": 1743,
+        "output_tracks": 441,
+        "merged_output_tracks": 13,
+        "merged_truth_points": 314,
+        "identity_true_positive_points": 61550,
+        "truth_tracks": 396,
+        "matched_truth_tracks": 396,
+        "missed_truth_points": 2072,
+        "unmatched_output_points": 1791,
+        "point_coverage": 0.9676780282349271,
+        "mean_track_coverage": 0.9572969607260048,
+        "false_alarm_ratio": 0.02793853833554325,
+        "idf1": 0.9622524994332794,
+        "merged_truth_point_ratio": 0.005061821933487015,
+        "split_truth_tracks": 16,
+        "id_switches": 21,
+        "missed_segments": 916,
+        "circle_gaps": 2771,
+        "score": {
+          "version": "b02-local-pntid-v1",
+          "matched_tracks": 396,
+          "tracks": 396,
+          "raw_percent_scores": {
+            "coverage": 95.72969607260048,
+            "timeliness": 98.13661111111111,
+            "timeliness_first_hit": 98.08600505050504,
+            "tracking_length": 96.595559376862,
+            "tracking_length_literal": 100.0,
+            "fragmentation": 97.91666666666666,
+            "false_alarm": 97.20614616644568
+          },
+          "weighted_points": {
+            "coverage": 28.718908821780143,
+            "false_alarm": 9.720614616644568,
+            "fragmentation": 19.583333333333332,
+            "timeliness": 19.627322222222222,
+            "tracking_length": 19.3191118753724
+          },
+          "total": 96.96929086935266,
+          "total_literal_max": 97.65017899398026,
+          "total_first_hit": 96.95916965723146
+        }
+      },
+      "removed": {
+        "truth": 75,
+        "unknown": 4,
+        "clutter": 13
+      },
+      "packet_scores": [
+        97.0874133255102,
+        96.75250976656662,
+        97.0834841873776
+      ]
+    },
+    "0.95": {
+      "summary": {
+        "truth_points": 64105,
+        "output_points": 63897,
+        "matched_points": 62098,
+        "clutter_output_points": 54,
+        "unknown_output_points": 1745,
+        "output_tracks": 444,
+        "merged_output_tracks": 13,
+        "merged_truth_points": 314,
+        "identity_true_positive_points": 61615,
+        "truth_tracks": 396,
+        "matched_truth_tracks": 396,
+        "missed_truth_points": 2007,
+        "unmatched_output_points": 1799,
+        "point_coverage": 0.9686919897043912,
+        "mean_track_coverage": 0.9577758790911021,
+        "false_alarm_ratio": 0.028063333593323452,
+        "idf1": 0.9627193325104295,
+        "merged_truth_point_ratio": 0.005056523559534929,
+        "split_truth_tracks": 16,
+        "id_switches": 21,
+        "missed_segments": 884,
+        "circle_gaps": 2742,
+        "score": {
+          "version": "b02-local-pntid-v1",
+          "matched_tracks": 396,
+          "tracks": 396,
+          "raw_percent_scores": {
+            "coverage": 95.77758790911021,
+            "timeliness": 98.13661111111111,
+            "timeliness_first_hit": 98.08600505050504,
+            "tracking_length": 96.6437362808753,
+            "tracking_length_literal": 100.0,
+            "fragmentation": 97.91666666666666,
+            "false_alarm": 97.19366664066766
+          },
+          "weighted_points": {
+            "coverage": 28.733276372733062,
+            "false_alarm": 9.719366664066765,
+            "fragmentation": 19.583333333333332,
+            "timeliness": 19.627322222222222,
+            "tracking_length": 19.32874725617506
+          },
+          "total": 96.99204584853044,
+          "total_literal_max": 97.66329859235537,
+          "total_first_hit": 96.98192463640923
+        }
+      },
+      "removed": {
+        "truth": 10,
+        "unknown": 2,
+        "clutter": 7
+      },
+      "packet_scores": [
+        97.08559712500167,
+        96.81944706092263,
+        97.0819771987177
+      ]
+    },
+    "0.975": {
+      "summary": {
+        "truth_points": 64105,
+        "output_points": 63912,
+        "matched_points": 62107,
+        "clutter_output_points": 59,
+        "unknown_output_points": 1746,
+        "output_tracks": 445,
+        "merged_output_tracks": 13,
+        "merged_truth_points": 314,
+        "identity_true_positive_points": 61624,
+        "truth_tracks": 396,
+        "matched_truth_tracks": 396,
+        "missed_truth_points": 1998,
+        "unmatched_output_points": 1805,
+        "point_coverage": 0.968832384369394,
+        "mean_track_coverage": 0.9578457383073027,
+        "false_alarm_ratio": 0.028156930036658607,
+        "idf1": 0.9627471351461134,
+        "merged_truth_point_ratio": 0.005055790812629816,
+        "split_truth_tracks": 16,
+        "id_switches": 21,
+        "missed_segments": 878,
+        "circle_gaps": 2736,
+        "score": {
+          "version": "b02-local-pntid-v1",
+          "matched_tracks": 396,
+          "tracks": 396,
+          "raw_percent_scores": {
+            "coverage": 95.78457383073027,
+            "timeliness": 98.13661111111111,
+            "timeliness_first_hit": 98.08600505050504,
+            "tracking_length": 96.65076566109774,
+            "tracking_length_literal": 100.0,
+            "fragmentation": 97.91666666666666,
+            "false_alarm": 97.18430699633413
+          },
+          "weighted_points": {
+            "coverage": 28.73537214921908,
+            "false_alarm": 9.718430699633414,
+            "fragmentation": 19.583333333333332,
+            "timeliness": 19.627322222222222,
+            "tracking_length": 19.330153132219547
+          },
+          "total": 96.9946115366276,
+          "total_literal_max": 97.66445840440805,
+          "total_first_hit": 96.9844903245064
+        }
+      },
+      "removed": {
+        "truth": 1,
+        "unknown": 1,
+        "clutter": 2
+      },
+      "packet_scores": [
+        97.08499172483215,
+        96.8288062944763,
+        97.08047021005778
+      ]
+    },
+    "0.99": {
+      "summary": {
+        "truth_points": 64105,
+        "output_points": 63915,
+        "matched_points": 62108,
+        "clutter_output_points": 60,
+        "unknown_output_points": 1747,
+        "output_tracks": 446,
+        "merged_output_tracks": 13,
+        "merged_truth_points": 314,
+        "identity_true_positive_points": 61625,
+        "truth_tracks": 396,
+        "matched_truth_tracks": 396,
+        "missed_truth_points": 1997,
+        "unmatched_output_points": 1807,
+        "point_coverage": 0.9688479837766165,
+        "mean_track_coverage": 0.9578537549819861,
+        "false_alarm_ratio": 0.02818812885110366,
+        "idf1": 0.9627401968442431,
+        "merged_truth_point_ratio": 0.0050557094094158565,
+        "split_truth_tracks": 16,
+        "id_switches": 21,
+        "missed_segments": 877,
+        "circle_gaps": 2735,
+        "score": {
+          "version": "b02-local-pntid-v1",
+          "matched_tracks": 396,
+          "tracks": 396,
+          "raw_percent_scores": {
+            "coverage": 95.7853754981986,
+            "timeliness": 98.13661111111111,
+            "timeliness_first_hit": 98.08600505050504,
+            "tracking_length": 96.6515724510419,
+            "tracking_length_literal": 100.0,
+            "fragmentation": 97.91666666666666,
+            "false_alarm": 97.18118711488964
+          },
+          "weighted_points": {
+            "coverage": 28.735612649459583,
+            "false_alarm": 9.718118711488962,
+            "fragmentation": 19.583333333333332,
+            "timeliness": 19.627322222222222,
+            "tracking_length": 19.33031449020838
+          },
+          "total": 96.99470140671248,
+          "total_literal_max": 97.6643869165041,
+          "total_first_hit": 96.98458019459127
+        }
+      },
+      "removed": {
+        "truth": 0,
+        "unknown": 0,
+        "clutter": 1
+      },
+      "packet_scores": [
+        97.08438632466265,
+        96.82993491758846,
+        97.08009346289282
+      ]
+    },
+    "0.995": {
+      "summary": {
+        "truth_points": 64105,
+        "output_points": 63916,
+        "matched_points": 62108,
+        "clutter_output_points": 61,
+        "unknown_output_points": 1747,
+        "output_tracks": 447,
+        "merged_output_tracks": 13,
+        "merged_truth_points": 314,
+        "identity_true_positive_points": 61625,
+        "truth_tracks": 396,
+        "matched_truth_tracks": 396,
+        "missed_truth_points": 1997,
+        "unmatched_output_points": 1808,
+        "point_coverage": 0.9688479837766165,
+        "mean_track_coverage": 0.9578537549819861,
+        "false_alarm_ratio": 0.028203728258326184,
+        "idf1": 0.9627326766702338,
+        "merged_truth_point_ratio": 0.0050557094094158565,
+        "split_truth_tracks": 16,
+        "id_switches": 21,
+        "missed_segments": 877,
+        "circle_gaps": 2735,
+        "score": {
+          "version": "b02-local-pntid-v1",
+          "matched_tracks": 396,
+          "tracks": 396,
+          "raw_percent_scores": {
+            "coverage": 95.7853754981986,
+            "timeliness": 98.13661111111111,
+            "timeliness_first_hit": 98.08600505050504,
+            "tracking_length": 96.6515724510419,
+            "tracking_length_literal": 100.0,
+            "fragmentation": 97.91666666666666,
+            "false_alarm": 97.17962717416738
+          },
+          "weighted_points": {
+            "coverage": 28.735612649459583,
+            "false_alarm": 9.717962717416738,
+            "fragmentation": 19.583333333333332,
+            "timeliness": 19.627322222222222,
+            "tracking_length": 19.33031449020838
+          },
+          "total": 96.99454541264025,
+          "total_literal_max": 97.66423092243187,
+          "total_first_hit": 96.98442420051904
+        }
+      },
+      "removed": {
+        "truth": 0,
+        "unknown": 0,
+        "clutter": 0
+      },
+      "packet_scores": [
+        97.08378092449313,
+        96.82993491758846,
+        97.08009346289282
+      ]
+    },
+    "0.999": {
+      "summary": {
+        "truth_points": 64105,
+        "output_points": 63916,
+        "matched_points": 62108,
+        "clutter_output_points": 61,
+        "unknown_output_points": 1747,
+        "output_tracks": 447,
+        "merged_output_tracks": 13,
+        "merged_truth_points": 314,
+        "identity_true_positive_points": 61625,
+        "truth_tracks": 396,
+        "matched_truth_tracks": 396,
+        "missed_truth_points": 1997,
+        "unmatched_output_points": 1808,
+        "point_coverage": 0.9688479837766165,
+        "mean_track_coverage": 0.9578537549819861,
+        "false_alarm_ratio": 0.028203728258326184,
+        "idf1": 0.9627326766702338,
+        "merged_truth_point_ratio": 0.0050557094094158565,
+        "split_truth_tracks": 16,
+        "id_switches": 21,
+        "missed_segments": 877,
+        "circle_gaps": 2735,
+        "score": {
+          "version": "b02-local-pntid-v1",
+          "matched_tracks": 396,
+          "tracks": 396,
+          "raw_percent_scores": {
+            "coverage": 95.7853754981986,
+            "timeliness": 98.13661111111111,
+            "timeliness_first_hit": 98.08600505050504,
+            "tracking_length": 96.6515724510419,
+            "tracking_length_literal": 100.0,
+            "fragmentation": 97.91666666666666,
+            "false_alarm": 97.17962717416738
+          },
+          "weighted_points": {
+            "coverage": 28.735612649459583,
+            "false_alarm": 9.717962717416738,
+            "fragmentation": 19.583333333333332,
+            "timeliness": 19.627322222222222,
+            "tracking_length": 19.33031449020838
+          },
+          "total": 96.99454541264025,
+          "total_literal_max": 97.66423092243187,
+          "total_first_hit": 96.98442420051904
+        }
+      },
+      "removed": {
+        "truth": 0,
+        "unknown": 0,
+        "clutter": 0
+      },
+      "packet_scores": [
+        97.08378092449313,
+        96.82993491758846,
+        97.08009346289282
+      ]
+    }
+  }
+}

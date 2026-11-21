@@ -1,0 +1,162 @@
+{
+  "metadata": {
+    "packet_ids": [
+      14,
+      22,
+      28,
+      35
+    ],
+    "score_version": "b02-local-pntid-v1",
+    "submission_zip_sha256": "c032a472b7ac60522774786f470f72585e9b3c675cc0fe3720ab31b67d897df5"
+  },
+  "baseline": {
+    "truth_points": 71021,
+    "output_points": 70425,
+    "matched_points": 68234,
+    "clutter_output_points": 71,
+    "unknown_output_points": 2120,
+    "output_tracks": 552,
+    "merged_output_tracks": 11,
+    "merged_truth_points": 201,
+    "identity_true_positive_points": 67118,
+    "truth_tracks": 474,
+    "matched_truth_tracks": 474,
+    "missed_truth_points": 2787,
+    "unmatched_output_points": 2191,
+    "point_coverage": 0.9607580856366427,
+    "mean_track_coverage": 0.944234500948842,
+    "false_alarm_ratio": 0.030850030272736233,
+    "idf1": 0.9490264836050507,
+    "merged_truth_point_ratio": 0.0029457455227599144,
+    "split_truth_tracks": 36,
+    "id_switches": 58,
+    "missed_segments": 1153,
+    "circle_gaps": 3157,
+    "score": {
+      "version": "b02-local-pntid-v1",
+      "matched_tracks": 474,
+      "tracks": 474,
+      "raw_percent_scores": {
+        "coverage": 94.4234500948842,
+        "timeliness": 95.8535105485232,
+        "timeliness_first_hit": 95.81117721518987,
+        "tracking_length": 95.03253726575703,
+        "tracking_length_literal": 100.0,
+        "fragmentation": 95.9915611814346,
+        "false_alarm": 96.91499697272637
+      },
+      "weighted_points": {
+        "coverage": 28.32703502846526,
+        "false_alarm": 9.691499697272638,
+        "fragmentation": 19.19831223628692,
+        "timeliness": 19.170702109704642,
+        "tracking_length": 19.006507453151407
+      },
+      "total": 95.39405652488087,
+      "total_literal_max": 96.38754907172947,
+      "total_first_hit": 95.3855898582142
+    }
+  },
+  "retrospective_oracle": {
+    "truth_points": 71021,
+    "output_points": 70515,
+    "matched_points": 68324,
+    "clutter_output_points": 71,
+    "unknown_output_points": 2120,
+    "output_tracks": 552,
+    "merged_output_tracks": 11,
+    "merged_truth_points": 201,
+    "identity_true_positive_points": 67208,
+    "truth_tracks": 474,
+    "matched_truth_tracks": 474,
+    "missed_truth_points": 2697,
+    "unmatched_output_points": 2191,
+    "point_coverage": 0.9620253164556962,
+    "mean_track_coverage": 0.9453652604748686,
+    "false_alarm_ratio": 0.030850030272736233,
+    "idf1": 0.9496947773004748,
+    "merged_truth_point_ratio": 0.002941865230372929,
+    "split_truth_tracks": 36,
+    "id_switches": 58,
+    "missed_segments": 1072,
+    "circle_gaps": 3081,
+    "score": {
+      "version": "b02-local-pntid-v1",
+      "matched_tracks": 474,
+      "tracks": 474,
+      "raw_percent_scores": {
+        "coverage": 94.53652604748686,
+        "timeliness": 95.8535105485232,
+        "timeliness_first_hit": 95.81117721518987,
+        "tracking_length": 95.14767158764515,
+        "tracking_length_literal": 100.0,
+        "fragmentation": 95.9915611814346,
+        "false_alarm": 96.91499697272637
+      },
+      "weighted_points": {
+        "coverage": 28.360957814246056,
+        "false_alarm": 9.691499697272638,
+        "fragmentation": 19.19831223628692,
+        "timeliness": 19.170702109704642,
+        "tracking_length": 19.029534317529027
+      },
+      "total": 95.45100617503928,
+      "total_literal_max": 96.42147185751026,
+      "total_first_hit": 95.44253950837262
+    }
+  },
+  "counts": {
+    "unlisted_truth_pairs": 52,
+    "unlisted_signed_tick_delta_1": 52,
+    "unlisted_oracle_missing_points": 90
+  },
+  "candidate": {
+    "truth_points": 71021,
+    "output_points": 70425,
+    "matched_points": 68234,
+    "clutter_output_points": 71,
+    "unknown_output_points": 2120,
+    "output_tracks": 552,
+    "merged_output_tracks": 11,
+    "merged_truth_points": 201,
+    "identity_true_positive_points": 67118,
+    "truth_tracks": 474,
+    "matched_truth_tracks": 474,
+    "missed_truth_points": 2787,
+    "unmatched_output_points": 2191,
+    "point_coverage": 0.9607580856366427,
+    "mean_track_coverage": 0.944234500948842,
+    "false_alarm_ratio": 0.030850030272736233,
+    "idf1": 0.9490264836050507,
+    "merged_truth_point_ratio": 0.0029457455227599144,
+    "split_truth_tracks": 36,
+    "id_switches": 58,
+    "missed_segments": 1153,
+    "circle_gaps": 3157,
+    "score": {
+      "version": "b02-local-pntid-v1",
+      "matched_tracks": 474,
+      "tracks": 474,
+      "raw_percent_scores": {
+        "coverage": 94.4234500948842,
+        "timeliness": 95.8535105485232,
+        "timeliness_first_hit": 95.81117721518987,
+        "tracking_length": 95.03253726575703,
+        "tracking_length_literal": 100.0,
+        "fragmentation": 95.9915611814346,
+        "false_alarm": 96.91499697272637
+      },
+      "weighted_points": {
+        "coverage": 28.32703502846526,
+        "false_alarm": 9.691499697272638,
+        "fragmentation": 19.19831223628692,
+        "timeliness": 19.170702109704642,
+        "tracking_length": 19.006507453151407
+      },
+      "total": 95.39405652488087,
+      "total_literal_max": 96.38754907172947,
+      "total_first_hit": 95.3855898582142
+    }
+  },
+  "candidate_counts": {}
+}

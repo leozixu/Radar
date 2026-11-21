@@ -238,7 +238,7 @@ def replay_packets(paths, jobs, engine, config, allowed):
 
 
 def run_evaluation(data_dir, packets, *, jobs, engine, config=None, report=None,
-                   allowed=DEVELOPMENT_PACKETS, include_tracks=True):
+                   allowed=DEVELOPMENT_PACKETS, include_tracks=True, report_metadata=None):
     packets = tuple(packets)
     paths = packet_paths(data_dir, packets, allowed)
     if report is not None:
@@ -248,6 +248,7 @@ def run_evaluation(data_dir, packets, *, jobs, engine, config=None, report=None,
         if report.exists() and any(path.exists() and os.path.samefile(report, path) for path in paths):
             raise ValueError("报告路径不能指向输入 CSV")
     metadata = {
+        **(report_metadata or {}),
         **engine_metadata(engine, config),
         "packet_ids": list(packets),
         "score_version": SCORE_VERSION,
@@ -256,7 +257,9 @@ def run_evaluation(data_dir, packets, *, jobs, engine, config=None, report=None,
     print("按 CSV 真值和点号计算本地代理分。", flush=True)
     packet_stats = []
     circle_times = []
-    for stats in replay_packets(paths, jobs, engine, config, allowed):
+    for path, stats in zip(paths, replay_packets(paths, jobs, engine, config, allowed), strict=True):
+        if stats["file"] != path.name:
+            raise ValueError(f"回放结果应为 {path.name}，收到 {stats['file']}")
         circle_times.extend(stats.pop("_circle_times"))
         packet_stats.append(stats)
         print_summary(stats["file"], stats)

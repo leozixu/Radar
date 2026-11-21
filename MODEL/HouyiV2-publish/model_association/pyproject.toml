@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=61.0", "setuptools_scm>=6.2", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "model_association"
+description = "Route association based on neural networks."
+readme = "README.md"
+authors = [
+    { name = "Junxiang Xiao", email = "xiaojunxiang@cetc.com.cn" }
+]
+classifiers = [
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12"
+]
+dependencies = [
+    "matplotlib",
+    "numba>=0.59.1",
+    "numpy>=1.19.0",
+    "peft>=0.12.0",
+    "pydantic>=2.8.2",
+    "route_tools>=0.3.1",
+    "torch>=2.4.0",
+    "transformers>=4.41.2",
+    "typer",
+    "typing_extensions",
+    "h5py>=3"
+]
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+dynamic = ["version"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"model_association.point_cc" = ["*.json"]
+
+[tool.setuptools_scm]
+write_to = "src/model_association/_version.py"
+
+[project.scripts]
+model_asso_eval_pcc = "model_association.point_cc.eval_model:main"
+model_asso_train_pcc = "model_association.point_cc.train_model:main"
+model_asso_gen_dataset_pcc = "model_association.point_cc.generate_dataset:main"

@@ -1,0 +1,42 @@
+{
+  "metadata": {
+    "packet_ids": [
+      1,
+      6,
+      14,
+      24,
+      35,
+      52,
+      67
+    ],
+    "score_version": "b02-local-pntid-v1",
+    "source_sha256": "ff9e1091a6aba811616abcd4243f162482b8650c7c242a416bcf3730b1884b8a",
+    "features": [
+      "scan_gap",
+      "movement_cost",
+      "movement_azimuth",
+      "movement_elevation",
+      "movement_range",
+      "before_amplitude",
+      "after_amplitude",
+      "amplitude_change",
+      "before_clock",
+      "after_clock",
+      "before_raw",
+      "after_raw",
+      "before_pair",
+      "after_pair",
+      "before_incumbent",
+      "after_incumbent",
+      "before_degree",
+      "after_degree",
+      "before_cost_excess",
+      "after_cost_excess"
+    ],
+    "model_sha256": "d6e4b8e7e920f56e75fb1d6b73ee7144d97ea3e21e4eb006e3727668bc8d2b7f"
+  },
+  "training": {
+    "edges": 757,
+    "new_true_paths": 580
+  }
+}

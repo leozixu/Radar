@@ -1,6 +1,6 @@
 """Scorer and data-boundary regressions, using synthetic rows or mocked opens."""
 
-from contextlib import redirect_stderr
+from contextlib import redirect_stderr, redirect_stdout
 from io import StringIO
 from pathlib import Path
 import unittest
@@ -8,7 +8,7 @@ from unittest.mock import patch
 
 import evaluate_holdout
 from metrics import aggregate_packets, evaluate_packet
-from packet_scope import DEVELOPMENT_PACKETS, HOLDOUT_PACKETS, packet_paths
+from packet_scope import DEVELOPMENT_PACKETS, MANUAL_FINAL_PACKETS, STAGE_ONE_PACKETS, packet_paths
 import replay_validation
 
 
@@ -75,19 +75,55 @@ class BoundaryTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 packet_paths(Path("fake"), [1])
 
-    def test_manual_only_requests_holdout_after_frozen_check(self):
-        argv = ["--data-dir", "fake", "--report", "fake.json"]
-        with patch.object(evaluate_holdout, "verify_frozen_candidate") as verify, \
+    def test_frozen_replay_requires_an_explicit_phase(self):
+        with patch.object(evaluate_holdout, "run_evaluation") as replay, redirect_stderr(StringIO()):
+            with self.assertRaises(SystemExit):
+                evaluate_holdout.main(["--data-dir", "fake", "--report", "fake.json"])
+            replay.assert_not_called()
+
+    def test_manual_only_requests_final_packets_after_frozen_check(self):
+        argv = ["--phase", "manual-final", "--data-dir", "fake", "--report", "fake.json"]
+        with patch.object(evaluate_holdout, "verify_frozen_candidate", return_value="checksum") as verify, \
                 patch.object(evaluate_holdout, "run_evaluation") as replay:
             self.assertEqual(evaluate_holdout.main(argv), 0)
-            verify.assert_called_once_with()
-            self.assertEqual(replay.call_args.args[1], HOLDOUT_PACKETS)
-            self.assertEqual(replay.call_args.kwargs["allowed"], HOLDOUT_PACKETS)
+            verify.assert_called_once_with(evaluate_holdout.FROZEN_MANIFEST)
+            self.assertEqual(replay.call_args.args[1], tuple(range(141, 201)))
+            self.assertEqual(replay.call_args.kwargs["allowed"], MANUAL_FINAL_PACKETS)
             self.assertEqual(replay.call_args.kwargs["engine"], "candidate")
         with patch.object(evaluate_holdout, "verify_frozen_candidate", side_effect=ValueError), \
                 patch.object(evaluate_holdout, "run_evaluation") as replay, redirect_stderr(StringIO()):
             self.assertEqual(evaluate_holdout.main(argv), 1)
             replay.assert_not_called()
+
+    def test_stage_one_uses_exact_packets_and_unrounded_cutoff(self):
+        argv = ["--phase", "stage1", "--data-dir", "fake", "--report", "fake.json",
+                "--manifest", "candidate.json"]
+        for total, expected_exit in ((97.99999999999999, 2), (98.0, 0)):
+            result = {"summary": {"score": {"total": total}}}
+            with self.subTest(total=total), redirect_stdout(StringIO()) as console, \
+                    patch.object(evaluate_holdout, "verify_frozen_candidate", return_value="checksum") as verify, \
+                    patch.object(evaluate_holdout, "run_evaluation", return_value=result) as replay:
+                self.assertEqual(evaluate_holdout.main(argv), expected_exit)
+                self.assertIn(repr(total), console.getvalue())
+                verify.assert_called_once_with(Path("candidate.json"))
+                self.assertEqual(replay.call_args.args[1], tuple(range(101, 141)))
+                self.assertEqual(replay.call_args.kwargs["allowed"], STAGE_ONE_PACKETS)
+                self.assertEqual(replay.call_args.kwargs["report_metadata"], {
+                    "evaluation_phase": "stage1", "minimum_score": 98.0, "frozen_manifest_sha256": "checksum",
+                })
+
+    def test_stage_one_reader_rejects_reserved_packet(self):
+        with patch.object(Path, "open") as open_file:
+            with self.assertRaises(ValueError):
+                packet_paths(Path("fake"), (101, 140, 141), STAGE_ONE_PACKETS)
+            open_file.assert_not_called()
+
+    def test_incomplete_replay_cannot_return_a_score(self):
+        with patch.object(replay_validation, "engine_metadata", return_value={}), \
+                patch.object(replay_validation, "replay_packets", return_value=iter(())), \
+                redirect_stdout(StringIO()), self.assertRaises(ValueError):
+            replay_validation.run_evaluation(Path("fake"), (101, 102), jobs=1, engine="candidate",
+                                             allowed=STAGE_ONE_PACKETS)
 
 
 if __name__ == "__main__":
